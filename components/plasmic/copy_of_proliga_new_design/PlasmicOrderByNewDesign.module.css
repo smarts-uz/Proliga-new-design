@@ -1,0 +1,140 @@
+.orderBy {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #f7f7f773;
+  position: relative;
+  justify-self: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
+.позиция {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
+}
+.text__zKwvt {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #2e2e2e;
+  font-size: 14px;
+  font-family: "Times New Roman";
+  padding-right: 8px;
+  font-weight: 700;
+  min-width: 0;
+}
+.name {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+.text__dqYoo {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #2e2e2e;
+  font-size: 14px;
+  font-family: "Times New Roman";
+  font-weight: 700;
+}
+.link {
+  position: relative;
+  display: flex;
+}
+.upDownOrder:global(.__wab_instance) {
+  width: auto;
+  display: none;
+}
+.клуб {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.text__i8Cl {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #2e2e2e;
+  font-size: 10px;
+  font-family: "Times New Roman";
+  min-width: 0;
+}
+.цена {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__qNmEe {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #2e2e2e;
+  font-size: 14px;
+  font-family: "Times New Roman";
+  font-weight: 700;
+}
+.upDownOrder3:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
+}
+.очко {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text___7Rkfr {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #2e2e2e;
+  font-size: 14px;
+  font-family: "Times New Roman";
+  font-weight: 700;
+}
+.upDownOrder2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
+}

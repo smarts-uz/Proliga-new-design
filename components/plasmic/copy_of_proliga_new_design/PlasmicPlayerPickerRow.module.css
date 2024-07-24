@@ -1,0 +1,142 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+  background: none;
+  min-width: 0;
+  padding: 10px;
+}
+@media (max-width: 1800px) {
+  .root {
+    background: var(--token-jgohepLVeKvh);
+  }
+}
+.text__okJf8 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  text-align: left;
+  min-width: 0;
+}
+@media (max-width: 1800px) {
+  .text__okJf8 {
+    color: var(--token-y39y01I5X1ZW);
+  }
+}
+@media (max-width: 768px) {
+  .text__okJf8 {
+    width: auto;
+    font-size: 12px;
+  }
+}
+.text__a46Ud {
+  position: relative;
+  margin-left: 5px;
+  background: none;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 5px;
+}
+.img__zcMd {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 14px;
+  margin-left: 40px;
+  flex-shrink: 0;
+}
+.img__zcMd > picture > img {
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .img__zcMd {
+    margin-left: 5px;
+  }
+}
+.text__pGjKs {
+  position: relative;
+  width: 60px;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+@media (max-width: 1800px) {
+  .text__pGjKs {
+    color: var(--token-y39y01I5X1ZW);
+  }
+}
+@media (max-width: 768px) {
+  .text__pGjKs {
+    width: auto;
+    font-size: 12px;
+  }
+}
+.text__nI5OK {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 18px;
+  padding-left: 5px;
+  font-weight: 800;
+}
+@media (max-width: 1800px) {
+  .text__nI5OK {
+    color: var(--token-y39y01I5X1ZW);
+  }
+}
+@media (max-width: 768px) {
+  .text__nI5OK {
+    font-size: 14px;
+    display: none;
+  }
+}
+.text__t1UP7 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+@media (max-width: 1800px) {
+  .text__t1UP7 {
+    color: var(--token-y39y01I5X1ZW);
+    font-weight: 700;
+  }
+}
+@media (max-width: 768px) {
+  .text__t1UP7 {
+    font-size: 14px;
+    display: none;
+    padding: 0px;
+  }
+}
+.img__mond3 {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  flex-shrink: 0;
+}
+.img__mond3 > picture > img {
+  object-fit: cover;
+}
+.img__lyDFg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  flex-shrink: 0;
+}
+.img__lyDFg > picture > img {
+  object-fit: cover;
+}
