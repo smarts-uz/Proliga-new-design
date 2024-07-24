@@ -124,9 +124,12 @@ export type PlasmicEditTeam2__OverridesType = {
   avatarPlayer8?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMensNewDesign?: Flex__<typeof SoccerPlaceMensNewDesign>;
   jamoaNomi?: Flex__<typeof InputLabelText>;
+  inputLabelSelect?: Flex__<typeof InputLabelSelect>;
   button?: Flex__<typeof Button>;
   columns?: Flex__<"div">;
   selectClub?: Flex__<typeof Select>;
+  teamName5?: Flex__<typeof TextInput>;
+  selectClub3?: Flex__<typeof Select>;
   teamName3?: Flex__<typeof TextInput>;
   teamName4?: Flex__<typeof TextInput>;
   playerList2?: Flex__<"div">;
@@ -445,13 +448,13 @@ function PlasmicEditTeam2__RenderFunc(props: {
         path: "teamName3.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
       },
       {
         path: "teamName4.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "100"
       },
       {
         path: "data",
@@ -460,7 +463,14 @@ function PlasmicEditTeam2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $queries.tabAll.data.response;
+              return $state.selectClub.value
+                ? $queries.tabsClub.data.response
+                : $state.selectClub3.value !== "all"
+                ? $queries.tabsPos.data.response
+                : $state.teamName3.value !== "0" ||
+                  $state.teamName4.value !== "100"
+                ? $queries.tabPrice.data.response
+                : $queries.tabAll.data.response;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -476,20 +486,19 @@ function PlasmicEditTeam2__RenderFunc(props: {
         path: "selectClub.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.clubs[0].value;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "teamName5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "selectClub3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
       }
     ],
     [$props, $ctx, $refs]
@@ -585,11 +594,14 @@ function PlasmicEditTeam2__RenderFunc(props: {
     clubsnameid: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "e620609e-fb56-417f-a235-3eae35443b9d",
+        opId: "145e9346-c08d-49b7-9040-a86258d65343",
         userArgs: {
-          params: [$queries.countryId.data.response[0].country_id]
+          params: [
+            $queries.countryId.data.response[0].country_id,
+            $ctx.params.comp_id
+          ]
         },
-        cacheKey: `plasmic.$.e620609e-fb56-417f-a235-3eae35443b9d.$.`,
+        cacheKey: `plasmic.$.145e9346-c08d-49b7-9040-a86258d65343.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -613,8 +625,8 @@ function PlasmicEditTeam2__RenderFunc(props: {
         userArgs: {
           path: [
             $state.selectClub.value,
-            $state.pagclubtab.pageSize,
-            $state.pagclubtab.startIndex,
+            $state.pagination2.pageSize,
+            $state.pagination2.startIndex,
             $state.orderName,
             $state.orderType
           ],
@@ -631,9 +643,9 @@ function PlasmicEditTeam2__RenderFunc(props: {
         opId: "7110f3e0-a43a-476d-a2cc-9bed234d79ae",
         userArgs: {
           path: [
-            $state.select2.value,
-            $state.pagpostab.pageSize,
-            $state.pagpostab.startIndex,
+            $state.selectClub3.value,
+            $state.pagination2.pageSize,
+            $state.pagination2.startIndex,
             $state.orderName,
             $state.orderType
           ],
@@ -650,11 +662,11 @@ function PlasmicEditTeam2__RenderFunc(props: {
         opId: "ac33b385-6538-4ded-b548-75bf35539922",
         userArgs: {
           path: [
-            $state.startPrice.value,
-            $state.endPrice.value,
-            $state.pagpricetab.pageSize,
-            $state.pagpricetab.startIndex,
-            $state.textInput.value,
+            $state.teamName3.value,
+            $state.teamName4.value,
+            $state.pagination2.pageSize,
+            $state.pagination2.startIndex,
+            $state.teamName5.value,
             $state.orderName,
             $state.orderType
           ],
@@ -672,7 +684,7 @@ function PlasmicEditTeam2__RenderFunc(props: {
         userArgs: {
           path: [
             $state.selectClub.value,
-            $state.textInput.value,
+            $state.teamName5.value,
             $state.orderName
           ],
           params: [$queries.query.data.response[0].competition_id]
@@ -687,7 +699,7 @@ function PlasmicEditTeam2__RenderFunc(props: {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "db732cb3-be8a-4ab6-976c-d9cde271d3af",
         userArgs: {
-          path: [$state.select2.value, $state.textInput.value],
+          path: [$state.selectClub3.value, $state.teamName5.value],
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.db732cb3-be8a-4ab6-976c-d9cde271d3af.$.`,
@@ -701,9 +713,9 @@ function PlasmicEditTeam2__RenderFunc(props: {
         opId: "3b8f3523-d07e-4b2d-97e2-d29ee345e8c8",
         userArgs: {
           path: [
-            $state.startPrice.value,
-            $state.endPrice.value,
-            $state.textInput.value
+            $state.teamName3.value,
+            $state.teamName4.value,
+            $state.teamName5.value
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
@@ -2017,9 +2029,11 @@ function PlasmicEditTeam2__RenderFunc(props: {
                     />
 
                     <InputLabelSelect
+                      data-plasmic-name={"inputLabelSelect"}
+                      data-plasmic-override={overrides.inputLabelSelect}
                       className={classNames(
                         "__wab_instance",
-                        sty.inputLabelSelect__uftcl
+                        sty.inputLabelSelect
                       )}
                       label={"Kapitan"}
                     />
@@ -2139,36 +2153,89 @@ function PlasmicEditTeam2__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.column__owWoj)}
                     >
-                      <InputLabelText
+                      <div
                         className={classNames(
-                          "__wab_instance",
-                          sty.inputLabelText__kmndu
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___9PlT5
                         )}
-                        label={"Futbolchi"}
-                        text={"Player name"}
+                      >
+                        {"Futbolchi"}
+                      </div>
+                      <TextInput
+                        data-plasmic-name={"teamName5"}
+                        data-plasmic-override={overrides.teamName5}
+                        className={classNames("__wab_instance", sty.teamName5)}
+                        onChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "teamName5",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }}
+                        placeholder={"Nomi"}
+                        type={"text"}
+                        value={
+                          generateStateValueProp($state, [
+                            "teamName5",
+                            "value"
+                          ]) ?? ""
+                        }
                       />
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.column__ksFmc)}
+                      className={classNames(projectcss.all, sty.column__hGrP)}
                     >
-                      <InputLabelSelect
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___0JuaT
+                        )}
+                      >
+                        {"Pozitsiyasi"}
+                      </div>
+                      <Select
+                        data-plasmic-name={"selectClub3"}
+                        data-plasmic-override={overrides.selectClub3}
                         className={classNames(
                           "__wab_instance",
-                          sty.inputLabelSelect__vZtrP
+                          sty.selectClub3
                         )}
-                        label={"Pozitsiya"}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.column__eeUb4)}
-                    >
-                      <InputLabelText
-                        className={classNames(
-                          "__wab_instance",
-                          sty.inputLabelText__nNLnI
-                        )}
-                        label={"Ochko"}
-                        text={"Player name"}
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "selectClub3",
+                              "value"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+                          (async value => {
+                            const $steps = {};
+                          }).apply(null, eventArgs);
+                        }}
+                        options={(() => {
+                          const __composite = [
+                            { value: null, label: null },
+                            { value: null, label: null },
+                            { value: null, label: null },
+                            { value: null, label: null },
+                            { value: null, label: null }
+                          ];
+                          __composite["0"]["value"] = "all";
+                          __composite["0"]["label"] = "ALL";
+                          __composite["1"]["value"] = "GOA";
+                          __composite["1"]["label"] = "GOA";
+                          __composite["2"]["value"] = "DEF";
+                          __composite["2"]["label"] = "DEF";
+                          __composite["3"]["value"] = "MID";
+                          __composite["3"]["label"] = "MID";
+                          __composite["4"]["value"] = "STR";
+                          __composite["4"]["label"] = "STR";
+                          return __composite;
+                        })()}
+                        value={generateStateValueProp($state, [
+                          "selectClub3",
+                          "value"
+                        ])}
                       />
                     </div>
                   </Stack__>
@@ -2191,13 +2258,19 @@ function PlasmicEditTeam2__RenderFunc(props: {
                         data-plasmic-name={"teamName3"}
                         data-plasmic-override={overrides.teamName3}
                         className={classNames("__wab_instance", sty.teamName3)}
-                        onChange={(...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "teamName3",
-                            "value"
-                          ])((e => e.target?.value).apply(null, eventArgs));
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "teamName3",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }).apply(null, eventArgs);
+                          (async event => {
+                            const $steps = {};
+                          }).apply(null, eventArgs);
                         }}
                         placeholder={"100 000"}
+                        type={"number"}
                         value={
                           generateStateValueProp($state, [
                             "teamName3",
@@ -2226,6 +2299,7 @@ function PlasmicEditTeam2__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }}
                         placeholder={"500 000"}
+                        type={"number"}
                         value={
                           generateStateValueProp($state, [
                             "teamName4",
@@ -3627,8 +3701,18 @@ function PlasmicEditTeam2__RenderFunc(props: {
                                       size: "default",
                                       total: (() => {
                                         try {
-                                          return $queries.playerList.data
-                                            .response.length;
+                                          return $state.selectClub.value
+                                            ? $queries.tabsClubAll.data.response
+                                                .length
+                                            : $state.selectClub3.value !== "all"
+                                            ? $queries.tabsPosAll.data.response
+                                                .length
+                                            : $state.teamName3.value !== "0" ||
+                                              $state.teamName4.value !== "100"
+                                            ? $queries.tabsPriceAll.data
+                                                .response.length
+                                            : $queries.playerList.data.response
+                                                .length;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -6305,9 +6389,12 @@ const PlasmicDescendants = {
     "avatarPlayer8",
     "soccerPlaceMensNewDesign",
     "jamoaNomi",
+    "inputLabelSelect",
     "button",
     "columns",
     "selectClub",
+    "teamName5",
+    "selectClub3",
     "teamName3",
     "teamName4",
     "playerList2",
@@ -6342,9 +6429,12 @@ const PlasmicDescendants = {
   avatarPlayer8: ["avatarPlayer8"],
   soccerPlaceMensNewDesign: ["soccerPlaceMensNewDesign"],
   jamoaNomi: ["jamoaNomi"],
+  inputLabelSelect: ["inputLabelSelect"],
   button: ["button"],
-  columns: ["columns", "selectClub"],
+  columns: ["columns", "selectClub", "teamName5", "selectClub3"],
   selectClub: ["selectClub"],
+  teamName5: ["teamName5"],
+  selectClub3: ["selectClub3"],
   teamName3: ["teamName3"],
   teamName4: ["teamName4"],
   playerList2: [
@@ -6433,9 +6523,12 @@ type NodeDefaultElementType = {
   avatarPlayer8: typeof AvatarPlayer;
   soccerPlaceMensNewDesign: typeof SoccerPlaceMensNewDesign;
   jamoaNomi: typeof InputLabelText;
+  inputLabelSelect: typeof InputLabelSelect;
   button: typeof Button;
   columns: "div";
   selectClub: typeof Select;
+  teamName5: typeof TextInput;
+  selectClub3: typeof Select;
   teamName3: typeof TextInput;
   teamName4: typeof TextInput;
   playerList2: "div";
@@ -6548,9 +6641,12 @@ export const PlasmicEditTeam2 = Object.assign(
     avatarPlayer8: makeNodeComponent("avatarPlayer8"),
     soccerPlaceMensNewDesign: makeNodeComponent("soccerPlaceMensNewDesign"),
     jamoaNomi: makeNodeComponent("jamoaNomi"),
+    inputLabelSelect: makeNodeComponent("inputLabelSelect"),
     button: makeNodeComponent("button"),
     columns: makeNodeComponent("columns"),
     selectClub: makeNodeComponent("selectClub"),
+    teamName5: makeNodeComponent("teamName5"),
+    selectClub3: makeNodeComponent("selectClub3"),
     teamName3: makeNodeComponent("teamName3"),
     teamName4: makeNodeComponent("teamName4"),
     playerList2: makeNodeComponent("playerList2"),
