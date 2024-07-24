@@ -74,6 +74,7 @@ import InputLabelText from "../../InputLabelText"; // plasmic-import: jNArPg698I
 import InputLabelSelect from "../../InputLabelSelect"; // plasmic-import: t1udW_QEtlXa/component
 import Button from "../../Button"; // plasmic-import: JtHKLkRqLyx-/component
 import EditTeamPageTitle from "../../EditTeamPageTitle"; // plasmic-import: h-qCNPumay6S/component
+import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
@@ -83,7 +84,6 @@ import PlayerPicker from "../../PlayerPicker"; // plasmic-import: -eDXHzfdIeHq/c
 import PlayerPickerNewDesign from "../../PlayerPickerNewDesign"; // plasmic-import: Lk6JgqMmYsF6/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
-import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -124,9 +124,11 @@ export type PlasmicEditTeam2__OverridesType = {
   avatarPlayer8?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMensNewDesign?: Flex__<typeof SoccerPlaceMensNewDesign>;
   jamoaNomi?: Flex__<typeof InputLabelText>;
-  inputLabelSelect?: Flex__<typeof InputLabelSelect>;
   button?: Flex__<typeof Button>;
-  textInput?: Flex__<typeof TextInput>;
+  columns?: Flex__<"div">;
+  selectClub?: Flex__<typeof Select>;
+  teamName3?: Flex__<typeof TextInput>;
+  teamName4?: Flex__<typeof TextInput>;
   playerList2?: Flex__<"div">;
   tabsContainer?: Flex__<typeof TabsContainer>;
   tabAllContent2?: Flex__<typeof TabContent>;
@@ -440,6 +442,18 @@ function PlasmicEditTeam2__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
       {
+        path: "teamName3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "teamName4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
         path: "data",
         type: "private",
         variableType: "array",
@@ -459,10 +473,23 @@ function PlasmicEditTeam2__RenderFunc(props: {
           })()
       },
       {
-        path: "textInput.value",
+        path: "selectClub.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.clubs[0].value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -540,18 +567,17 @@ function PlasmicEditTeam2__RenderFunc(props: {
     tabAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "89e1c6f7-b2b4-4699-889e-5cf05115ac84",
+        opId: "6a01eb2f-b775-4de2-bf8c-e5d65e1fffaa",
         userArgs: {
           path: [
             $state.pagination2.pageSize,
             $state.pagination2.startIndex,
-            $state.textInput.value,
             $state.orderName,
             $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.89e1c6f7-b2b4-4699-889e-5cf05115ac84.$.`,
+        cacheKey: `plasmic.$.6a01eb2f-b775-4de2-bf8c-e5d65e1fffaa.$.`,
         invalidatedKeys: null,
         roleId: "ead2b235-73a3-4579-b15a-7fc91fc1a23a"
       };
@@ -1991,11 +2017,9 @@ function PlasmicEditTeam2__RenderFunc(props: {
                     />
 
                     <InputLabelSelect
-                      data-plasmic-name={"inputLabelSelect"}
-                      data-plasmic-override={overrides.inputLabelSelect}
                       className={classNames(
                         "__wab_instance",
-                        sty.inputLabelSelect
+                        sty.inputLabelSelect__uftcl
                       )}
                       label={"Kapitan"}
                     />
@@ -2059,22 +2083,168 @@ function PlasmicEditTeam2__RenderFunc(props: {
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__rVniU)}>
                 <div className={classNames(projectcss.all, sty.freeBox__evfsH)}>
-                  <TextInput
-                    data-plasmic-name={"textInput"}
-                    data-plasmic-override={overrides.textInput}
-                    className={classNames("__wab_instance", sty.textInput)}
-                    onChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["textInput", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }}
-                    placeholder={"Ism bo'yicha izlash"}
-                    value={
-                      generateStateValueProp($state, ["textInput", "value"]) ??
-                      ""
-                    }
-                  />
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"columns"}
+                    data-plasmic-override={overrides.columns}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.columns)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.column___5KPj)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__bgs9E
+                        )}
+                      >
+                        {"Jamoa"}
+                      </div>
+                      <Select
+                        data-plasmic-name={"selectClub"}
+                        data-plasmic-override={overrides.selectClub}
+                        className={classNames("__wab_instance", sty.selectClub)}
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "selectClub",
+                              "value"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+                          (async value => {
+                            const $steps = {};
+                          }).apply(null, eventArgs);
+                        }}
+                        options={(() => {
+                          try {
+                            return $queries.clubsnameid.data.response;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        value={generateStateValueProp($state, [
+                          "selectClub",
+                          "value"
+                        ])}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.column__owWoj)}
+                    >
+                      <InputLabelText
+                        className={classNames(
+                          "__wab_instance",
+                          sty.inputLabelText__kmndu
+                        )}
+                        label={"Futbolchi"}
+                        text={"Player name"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.column__ksFmc)}
+                    >
+                      <InputLabelSelect
+                        className={classNames(
+                          "__wab_instance",
+                          sty.inputLabelSelect__vZtrP
+                        )}
+                        label={"Pozitsiya"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.column__eeUb4)}
+                    >
+                      <InputLabelText
+                        className={classNames(
+                          "__wab_instance",
+                          sty.inputLabelText__nNLnI
+                        )}
+                        label={"Ochko"}
+                        text={"Player name"}
+                      />
+                    </div>
+                  </Stack__>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__sxeTp)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__haALs
+                      )}
+                    >
+                      {"Narx"}
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__qtuX)}
+                    >
+                      <TextInput
+                        data-plasmic-name={"teamName3"}
+                        data-plasmic-override={overrides.teamName3}
+                        className={classNames("__wab_instance", sty.teamName3)}
+                        onChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "teamName3",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }}
+                        placeholder={"100 000"}
+                        value={
+                          generateStateValueProp($state, [
+                            "teamName3",
+                            "value"
+                          ]) ?? ""
+                        }
+                      />
 
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__g55Ps
+                        )}
+                      >
+                        {"dan"}
+                      </div>
+                      <TextInput
+                        data-plasmic-name={"teamName4"}
+                        data-plasmic-override={overrides.teamName4}
+                        className={classNames("__wab_instance", sty.teamName4)}
+                        onChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "teamName4",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }}
+                        placeholder={"500 000"}
+                        value={
+                          generateStateValueProp($state, [
+                            "teamName4",
+                            "value"
+                          ]) ?? ""
+                        }
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__mbFGs
+                        )}
+                      >
+                        {"gacha"}
+                      </div>
+                    </div>
+                  </div>
                   <Stack__
                     as={"div"}
                     data-plasmic-name={"playerList2"}
@@ -6135,9 +6305,11 @@ const PlasmicDescendants = {
     "avatarPlayer8",
     "soccerPlaceMensNewDesign",
     "jamoaNomi",
-    "inputLabelSelect",
     "button",
-    "textInput",
+    "columns",
+    "selectClub",
+    "teamName3",
+    "teamName4",
     "playerList2",
     "tabsContainer",
     "tabAllContent2",
@@ -6170,9 +6342,11 @@ const PlasmicDescendants = {
   avatarPlayer8: ["avatarPlayer8"],
   soccerPlaceMensNewDesign: ["soccerPlaceMensNewDesign"],
   jamoaNomi: ["jamoaNomi"],
-  inputLabelSelect: ["inputLabelSelect"],
   button: ["button"],
-  textInput: ["textInput"],
+  columns: ["columns", "selectClub"],
+  selectClub: ["selectClub"],
+  teamName3: ["teamName3"],
+  teamName4: ["teamName4"],
   playerList2: [
     "playerList2",
     "tabsContainer",
@@ -6259,9 +6433,11 @@ type NodeDefaultElementType = {
   avatarPlayer8: typeof AvatarPlayer;
   soccerPlaceMensNewDesign: typeof SoccerPlaceMensNewDesign;
   jamoaNomi: typeof InputLabelText;
-  inputLabelSelect: typeof InputLabelSelect;
   button: typeof Button;
-  textInput: typeof TextInput;
+  columns: "div";
+  selectClub: typeof Select;
+  teamName3: typeof TextInput;
+  teamName4: typeof TextInput;
   playerList2: "div";
   tabsContainer: typeof TabsContainer;
   tabAllContent2: typeof TabContent;
@@ -6372,9 +6548,11 @@ export const PlasmicEditTeam2 = Object.assign(
     avatarPlayer8: makeNodeComponent("avatarPlayer8"),
     soccerPlaceMensNewDesign: makeNodeComponent("soccerPlaceMensNewDesign"),
     jamoaNomi: makeNodeComponent("jamoaNomi"),
-    inputLabelSelect: makeNodeComponent("inputLabelSelect"),
     button: makeNodeComponent("button"),
-    textInput: makeNodeComponent("textInput"),
+    columns: makeNodeComponent("columns"),
+    selectClub: makeNodeComponent("selectClub"),
+    teamName3: makeNodeComponent("teamName3"),
+    teamName4: makeNodeComponent("teamName4"),
     playerList2: makeNodeComponent("playerList2"),
     tabsContainer: makeNodeComponent("tabsContainer"),
     tabAllContent2: makeNodeComponent("tabAllContent2"),

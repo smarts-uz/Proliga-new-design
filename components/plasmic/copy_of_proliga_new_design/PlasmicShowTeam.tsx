@@ -444,7 +444,7 @@ function PlasmicShowTeam__RenderFunc(props: {
               $steps["goToEditTeam"] = true
                 ? (() => {
                     const actionArgs = {
-                      destination: `/${(() => {
+                      destination: `/old/${(() => {
                         try {
                           return $queries.query.data.response[0].competition_id;
                         } catch (e) {

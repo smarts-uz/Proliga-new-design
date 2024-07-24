@@ -1118,7 +1118,7 @@
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
           "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../pages/index.tsx"
+            "modulePath": "../pages/old.tsx"
           },
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.module.css",
           "scheme": "blackbox",
@@ -1936,7 +1936,7 @@
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
           "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicEditTeam.tsx",
           "importSpec": {
-            "modulePath": "../pages/[comp_id]/[id].tsx"
+            "modulePath": "../pages/old/[comp_id]/[id].tsx"
           },
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicEditTeam.module.css",
           "scheme": "blackbox",
@@ -2109,7 +2109,7 @@
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
           "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicEditTeam2.tsx",
           "importSpec": {
-            "modulePath": "../pages/new-design/[comp_id]/[id].tsx"
+            "modulePath": "../pages/[comp_id]/[id].tsx"
           },
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicEditTeam2.module.css",
           "scheme": "blackbox",
@@ -2149,7 +2149,7 @@
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
           "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage2.tsx",
           "importSpec": {
-            "modulePath": "../pages/new-page-3.tsx"
+            "modulePath": "../pages/index.tsx"
           },
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage2.module.css",
           "scheme": "blackbox",

@@ -372,7 +372,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                           $steps["goToEditTeam"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/${(() => {
+                                  destination: `/old/${(() => {
                                     try {
                                       return $queries.query.data.response[0].id;
                                     } catch (e) {
@@ -558,7 +558,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         $steps["goToEditTeam"] = true
                           ? (() => {
                               const actionArgs = {
-                                destination: `/${(() => {
+                                destination: `/old/${(() => {
                                   try {
                                     return $queries.query.data.response[0].id;
                                   } catch (e) {

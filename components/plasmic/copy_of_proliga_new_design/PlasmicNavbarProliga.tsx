@@ -195,7 +195,7 @@ function PlasmicNavbarProliga__RenderFunc(props: {
             sty.priz
           )}
           component={Link}
-          href={`/`}
+          href={`/old`}
           platform={"nextjs"}
         >
           {"PRIZ"}
@@ -210,7 +210,7 @@ function PlasmicNavbarProliga__RenderFunc(props: {
             sty.rules
           )}
           component={Link}
-          href={`/`}
+          href={`/old`}
           platform={"nextjs"}
         >
           {"QOIDA"}

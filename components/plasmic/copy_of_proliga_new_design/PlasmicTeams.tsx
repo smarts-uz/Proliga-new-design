@@ -454,7 +454,7 @@ function PlasmicTeams__RenderFunc(props: {
               $steps["goToEditTeam"] = true
                 ? (() => {
                     const actionArgs = {
-                      destination: `/${"1"}/${(() => {
+                      destination: `/old/${"1"}/${(() => {
                         try {
                           return $ctx.params.id;
                         } catch (e) {
