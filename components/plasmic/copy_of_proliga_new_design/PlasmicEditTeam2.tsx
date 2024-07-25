@@ -540,11 +540,11 @@ function PlasmicEditTeam2__RenderFunc(props: {
     teamPlayer: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "5e0c7fba-b646-4cf7-a3c2-4e80ec7718f3",
+        opId: "707a8f8f-2a00-4af5-8462-1217cdbacae9",
         userArgs: {
           params: [$queries.query.data.response[0].id]
         },
-        cacheKey: `plasmic.$.5e0c7fba-b646-4cf7-a3c2-4e80ec7718f3.$.`,
+        cacheKey: `plasmic.$.707a8f8f-2a00-4af5-8462-1217cdbacae9.$.`,
         invalidatedKeys: null,
         roleId: "ead2b235-73a3-4579-b15a-7fc91fc1a23a"
       };
@@ -806,8 +806,59 @@ function PlasmicEditTeam2__RenderFunc(props: {
             className={classNames("__wab_instance", sty.navbar)}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__rCxB1)} />
-
+          <div className={classNames(projectcss.all, sty.freeBox__rCxB1)}>
+            <div className={classNames(projectcss.all, sty.freeBox___0MBh4)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bHuWe
+                )}
+              >
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#FFFFFF" }}
+                  >
+                    {"O\u2019Z FUTBOL JAMOANGIZNI"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ksG1J
+                )}
+              >
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#FFFFFF" }}
+                  >
+                    {"BIZ BILAN YARATING!"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__h8H)}
+                displayHeight={"63px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"727px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/copy_of_proliga_new_design/images/image2024072515111110053Png.png",
+                  fullWidth: 1314,
+                  fullHeight: 23,
+                  aspectRatio: undefined
+                }}
+              />
+            </div>
+          </div>
           <div className={classNames(projectcss.all, sty.freeBox__qcKrF)}>
             <div
               className={classNames(

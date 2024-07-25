@@ -37,6 +37,10 @@
   --plasmic-token-green-back: var(--token-qflECpSO72O9);
   --token-HhZRLgn0_B2Q: rgba(0, 0, 0, 0.45);
   --plasmic-token-background-without-color: var(--token-HhZRLgn0_B2Q);
+  --token-n79tL96Ejhng: #fff400;
+  --plasmic-token-unnamed-style-token-5: var(--token-n79tL96Ejhng);
+  --token--zWKzCj130Aj: var(--token-mIWA40Rvp-L3);
+  --plasmic-token-unnamed-style-token-6: var(--token--zWKzCj130Aj);
 }
 
 .plasmic_tokens {

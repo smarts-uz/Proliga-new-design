@@ -42,12 +42,57 @@
   width: 100%;
   height: 476px;
   max-width: 100%;
-  background: url("/plasmic/copy_of_proliga_new_design/images/image6.svg") top 50% left 50% / cover no-repeat;
+  background: url("/plasmic/copy_of_proliga_new_design/images/image20240725134027Png.png") top 50% left 50% / cover no-repeat;
   min-width: auto;
   margin-bottom: 108px;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
   padding: 8px;
+}
+.freeBox___0MBh4 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__bHuWe {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 75px;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  min-width: 0;
+}
+.text__ksG1J {
+  position: relative;
+  width: 965px;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: 65px;
+  text-align: center;
+  padding-bottom: 0px;
+}
+.img__h8H {
+  object-fit: contain;
+  max-width: 100%;
+  height: 63px;
+  width: 727px;
+  flex-shrink: 0;
+}
+.img__h8H > picture > img {
+  object-fit: contain;
 }
 .freeBox__qcKrF {
   display: flex;

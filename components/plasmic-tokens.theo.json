@@ -2201,6 +2201,26 @@
       }
     },
     {
+      "name": "Unnamed Style Token 5",
+      "type": "color",
+      "value": "#FFF400",
+      "category": "color",
+      "meta": {
+        "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+        "id": "n79tL96Ejhng"
+      }
+    },
+    {
+      "name": "Unnamed Style Token 6",
+      "type": "color",
+      "value": "var(--antd-colorSuccessBorder)",
+      "category": "color",
+      "meta": {
+        "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+        "id": "-zWKzCj130Aj"
+      }
+    },
+    {
       "name": "background without color",
       "type": "color",
       "value": "rgba(0, 0, 0, 0.45)",

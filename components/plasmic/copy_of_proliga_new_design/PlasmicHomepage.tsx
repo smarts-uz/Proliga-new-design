@@ -88,7 +88,7 @@ export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
   heroSection?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   homepageGrid?: Flex__<typeof HomepageGrid>;
 };
 
@@ -165,69 +165,88 @@ function PlasmicHomepage__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.heroSection)}
           >
-            <div
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox)}
-            >
-              <Button
-                className={classNames("__wab_instance", sty.button__fMac0)}
-                color={"yellow"}
+            <div className={classNames(projectcss.all, sty.freeBox__igLd3)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fki1C
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mVcFm
-                  )}
-                >
-                  {"RO'YXATDAN O'TISH"}
-                </div>
-              </Button>
-              <Button
-                className={classNames("__wab_instance", sty.button___6PlVh)}
-                color={"link"}
-                onAnimationIteration={async event => {
-                  const $steps = {};
-
-                  $steps["updateStateVariable"] = true
-                    ? (() => {
-                        const actionArgs = {};
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-                          undefined;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateStateVariable"] != null &&
-                    typeof $steps["updateStateVariable"] === "object" &&
-                    typeof $steps["updateStateVariable"].then === "function"
-                  ) {
-                    $steps["updateStateVariable"] = await $steps[
-                      "updateStateVariable"
-                    ];
-                  }
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#FFF3F3" }}
+                  >
+                    {"O\u2019Z FUTBOL JAMOANGIZNI\n"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__faz0W
+                )}
+              >
+                {"BIZ BILAN YARATING!"}
+              </div>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"20px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"721px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/copy_of_proliga_new_design/images/image2024072515111110053Png.png",
+                  fullWidth: 1314,
+                  fullHeight: 23,
+                  aspectRatio: undefined
                 }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___8Ba0W
-                  )}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__kdxwM)}>
+                <Button
+                  className={classNames("__wab_instance", sty.button__xuTv0)}
+                  color={"yellow"}
                 >
-                  {"O'YINGA KIRISH"}
-                </div>
-              </Button>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fUmRa
+                    )}
+                  >
+                    {"Ro\u2019yxatdan o\u2019tish"}
+                  </div>
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__asBEh)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__pc31
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#FFF400" }}
+                      >
+                        {"O\u2019YINGA KIRISH"}
+                      </span>
+                    </React.Fragment>
+                  </div>
+                </Button>
+              </div>
             </div>
           </Stack__>
           <HomepageGrid
@@ -242,10 +261,10 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "heroSection", "freeBox", "homepageGrid"],
+  root: ["root", "navbar", "heroSection", "img", "homepageGrid"],
   navbar: ["navbar"],
-  heroSection: ["heroSection", "freeBox"],
-  freeBox: ["freeBox"],
+  heroSection: ["heroSection", "img"],
+  img: ["img"],
   homepageGrid: ["homepageGrid"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -255,7 +274,7 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   heroSection: "div";
-  freeBox: "div";
+  img: typeof PlasmicImg__;
   homepageGrid: typeof HomepageGrid;
 };
 
@@ -321,7 +340,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     heroSection: makeNodeComponent("heroSection"),
-    freeBox: makeNodeComponent("freeBox"),
+    img: makeNodeComponent("img"),
     homepageGrid: makeNodeComponent("homepageGrid"),
 
     // Metadata about props expected for PlasmicHomepage
