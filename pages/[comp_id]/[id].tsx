@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
-import GlobalContextsProvider from "../../../components/plasmic/copy_of_proliga_new_design/PlasmicGlobalContextsProvider";
+import GlobalContextsProvider from "../../components/plasmic/copy_of_proliga_new_design/PlasmicGlobalContextsProvider";
 
-import { PlasmicEditTeam2 } from "../../../components/plasmic/copy_of_proliga_new_design/PlasmicEditTeam2";
+import { PlasmicEditTeam2 } from "../../components/plasmic/copy_of_proliga_new_design/PlasmicEditTeam2";
 import { useRouter } from "next/router";
 
 function EditTeam2() {
@@ -26,11 +26,7 @@ function EditTeam2() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
   return (
     <GlobalContextsProvider>
-      <PageParamsProvider__
-        route={useRouter()?.pathname}
-        params={useRouter()?.query}
-        query={useRouter()?.query}
-      >
+      <PageParamsProvider__ route={useRouter()?.pathname} params={useRouter()?.query} query={useRouter()?.query}>
         <PlasmicEditTeam2 />
       </PageParamsProvider__>
     </GlobalContextsProvider>
