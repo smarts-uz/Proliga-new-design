@@ -1112,20 +1112,6 @@
       "cssFilePath": "plasmic/copy_of_proliga_new_design/plasmic.module.css",
       "components": [
         {
-          "id": "Xd9E_MwwgcEP",
-          "name": "Homepage",
-          "type": "managed",
-          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
-          "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.tsx",
-          "importSpec": {
-            "modulePath": "../pages/old.tsx"
-          },
-          "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/"
-        },
-        {
           "id": "j_koFSvK1RER",
           "name": "Navbar",
           "type": "managed",
@@ -2143,20 +2129,6 @@
           "componentType": "component"
         },
         {
-          "id": "xRyIzzPm5laz",
-          "name": "Homepage2",
-          "type": "managed",
-          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
-          "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage2.tsx",
-          "importSpec": {
-            "modulePath": "../pages/index.tsx"
-          },
-          "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page-3"
-        },
-        {
           "id": "jNArPg698Irk",
           "name": "InputLabelText",
           "type": "managed",
@@ -2220,6 +2192,34 @@
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepageGrid.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Xd9E_MwwgcEP",
+          "name": "Homepage3",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage3.tsx",
+          "importSpec": {
+            "modulePath": "../pages/old.tsx"
+          },
+          "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/old"
+        },
+        {
+          "id": "xRyIzzPm5laz",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
         }
       ],
       "icons": [
