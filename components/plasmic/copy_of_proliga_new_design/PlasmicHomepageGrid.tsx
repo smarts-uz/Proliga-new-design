@@ -166,7 +166,7 @@ function PlasmicHomepageGrid__RenderFunc(props: {
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__gyYck)}
-          displayHeight={"366px"}
+          displayHeight={"396px"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
@@ -184,8 +184,8 @@ function PlasmicHomepageGrid__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox__cjs42)}>
         <PlasmicImg__
           alt={""}
-          className={classNames(sty.img__gi6Ci)}
-          displayHeight={"510px"}
+          className={classNames(sty.img__oflrU)}
+          displayHeight={"606px"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
@@ -193,9 +193,9 @@ function PlasmicHomepageGrid__RenderFunc(props: {
           displayWidth={"auto"}
           loading={"lazy"}
           src={{
-            src: "/plasmic/copy_of_proliga_new_design/images/_34Jpg.jpg",
-            fullWidth: 606,
-            fullHeight: 442,
+            src: "/plasmic/copy_of_proliga_new_design/images/_01Jpg.jpg",
+            fullWidth: 630,
+            fullHeight: 561,
             aspectRatio: undefined
           }}
         />
