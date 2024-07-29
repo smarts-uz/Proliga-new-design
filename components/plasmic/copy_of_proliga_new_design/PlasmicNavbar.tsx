@@ -197,7 +197,7 @@ function PlasmicNavbar__RenderFunc(props: {
 
                 $steps["goToHomepage"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/old` };
+                      const actionArgs = { destination: `/` };
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&
