@@ -293,6 +293,8 @@
 }
 .logout:global(.__wab_instance) {
   position: relative;
+  width: 120px;
+  flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 568px) {
   .logout:global(.__wab_instance) {

@@ -215,6 +215,34 @@ function PlasmicHomepage__RenderFunc(props: {
                 <Button
                   className={classNames("__wab_instance", sty.button__xuTv0)}
                   color={"yellow"}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToSignup"] = true
+                      ? (() => {
+                          const actionArgs = { destination: `/signup` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToSignup"] != null &&
+                      typeof $steps["goToSignup"] === "object" &&
+                      typeof $steps["goToSignup"].then === "function"
+                    ) {
+                      $steps["goToSignup"] = await $steps["goToSignup"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -228,6 +256,34 @@ function PlasmicHomepage__RenderFunc(props: {
                 </Button>
                 <Button
                   className={classNames("__wab_instance", sty.button__asBEh)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToLogin"] = true
+                      ? (() => {
+                          const actionArgs = { destination: `/login` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToLogin"] != null &&
+                      typeof $steps["goToLogin"] === "object" &&
+                      typeof $steps["goToLogin"].then === "function"
+                    ) {
+                      $steps["goToLogin"] = await $steps["goToLogin"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(

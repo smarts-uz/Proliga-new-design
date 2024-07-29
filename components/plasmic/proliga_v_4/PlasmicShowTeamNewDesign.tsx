@@ -95,6 +95,7 @@ import sty from "./PlasmicShowTeamNewDesign.module.css"; // plasmic-import: BCn-
 
 import SearchsvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
 import ChecksvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
+import ChevronDownsvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__ChevronDownsvg"; // plasmic-import: NJW6VTG4j1-N/icon
 
 createPlasmicElementProxy;
 
@@ -7506,8 +7507,224 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__m4Wsq)}
-                  />
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__yvpJo)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__cddQ0
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__pFlW4
+                          )}
+                        >
+                          {"22 iyul, 22:19"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___7YOK
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__utRqr
+                            )}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__jd4WR)}
+                              displayHeight={"19px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/proliga_v_4/images/iconoooooojpg.jpg",
+                                fullWidth: 158,
+                                fullHeight: 106,
+                                aspectRatio: undefined
+                              }}
+                            />
 
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__tnIbq
+                              )}
+                            >
+                              {"1580"}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pt6Jo
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__s0FrH
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              {
+                                'Benzema "Oltin to\'p" haqida: "Sovringa Vinisius munosib" Benzema '
+                              }
+                            </span>
+                            <React.Fragment>{"\n"}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              {
+                                '"Oltin to\'p" haqida: "Sovringa Vinisius munosib". Lorem Ipsum why...'
+                              }
+                            </span>
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kFcHu
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFF400" }}
+                            >
+                              {"yangilikni ko\u2019rsatish"}
+                            </span>
+                          </React.Fragment>
+                        </div>
+                      </div>
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img___48Dk3)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"447px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/proliga_v_4/images/hellopng.png",
+                          fullWidth: 932,
+                          fullHeight: 2,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___8II4S
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zKGvo
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              {
+                                'Benzema "Oltin to\'p" haqida: "Sovringa Vinisius munosib" Benzema '
+                              }
+                            </span>
+                            <React.Fragment>{"\n"}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              {
+                                '"Oltin to\'p" haqida: "Sovringa Vinisius munosib". Lorem Ipsum why...'
+                              }
+                            </span>
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___4LZgB
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#FFF400" }}
+                            >
+                              {"yangilikni ko\u2019rsatish"}
+                            </span>
+                          </React.Fragment>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__llKoH
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zPcPk
+                          )}
+                        >
+                          {"21 iyul, 13:19"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__k0ANy
+                          )}
+                        >
+                          {"1600"}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__j2JWa)}
                   >
@@ -7526,6 +7743,15 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                 </Stack__>
               </div>
             </Stack__>
+            <ChevronDownsvgIcon
+              className={classNames(projectcss.all, sty.svg__kFrk1)}
+              role={"img"}
+            />
+
+            <svg
+              className={classNames(projectcss.all, sty.svg__c7ZpM)}
+              role={"img"}
+            />
           </Stack__>
         </div>
       </div>

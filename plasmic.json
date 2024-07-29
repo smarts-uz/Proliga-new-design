@@ -1982,20 +1982,6 @@
           "componentType": "component"
         },
         {
-          "id": "yGPG6cDZoz2b",
-          "name": "ShowTeam",
-          "type": "managed",
-          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
-          "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicShowTeam.tsx",
-          "importSpec": {
-            "modulePath": "../pages/showteam-old/[comp_id]/[id].tsx"
-          },
-          "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicShowTeam.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/showteam/[comp_id]/[id]"
-        },
-        {
           "id": "IigZUWrCtPw2",
           "name": "AvatarPlayerShowScore",
           "type": "managed",
@@ -2277,17 +2263,18 @@
           "componentType": "component"
         },
         {
-          "id": "_eumoO-LkE4_",
-          "name": "Card",
+          "id": "yGPG6cDZoz2b",
+          "name": "ShowTeam",
           "type": "managed",
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
-          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicCard.tsx",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicShowTeam.tsx",
           "importSpec": {
-            "modulePath": "Card.tsx"
+            "modulePath": "../pages/showteam-old/[comp_id]/[id].tsx"
           },
-          "cssFilePath": "plasmic/proliga_v_4/PlasmicCard.module.css",
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicShowTeam.module.css",
           "scheme": "blackbox",
-          "componentType": "component"
+          "componentType": "page",
+          "path": "/showteam-old/[comp_id]/[id]"
         }
       ],
       "icons": [
@@ -2947,6 +2934,16 @@
           "id": "qsjkOcMnbJKB",
           "name": "info.svg",
           "filePath": "../public/plasmic/proliga_v_4/images/infosvg.svg"
+        },
+        {
+          "id": "6iR2BsS83Mjh",
+          "name": "iconoooooo.jpg",
+          "filePath": "../public/plasmic/proliga_v_4/images/iconoooooojpg.jpg"
+        },
+        {
+          "id": "ODLfBsQsvDWD",
+          "name": "hello.png",
+          "filePath": "../public/plasmic/proliga_v_4/images/hellopng.png"
         }
       ],
       "indirect": false,

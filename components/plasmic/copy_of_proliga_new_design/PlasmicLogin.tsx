@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+
 import Navbar from "../../Navbar"; // plasmic-import: j_koFSvK1RER/component
 import LoginAuth from "../../LoginAuth"; // plasmic-import: maGCetjbMwYp/component
 
@@ -119,6 +121,8 @@ function PlasmicLogin__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const dataSourcesCtx = usePlasmicDataSourceContext();
 
   return (
     <React.Fragment>
@@ -241,9 +245,26 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"ead2b235-73a3-4579-b15a-7fc91fc1a23a"}
+      appId={"qrPZwqtrqWM4S9b4djCj1H"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={false}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 export const PlasmicLogin = Object.assign(
   // Top-level PlasmicLogin renders the root element
-  makeNodeComponent("login"),
+  withPlasmicPageGuard(makeNodeComponent("login")),
   {
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),

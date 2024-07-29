@@ -627,11 +627,29 @@ function PlasmicNavbar__RenderFunc(props: {
               </React.Fragment>
             </div>
           ) : null}
-          <Logout
-            data-plasmic-name={"logout"}
-            data-plasmic-override={overrides.logout}
-            className={classNames("__wab_instance", sty.logout)}
-          />
+          {(
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? true
+              : (() => {
+                  try {
+                    return true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
+            <Logout
+              data-plasmic-name={"logout"}
+              data-plasmic-override={overrides.logout}
+              className={classNames("__wab_instance", sty.logout)}
+            />
+          ) : null}
         </Stack__>
       </div>
     </div>
