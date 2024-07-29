@@ -70,12 +70,9 @@ import Navbar from "../../Navbar"; // plasmic-import: j_koFSvK1RER/component
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: nLFZBWuqWsMB/component
 import SoccerPlaceMensNewDesign from "../../SoccerPlaceMensNewDesign"; // plasmic-import: K0e1kB1AsK1C/component
-import InputLabelText from "../../InputLabelText"; // plasmic-import: jNArPg698Irk/component
-import InputLabelSelect from "../../InputLabelSelect"; // plasmic-import: t1udW_QEtlXa/component
-import Button from "../../Button"; // plasmic-import: JtHKLkRqLyx-/component
-import EditTeamPageTitle from "../../EditTeamPageTitle"; // plasmic-import: h-qCNPumay6S/component
-import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
+import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
+import EditTeamPageTitle from "../../EditTeamPageTitle"; // plasmic-import: h-qCNPumay6S/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import OrderBy from "../../OrderBy"; // plasmic-import: bY524CGT1Qpz/component
@@ -94,9 +91,8 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicEditTeam2.module.css"; // plasmic-import: 3OP_nNTq-kKC/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3vZ6LsfPOxdi/icon
 import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
 
 createPlasmicElementProxy;
 
@@ -123,9 +119,9 @@ export type PlasmicEditTeam2__OverridesType = {
   str2?: Flex__<"div">;
   avatarPlayer8?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMensNewDesign?: Flex__<typeof SoccerPlaceMensNewDesign>;
-  jamoaNomi?: Flex__<typeof InputLabelText>;
-  inputLabelSelect?: Flex__<typeof InputLabelSelect>;
-  button?: Flex__<typeof Button>;
+  textInput?: Flex__<typeof TextInput>;
+  select?: Flex__<typeof Select>;
+  button?: Flex__<"button">;
   columns?: Flex__<"div">;
   selectClub?: Flex__<typeof Select>;
   teamName5?: Flex__<typeof TextInput>;
@@ -463,6 +459,102 @@ function PlasmicEditTeam2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
+              return $queries.query2.data.response;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "selectClub.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
+      },
+      {
+        path: "teamName5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "selectClub3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
+      },
+      {
+        path: "sum",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.teamPlayerS.data.response.reduce(
+                (accumulator, currentValue) =>
+                  accumulator + (currentValue.player_id?.price || 0),
+                0
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "filter",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                ($state.teamName5.value
+                  ? "&select=*&name=ilike.*" + $state.teamName5.value + "*"
+                  : "") +
+                ($state.teamName3.value
+                  ? "&price=gte." + $state.teamName3.value
+                  : "") +
+                ($state.teamName4.value
+                  ? "&price=lte." + $state.teamName4.value
+                  : "") +
+                ($state.selectClub3.value !== "all"
+                  ? "&position=eq." + $state.selectClub3.value
+                  : "") +
+                ($state.selectClub.value !== "all"
+                  ? "&club_id=eq." + $state.selectClub.value
+                  : "") +
+                "&order=price.desc"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "data1",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
               return $state.selectClub.value
                 ? $queries.tabsClub.data.response
                 : $state.selectClub3.value !== "all"
@@ -483,22 +575,29 @@ function PlasmicEditTeam2__RenderFunc(props: {
           })()
       },
       {
-        path: "selectClub.value",
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.query.data.response[0].name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "select.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "teamName5.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "selectClub3.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
       }
     ],
     [$props, $ctx, $refs]
@@ -552,11 +651,11 @@ function PlasmicEditTeam2__RenderFunc(props: {
     playerList: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "136b9a30-1f83-4482-9771-96f338fead09",
+        opId: "964e5d91-2ac7-4881-8f97-120c019a3f7c",
         userArgs: {
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.136b9a30-1f83-4482-9771-96f338fead09.$.`,
+        cacheKey: `plasmic.$.964e5d91-2ac7-4881-8f97-120c019a3f7c.$.`,
         invalidatedKeys: null,
         roleId: "ead2b235-73a3-4579-b15a-7fc91fc1a23a"
       };
@@ -564,11 +663,12 @@ function PlasmicEditTeam2__RenderFunc(props: {
     playercount: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "da05eeef-ea8a-4a5b-90fc-d5abd2340b2e",
+        opId: "38ef613e-6433-4c8c-bfff-633f526d6646",
         userArgs: {
+          path: [$state.filter],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.da05eeef-ea8a-4a5b-90fc-d5abd2340b2e.$.`,
+        cacheKey: `plasmic.$.38ef613e-6433-4c8c-bfff-633f526d6646.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -576,17 +676,18 @@ function PlasmicEditTeam2__RenderFunc(props: {
     tabAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "6a01eb2f-b775-4de2-bf8c-e5d65e1fffaa",
+        opId: "8d7c2872-ef5b-424b-b01e-b7085ef7962c",
         userArgs: {
           path: [
             $state.pagination2.pageSize,
             $state.pagination2.startIndex,
+            "*" + $state.teamName5.value + "*",
             $state.orderName,
             $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.6a01eb2f-b775-4de2-bf8c-e5d65e1fffaa.$.`,
+        cacheKey: `plasmic.$.8d7c2872-ef5b-424b-b01e-b7085ef7962c.$.`,
         invalidatedKeys: null,
         roleId: "ead2b235-73a3-4579-b15a-7fc91fc1a23a"
       };
@@ -762,6 +863,35 @@ function PlasmicEditTeam2__RenderFunc(props: {
         opId: "ba65f4d9-5fdf-4ab4-b435-c6ae658ff811",
         userArgs: {},
         cacheKey: `plasmic.$.ba65f4d9-5fdf-4ab4-b435-c6ae658ff811.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    teamPlayerS: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "f9c6dc72-4813-4221-9670-23fc7b3e2a2b",
+        userArgs: {
+          params: [$queries.query.data.response[0].id]
+        },
+        cacheKey: `plasmic.$.f9c6dc72-4813-4221-9670-23fc7b3e2a2b.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    query2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "18901baa-baf3-494c-aa88-474f616be563",
+        userArgs: {
+          path: [
+            $state.pagination2.pageSize,
+            $state.pagination2.startIndex,
+            $state.filter
+          ],
+          params: [$ctx.params.comp_id]
+        },
+        cacheKey: `plasmic.$.18901baa-baf3-494c-aa88-474f616be563.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -1065,7 +1195,9 @@ function PlasmicEditTeam2__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              "100 / " + $queries.query.data.response[0].balance
+                              "100 / " +
+                              ($queries.query.data.response[0].balance -
+                                $state.sum)
                             );
                           } catch (e) {
                             if (
@@ -2068,44 +2200,91 @@ function PlasmicEditTeam2__RenderFunc(props: {
                     )}
                   />
 
-                  <div
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox___3GhQf)}
                   >
-                    <InputLabelText
-                      data-plasmic-name={"jamoaNomi"}
-                      data-plasmic-override={overrides.jamoaNomi}
-                      className={classNames("__wab_instance", sty.jamoaNomi)}
-                      label={"Jamoa nomi:"}
-                      text={"Uzbek Komanda"}
-                    />
-
-                    <InputLabelSelect
-                      data-plasmic-name={"inputLabelSelect"}
-                      data-plasmic-override={overrides.inputLabelSelect}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.inputLabelSelect
-                      )}
-                      label={"Kapitan"}
-                    />
-
-                    <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button)}
-                      color={"green"}
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__dgSiy)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__hj7TY
+                          sty.text__xqYmr
                         )}
                       >
-                        {"Saqlash"}
+                        {"Jamoa nomi:"}
                       </div>
-                    </Button>
-                  </div>
+                      <TextInput
+                        data-plasmic-name={"textInput"}
+                        data-plasmic-override={overrides.textInput}
+                        className={classNames("__wab_instance", sty.textInput)}
+                        onChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }}
+                        placeholder={"Uzbek Komanda"}
+                        value={
+                          generateStateValueProp($state, [
+                            "textInput",
+                            "value"
+                          ]) ?? ""
+                        }
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__mrBLt)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___6Z0H1
+                        )}
+                      >
+                        {"Kapitan"}
+                      </div>
+                      <Select
+                        data-plasmic-name={"select"}
+                        data-plasmic-override={overrides.select}
+                        className={classNames("__wab_instance", sty.select)}
+                        onChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "select",
+                            "value"
+                          ])(eventArgs[0]);
+                        }}
+                        options={[]}
+                        value={generateStateValueProp($state, [
+                          "select",
+                          "value"
+                        ])}
+                      />
+                    </div>
+                    <button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.button,
+                        sty.button
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zlZf
+                        )}
+                      >
+                        {"SAQLASH"}
+                      </div>
+                    </button>
+                  </Stack__>
                 </div>
                 <Stack__
                   as={"div"}
@@ -2184,7 +2363,10 @@ function PlasmicEditTeam2__RenderFunc(props: {
                         }}
                         options={(() => {
                           try {
-                            return $queries.clubsnameid.data.response;
+                            return [
+                              { label: "All", value: "all" },
+                              ...$queries.clubsnameid.data.response
+                            ];
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2297,7 +2479,7 @@ function PlasmicEditTeam2__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__haALs
+                        sty.text__cNasw
                       )}
                     >
                       {"Narx"}
@@ -3752,18 +3934,8 @@ function PlasmicEditTeam2__RenderFunc(props: {
                                       size: "default",
                                       total: (() => {
                                         try {
-                                          return $state.selectClub.value
-                                            ? $queries.tabsClubAll.data.response
-                                                .length
-                                            : $state.selectClub3.value !== "all"
-                                            ? $queries.tabsPosAll.data.response
-                                                .length
-                                            : $state.teamName3.value !== "0" ||
-                                              $state.teamName4.value !== "100"
-                                            ? $queries.tabsPriceAll.data
-                                                .response.length
-                                            : $queries.playerList.data.response
-                                                .length;
+                                          return $queries.playercount.data
+                                            .response.length;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -6439,8 +6611,8 @@ const PlasmicDescendants = {
     "str2",
     "avatarPlayer8",
     "soccerPlaceMensNewDesign",
-    "jamoaNomi",
-    "inputLabelSelect",
+    "textInput",
+    "select",
     "button",
     "columns",
     "selectClub",
@@ -6479,8 +6651,8 @@ const PlasmicDescendants = {
   str2: ["str2", "avatarPlayer8"],
   avatarPlayer8: ["avatarPlayer8"],
   soccerPlaceMensNewDesign: ["soccerPlaceMensNewDesign"],
-  jamoaNomi: ["jamoaNomi"],
-  inputLabelSelect: ["inputLabelSelect"],
+  textInput: ["textInput"],
+  select: ["select"],
   button: ["button"],
   columns: ["columns", "selectClub", "teamName5", "selectClub3"],
   selectClub: ["selectClub"],
@@ -6573,9 +6745,9 @@ type NodeDefaultElementType = {
   str2: "div";
   avatarPlayer8: typeof AvatarPlayer;
   soccerPlaceMensNewDesign: typeof SoccerPlaceMensNewDesign;
-  jamoaNomi: typeof InputLabelText;
-  inputLabelSelect: typeof InputLabelSelect;
-  button: typeof Button;
+  textInput: typeof TextInput;
+  select: typeof Select;
+  button: "button";
   columns: "div";
   selectClub: typeof Select;
   teamName5: typeof TextInput;
@@ -6691,8 +6863,8 @@ export const PlasmicEditTeam2 = Object.assign(
     str2: makeNodeComponent("str2"),
     avatarPlayer8: makeNodeComponent("avatarPlayer8"),
     soccerPlaceMensNewDesign: makeNodeComponent("soccerPlaceMensNewDesign"),
-    jamoaNomi: makeNodeComponent("jamoaNomi"),
-    inputLabelSelect: makeNodeComponent("inputLabelSelect"),
+    textInput: makeNodeComponent("textInput"),
+    select: makeNodeComponent("select"),
     button: makeNodeComponent("button"),
     columns: makeNodeComponent("columns"),
     selectClub: makeNodeComponent("selectClub"),

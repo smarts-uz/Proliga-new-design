@@ -304,13 +304,13 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__vxgcA
+          sty.text__zpatG
         )}
       >
         <React.Fragment>
           {(() => {
             try {
-              return $props.price;
+              return $props.point;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -327,13 +327,13 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__zpatG
+          sty.text__vxgcA
         )}
       >
         <React.Fragment>
           {(() => {
             try {
-              return $props.point;
+              return $props.price;
             } catch (e) {
               if (
                 e instanceof TypeError ||

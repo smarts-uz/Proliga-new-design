@@ -1107,7 +1107,7 @@
     {
       "projectId": "qrPZwqtrqWM4S9b4djCj1H",
       "projectApiToken": "6nj2NiGOI9JYnWMLlPP7D3aSW3yNpDY9qlXpEga4j0D2sScXsqDRtIZ0xCFzjpBZfVazBHIlIJjMYu5k0w",
-      "projectName": "Copy of PROLIGA! New design",
+      "projectName": "Proliga v4",
       "version": "latest",
       "cssFilePath": "plasmic/copy_of_proliga_new_design/plasmic.module.css",
       "components": [
@@ -1988,7 +1988,7 @@
           "projectId": "qrPZwqtrqWM4S9b4djCj1H",
           "renderModuleFilePath": "plasmic/copy_of_proliga_new_design/PlasmicShowTeam.tsx",
           "importSpec": {
-            "modulePath": "../pages/showteam/[comp_id]/[id].tsx"
+            "modulePath": "../pages/showteam-old/[comp_id]/[id].tsx"
           },
           "cssFilePath": "plasmic/copy_of_proliga_new_design/PlasmicShowTeam.module.css",
           "scheme": "blackbox",
@@ -2220,6 +2220,74 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/"
+        },
+        {
+          "id": "Sd_QJ3SDhBGt",
+          "name": "ShowTeam2",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicShowTeam2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/showteam-2/[comp_id]/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicShowTeam2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/showteam-2/[comp_id]/[id]"
+        },
+        {
+          "id": "XfKp2ak1WmbP",
+          "name": "ShowTeam3",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicShowTeam3.tsx",
+          "importSpec": {
+            "modulePath": "../pages/showteam-3/[comp_id]/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicShowTeam3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/showteam-3/[comp_id]/[id]"
+        },
+        {
+          "id": "BCn-9x0BdgdA",
+          "name": "ShowTeamNewDesign",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicShowTeamNewDesign.tsx",
+          "importSpec": {
+            "modulePath": "../pages/showteam/[comp_id]/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicShowTeamNewDesign.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/showteam/[comp_id]/[id]"
+        },
+        {
+          "id": "DGhYAOC2J13B",
+          "name": "AvatarPlayerNewDesign",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicAvatarPlayerNewDesign.tsx",
+          "importSpec": {
+            "modulePath": "AvatarPlayerNewDesign.tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicAvatarPlayerNewDesign.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "_eumoO-LkE4_",
+          "name": "Card",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicCard.tsx",
+          "importSpec": {
+            "modulePath": "Card.tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2864,6 +2932,21 @@
           "id": "nVAFMKLNIBU8",
           "name": "image_2024-07-25_13-45-22.png",
           "filePath": "../public/plasmic/copy_of_proliga_new_design/images/image20240725134522Png.png"
+        },
+        {
+          "id": "ybCc8uBLo6Hg",
+          "name": "tshirt 1.png",
+          "filePath": "../public/plasmic/proliga_v_4/images/tshirt1Png.png"
+        },
+        {
+          "id": "PEdYypov9GR6",
+          "name": "tshirt 1.svg",
+          "filePath": "../public/plasmic/proliga_v_4/images/tshirt1Svg.svg"
+        },
+        {
+          "id": "qsjkOcMnbJKB",
+          "name": "info.svg",
+          "filePath": "../public/plasmic/proliga_v_4/images/infosvg.svg"
         }
       ],
       "indirect": false,

@@ -2128,7 +2128,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       $steps["goToShowTeam"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: `/showteam/${(() => {
+                              destination: `/showteam-old/${(() => {
                                 try {
                                   return $queries.query.data.response[0]
                                     .competition_id;

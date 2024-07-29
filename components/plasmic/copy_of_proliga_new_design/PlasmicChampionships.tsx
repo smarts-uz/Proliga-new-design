@@ -285,7 +285,7 @@ function PlasmicChampionships__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToShowTeam"] =
+                    $steps["goToShowTeamNewDesign"] =
                       currentItem.team_name != null
                         ? (() => {
                             const actionArgs = {
@@ -332,11 +332,13 @@ function PlasmicChampionships__RenderFunc(props: {
                           })()
                         : undefined;
                     if (
-                      $steps["goToShowTeam"] != null &&
-                      typeof $steps["goToShowTeam"] === "object" &&
-                      typeof $steps["goToShowTeam"].then === "function"
+                      $steps["goToShowTeamNewDesign"] != null &&
+                      typeof $steps["goToShowTeamNewDesign"] === "object" &&
+                      typeof $steps["goToShowTeamNewDesign"].then === "function"
                     ) {
-                      $steps["goToShowTeam"] = await $steps["goToShowTeam"];
+                      $steps["goToShowTeamNewDesign"] = await $steps[
+                        "goToShowTeamNewDesign"
+                      ];
                     }
 
                     $steps["createRow"] =

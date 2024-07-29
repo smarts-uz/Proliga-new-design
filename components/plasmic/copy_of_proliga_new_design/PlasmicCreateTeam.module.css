@@ -85,6 +85,8 @@
   left: auto;
   top: auto;
   z-index: 1;
+  width: 100%;
+  min-width: 0;
 }
 .img > picture > img {
   object-fit: cover;

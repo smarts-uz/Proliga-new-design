@@ -264,7 +264,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 displayMaxWidth={"100%"}
                 displayMinHeight={"0"}
                 displayMinWidth={"0"}
-                displayWidth={"auto"}
+                displayWidth={"100%"}
                 loading={"lazy"}
                 src={(() => {
                   try {
@@ -279,6 +279,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                width={``}
               />
             </div>
             <Stack__
@@ -369,62 +370,6 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["goToEditTeam"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: `/old/${(() => {
-                                    try {
-                                      return $queries.query.data.response[0].id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}/${(() => {
-                                    try {
-                                      return $queries.userTeam.data.response[0]
-                                        .id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}`
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToEditTeam"] != null &&
-                            typeof $steps["goToEditTeam"] === "object" &&
-                            typeof $steps["goToEditTeam"].then === "function"
-                          ) {
-                            $steps["goToEditTeam"] = await $steps[
-                              "goToEditTeam"
-                            ];
-                          }
-
                           $steps["updateName"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -473,6 +418,64 @@ function PlasmicCreateTeam__RenderFunc(props: {
                           ) {
                             $steps["updateName"] = await $steps["updateName"];
                           }
+
+                          $steps["goToEditTeam2"] =
+                            $state.textInput.value.length !== 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/${(() => {
+                                      try {
+                                        return $queries.query.data.response[0]
+                                          .id;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}/${(() => {
+                                      try {
+                                        return $queries.userTeam.data
+                                          .response[0].id;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToEditTeam2"] != null &&
+                            typeof $steps["goToEditTeam2"] === "object" &&
+                            typeof $steps["goToEditTeam2"].then === "function"
+                          ) {
+                            $steps["goToEditTeam2"] = await $steps[
+                              "goToEditTeam2"
+                            ];
+                          }
                         }}
                       >
                         {"O'ynash"}
@@ -482,7 +485,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $queries.userTeam.data.response[0].name != null;
+                    return $queries.userTeam.data.response[0].name !== null;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -555,10 +558,10 @@ function PlasmicCreateTeam__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["goToEditTeam"] = true
+                        $steps["goToEditTeam2"] = true
                           ? (() => {
                               const actionArgs = {
-                                destination: `/old/${(() => {
+                                destination: `/${(() => {
                                   try {
                                     return $queries.query.data.response[0].id;
                                   } catch (e) {
@@ -602,11 +605,13 @@ function PlasmicCreateTeam__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["goToEditTeam"] != null &&
-                          typeof $steps["goToEditTeam"] === "object" &&
-                          typeof $steps["goToEditTeam"].then === "function"
+                          $steps["goToEditTeam2"] != null &&
+                          typeof $steps["goToEditTeam2"] === "object" &&
+                          typeof $steps["goToEditTeam2"].then === "function"
                         ) {
-                          $steps["goToEditTeam"] = await $steps["goToEditTeam"];
+                          $steps["goToEditTeam2"] = await $steps[
+                            "goToEditTeam2"
+                          ];
                         }
                       }}
                     >
