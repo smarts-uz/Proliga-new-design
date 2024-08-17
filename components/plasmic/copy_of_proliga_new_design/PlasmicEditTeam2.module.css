@@ -353,7 +353,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 35px;
+  top: 70px;
   margin-bottom: 0px;
   margin-top: 0px;
   min-width: 0;
@@ -370,14 +370,13 @@
   height: auto;
   max-width: 100%;
   margin-bottom: 0px;
+  margin-top: 0px;
   min-width: 0;
   padding: 8px;
 }
-.avatarPlayer5:global(.__wab_instance) {
+.avatarPlayerNewDesign__mjCdO:global(.__wab_instance) {
   max-width: 100%;
-  position: relative;
-  left: auto;
-  top: auto;
+  align-self: flex-start;
 }
 .def2 {
   display: flex;
@@ -388,7 +387,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 125px;
+  top: 200px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -415,13 +414,15 @@
   position: relative;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: auto;
   height: auto;
   max-width: 100%;
+  margin-right: 20px;
+  margin-left: calc(20px + 20px) !important;
   padding: 0px;
 }
-.avatarPlayer6:global(.__wab_instance) {
+.avatarPlayerNewDesign__by4M:global(.__wab_instance) {
   max-width: 100%;
 }
 .mid2 {
@@ -433,7 +434,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 250px;
+  top: 325px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -464,8 +465,10 @@
   max-width: 100%;
   padding: 0px;
 }
-.avatarPlayer7:global(.__wab_instance) {
+.avatarPlayerNewDesign__zTiJ:global(.__wab_instance) {
   max-width: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .str2 {
   display: flex;
@@ -476,7 +479,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 400px;
+  top: 460px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -507,8 +510,10 @@
   max-width: 100%;
   padding: 0px;
 }
-.avatarPlayer8:global(.__wab_instance) {
+.avatarPlayerNewDesign__pVteb:global(.__wab_instance) {
   max-width: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .soccerPlaceMensNewDesign:global(.__wab_instance) {
   max-width: 100%;
@@ -564,7 +569,7 @@
   color: #000000;
   min-width: 0;
 }
-.textInput:global(.__wab_instance) {
+.teamName:global(.__wab_instance) {
   max-width: 100%;
 }
 .svg__mQc7 {
@@ -601,7 +606,7 @@
   font-family: "Montserrat", sans-serif;
   min-width: 0;
 }
-.select:global(.__wab_instance) {
+.capitanSelect:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
@@ -1677,4 +1682,93 @@
   height: auto;
   max-width: 100%;
   flex-shrink: 0;
+}
+.freeBox__sywzM {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: 832px;
+  max-width: 100%;
+  background: linear-gradient(#222222, #222222), var(--token-RvPI6LyeIPmd);
+  min-width: 0;
+  flex-shrink: 0;
+  padding: 8px;
+}
+.freeBox__uz7Bw {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.text__oe4Pf {
+  position: relative;
+  width: 569px;
+  height: auto;
+  max-width: 100%;
+  font-weight: 800;
+  font-size: 31px;
+  background: var(--token-n79tL96Ejhng);
+  margin-right: 87px;
+  padding-left: 43px;
+}
+.text__cy7V {
+  position: relative;
+  width: 569px;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  color: var(--token-GGYj13plNx6v);
+  font-size: 46px;
+  padding-top: 50px;
+}
+.text__fc9Wb {
+  position: relative;
+  width: 571px;
+  height: auto;
+  max-width: 100%;
+  color: #b8b8b8;
+  font-size: 23px;
+  font-weight: 400;
+  padding-right: 79px;
+  padding-top: 23px;
+}
+.img__tyTsH {
+  object-fit: cover;
+  max-width: 100%;
+  height: 417px;
+  margin-top: 24px;
+  width: 516px;
+  flex-shrink: 0;
+}
+.img__tyTsH > picture > img {
+  object-fit: cover;
+}
+.freeBox__eFRhD {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.img__tcFdn {
+  object-fit: cover;
+  max-width: 100%;
+  height: 654px;
+  margin-top: 67px;
+  flex-shrink: 0;
+}
+.img__tcFdn > picture > img {
+  object-fit: cover;
 }

@@ -95,7 +95,6 @@ import sty from "./PlasmicShowTeamNewDesign.module.css"; // plasmic-import: BCn-
 
 import SearchsvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
 import ChecksvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
-import ChevronDownsvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__ChevronDownsvg"; // plasmic-import: NJW6VTG4j1-N/icon
 
 createPlasmicElementProxy;
 
@@ -615,6 +614,25 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
               return $queries.tourList.data.response.findIndex(
                 x => x.tour_status === "in_process"
               );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "capitanId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.select.value;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2548,13 +2566,70 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             data-plasmic-name={"select"}
                             data-plasmic-override={overrides.select}
                             className={classNames("__wab_instance", sty.select)}
-                            onChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "select",
-                                "value"
-                              ])(eventArgs[0]);
+                            onChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "select",
+                                  "value"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+                              (async value => {
+                                const $steps = {};
+
+                                $steps["updateCapitanId"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["capitanId"]
+                                        },
+                                        operation: 0,
+                                        value: value
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateCapitanId"] != null &&
+                                  typeof $steps["updateCapitanId"] ===
+                                    "object" &&
+                                  typeof $steps["updateCapitanId"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateCapitanId"] = await $steps[
+                                    "updateCapitanId"
+                                  ];
+                                }
+                              }).apply(null, eventArgs);
                             }}
-                            options={[]}
+                            options={(() => {
+                              try {
+                                return $queries.teamCaptainPlayerList.data
+                                  .response;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
                             value={generateStateValueProp($state, [
                               "select",
                               "value"
@@ -2569,6 +2644,109 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             projectcss.button,
                             sty.button
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["httpPatch"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    dataOp: {
+                                      sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                      opId: "9d45445c-5972-418d-beb5-a1b914b2970c",
+                                      userArgs: {
+                                        params: [
+                                          $queries.query.data.response[0].id
+                                        ],
+                                        body: [null]
+                                      },
+                                      cacheKey: null,
+                                      invalidatedKeys: ["plasmic_refresh_all"],
+                                      roleId: null
+                                    },
+                                    continueOnError: true
+                                  };
+                                  return (async ({
+                                    dataOp,
+                                    continueOnError
+                                  }) => {
+                                    try {
+                                      const response =
+                                        await executePlasmicDataOp(dataOp, {
+                                          userAuthToken:
+                                            dataSourcesCtx?.userAuthToken,
+                                          user: dataSourcesCtx?.user
+                                        });
+                                      await plasmicInvalidate(
+                                        dataOp.invalidatedKeys
+                                      );
+                                      return response;
+                                    } catch (e) {
+                                      if (!continueOnError) {
+                                        throw e;
+                                      }
+                                      return e;
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["httpPatch"] != null &&
+                              typeof $steps["httpPatch"] === "object" &&
+                              typeof $steps["httpPatch"].then === "function"
+                            ) {
+                              $steps["httpPatch"] = await $steps["httpPatch"];
+                            }
+
+                            $steps["httpPatch2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    dataOp: {
+                                      sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                      opId: "b06db966-e10c-459a-97d9-fe5db890e8aa",
+                                      userArgs: {
+                                        params: [
+                                          $queries.query.data.response[0].id,
+                                          $state.capitanId
+                                        ],
+                                        body: [true]
+                                      },
+                                      cacheKey: null,
+                                      invalidatedKeys: ["plasmic_refresh_all"],
+                                      roleId: null
+                                    }
+                                  };
+                                  return (async ({
+                                    dataOp,
+                                    continueOnError
+                                  }) => {
+                                    try {
+                                      const response =
+                                        await executePlasmicDataOp(dataOp, {
+                                          userAuthToken:
+                                            dataSourcesCtx?.userAuthToken,
+                                          user: dataSourcesCtx?.user
+                                        });
+                                      await plasmicInvalidate(
+                                        dataOp.invalidatedKeys
+                                      );
+                                      return response;
+                                    } catch (e) {
+                                      if (!continueOnError) {
+                                        throw e;
+                                      }
+                                      return e;
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["httpPatch2"] != null &&
+                              typeof $steps["httpPatch2"] === "object" &&
+                              typeof $steps["httpPatch2"].then === "function"
+                            ) {
+                              $steps["httpPatch2"] = await $steps["httpPatch2"];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
@@ -7743,15 +7921,89 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                 </Stack__>
               </div>
             </Stack__>
-            <ChevronDownsvgIcon
-              className={classNames(projectcss.all, sty.svg__kFrk1)}
-              role={"img"}
-            />
-
-            <svg
-              className={classNames(projectcss.all, sty.svg__c7ZpM)}
-              role={"img"}
-            />
+            <div className={classNames(projectcss.all, sty.freeBox__xgQaf)}>
+              <div className={classNames(projectcss.all, sty.freeBox__bImTd)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iktMm
+                  )}
+                >
+                  <React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ color: "#000000" }}
+                    >
+                      {"UMUMIY QOIDALAR"}
+                    </span>
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___7ZuRv
+                  )}
+                >
+                  <React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ color: "var(--token-GGYj13plNx6v)" }}
+                    >
+                      {"JAMOA YEG\u2019ING"}
+                    </span>
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qc1Sb
+                  )}
+                >
+                  {
+                    "100 millionlik byudjetdan foydalaning va chempionatning eng yaxshifutbolchilaridan iborat jamoani to'plang"
+                  }
+                </div>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__kPrTt)}
+                  displayHeight={"376px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/copy_of_proliga_new_design/images/nigaJpg.jpg",
+                    fullWidth: 542,
+                    fullHeight: 418,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__pqlnu)}>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__zfYUa)}
+                  displayHeight={"640px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"894px"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/copy_of_proliga_new_design/images/image20240725134522Png.png",
+                    fullWidth: 1730,
+                    fullHeight: 1208,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+            </div>
           </Stack__>
         </div>
       </div>

@@ -2275,6 +2275,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/showteam-old/[comp_id]/[id]"
+        },
+        {
+          "id": "MZSEwWpfabOg",
+          "name": "Homepage2",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicHomepage2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page-3.tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicHomepage2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-3"
         }
       ],
       "icons": [
@@ -2944,6 +2958,16 @@
           "id": "ODLfBsQsvDWD",
           "name": "hello.png",
           "filePath": "../public/plasmic/proliga_v_4/images/hellopng.png"
+        },
+        {
+          "id": "64-3pjLitFqY",
+          "name": "image 7",
+          "filePath": "../public/plasmic/proliga_v_4/images/image7.png"
+        },
+        {
+          "id": "6vNcBD0A5d0Y",
+          "name": "image 8",
+          "filePath": "../public/plasmic/proliga_v_4/images/image8.png"
         }
       ],
       "indirect": false,

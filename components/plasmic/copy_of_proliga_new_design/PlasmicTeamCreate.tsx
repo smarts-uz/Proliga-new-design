@@ -96,6 +96,7 @@ export type PlasmicTeamCreate__OverridesType = {
   navbar?: Flex__<typeof Navbar>;
   teamPlayerCreate?: Flex__<typeof TeamPlayerCreate>;
   table?: Flex__<typeof RichTable>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultTeamCreateProps {}
@@ -399,6 +400,25 @@ function PlasmicTeamCreate__RenderFunc(props: {
               );
             })()}
           </Stack__>
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/proliga_v_4/images/image8.png",
+              fullWidth: 1917,
+              fullHeight: 910,
+              aspectRatio: undefined
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -406,10 +426,11 @@ function PlasmicTeamCreate__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "teamPlayerCreate", "table"],
+  root: ["root", "navbar", "teamPlayerCreate", "table", "img"],
   navbar: ["navbar"],
   teamPlayerCreate: ["teamPlayerCreate"],
-  table: ["table"]
+  table: ["table"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -419,6 +440,7 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   teamPlayerCreate: typeof TeamPlayerCreate;
   table: typeof RichTable;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -501,6 +523,7 @@ export const PlasmicTeamCreate = Object.assign(
     navbar: makeNodeComponent("navbar"),
     teamPlayerCreate: makeNodeComponent("teamPlayerCreate"),
     table: makeNodeComponent("table"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicTeamCreate
     internalVariantProps: PlasmicTeamCreate__VariantProps,

@@ -98,6 +98,7 @@ export type PlasmicIdealXl__OverridesType = {
   soccerPlaceMens?: Flex__<typeof SoccerPlaceMens>;
   select?: Flex__<typeof Select>;
   footer?: Flex__<typeof Footer>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultIdealXlProps {}
@@ -397,6 +398,26 @@ function PlasmicIdealXl__RenderFunc(props: {
             data-plasmic-override={overrides.footer}
             className={classNames("__wab_instance", sty.footer)}
           />
+
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/proliga_v_4/images/image7.png",
+              fullWidth: 1918,
+              fullHeight: 908,
+              aspectRatio: undefined
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -413,7 +434,8 @@ const PlasmicDescendants = {
     "h5",
     "soccerPlaceMens",
     "select",
-    "footer"
+    "footer",
+    "img"
   ],
   navbar: ["navbar"],
   h4: ["h4"],
@@ -422,7 +444,8 @@ const PlasmicDescendants = {
   h5: ["h5"],
   soccerPlaceMens: ["soccerPlaceMens"],
   select: ["select"],
-  footer: ["footer"]
+  footer: ["footer"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -437,6 +460,7 @@ type NodeDefaultElementType = {
   soccerPlaceMens: typeof SoccerPlaceMens;
   select: typeof Select;
   footer: typeof Footer;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -507,6 +531,7 @@ export const PlasmicIdealXl = Object.assign(
     soccerPlaceMens: makeNodeComponent("soccerPlaceMens"),
     select: makeNodeComponent("select"),
     footer: makeNodeComponent("footer"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicIdealXl
     internalVariantProps: PlasmicIdealXl__VariantProps,
