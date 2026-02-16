@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,15 +59,16 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUpDownOrder.module.css"; // plasmic-import: QACqVA5nfjte/css
 
-import ThinArrowTopIconsvgIcon from "./icons/PlasmicIcon__ThinArrowTopIconsvg"; // plasmic-import: -7NYYr2J81o2/icon
-import IconmonstrArrowDownThinsvgIcon from "./icons/PlasmicIcon__IconmonstrArrowDownThinsvg"; // plasmic-import: gvbI6nHpb9NB/icon
+import ThinArrowTopIconSvgIcon from "./icons/PlasmicIcon__ThinArrowTopIconSvg"; // plasmic-import: -7NYYr2J81o2/icon
+import IconmonstrArrowDownThinSvgIcon from "./icons/PlasmicIcon__IconmonstrArrowDownThinSvg"; // plasmic-import: gvbI6nHpb9NB/icon
 
 createPlasmicElementProxy;
 
@@ -117,7 +118,16 @@ function PlasmicUpDownOrder__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -125,6 +135,7 @@ function PlasmicUpDownOrder__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -148,8 +159,11 @@ function PlasmicUpDownOrder__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -162,9 +176,7 @@ function PlasmicUpDownOrder__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.upDown,
         { [sty.upDowndown]: hasVariant($state, "down", "down") }
       )}
@@ -198,14 +210,14 @@ function PlasmicUpDownOrder__RenderFunc(props: {
         }
       }}
     >
-      <ThinArrowTopIconsvgIcon
+      <ThinArrowTopIconSvgIcon
         className={classNames(projectcss.all, sty.svg___4B94R, {
           [sty.svgdown___4B94RJwQhY]: hasVariant($state, "down", "down")
         })}
         role={"img"}
       />
 
-      <IconmonstrArrowDownThinsvgIcon
+      <IconmonstrArrowDownThinSvgIcon
         className={classNames(projectcss.all, sty.svg__brEXr, {
           [sty.svgdown__brEXrJwQhY]: hasVariant($state, "down", "down")
         })}
@@ -236,16 +248,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUpDownOrder__VariantsArgs;
     args?: PlasmicUpDownOrder__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUpDownOrder__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicUpDownOrder__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUpDownOrder__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicUpDownOrder__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

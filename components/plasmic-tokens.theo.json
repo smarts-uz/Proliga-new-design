@@ -111,6 +111,16 @@
       }
     },
     {
+      "name": "Primary",
+      "type": "color",
+      "value": "#F5D90A",
+      "category": "color",
+      "meta": {
+        "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+        "id": "e_lNcP7w_8mj"
+      }
+    },
+    {
       "name": "System: Bg Container",
       "type": "color",
       "value": "var(--antd-colorBgContainer)",

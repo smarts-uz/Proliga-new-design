@@ -4,50 +4,25 @@
   position: relative;
   width: auto;
   height: auto;
-  justify-self: flex-start;
-  background: var(--token-y39y01I5X1ZW);
-}
-.root > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: calc(0px - 5px);
-  height: calc(100% + 5px);
-}
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 5px;
+  justify-self: flex-start;
+  background: var(--token-y39y01I5X1ZW);
+  row-gap: 5px;
 }
 .freeBox__oveJ9 {
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   background: #232433;
+  column-gap: 5px;
   min-width: 0;
   padding: 8px;
-}
-.freeBox__oveJ9 > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 5px);
-  width: calc(100% + 5px);
-}
-.freeBox__oveJ9 > :global(.__wab_flex-container) > *,
-.freeBox__oveJ9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__oveJ9 > :global(.__wab_flex-container) > picture > img,
-.freeBox__oveJ9
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 5px;
 }
 .img__m9Eds {
   position: relative;
@@ -84,10 +59,8 @@
   color: var(--token-jgohepLVeKvh);
   font-weight: 800;
   text-align: center;
-  background: linear-gradient(
-      var(--token-84dlJPL1HKUp),
-      var(--token-84dlJPL1HKUp)
-    ),
+  background:
+    linear-gradient(var(--token-84dlJPL1HKUp), var(--token-84dlJPL1HKUp)),
     linear-gradient(#ffffff, #ffffff), var(--token-84dlJPL1HKUp);
   font-size: 12px;
   padding: 5px;
@@ -96,31 +69,16 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-right: 4px;
   margin-bottom: 4px;
+  column-gap: 5px;
   min-width: 0;
   padding: 8px;
-}
-.freeBox__mwZjW > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 5px);
-  width: calc(100% + 5px);
-}
-.freeBox__mwZjW > :global(.__wab_flex-container) > *,
-.freeBox__mwZjW > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__mwZjW > :global(.__wab_flex-container) > picture > img,
-.freeBox__mwZjW
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 5px;
 }
 .img__yx5O8 {
   position: relative;
@@ -144,29 +102,14 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: 3px;
   min-width: 0;
   padding: 8px;
-}
-.freeBox__isl1L > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 3px);
-  width: calc(100% + 3px);
-}
-.freeBox__isl1L > :global(.__wab_flex-container) > *,
-.freeBox__isl1L > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__isl1L > :global(.__wab_flex-container) > picture > img,
-.freeBox__isl1L
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 3px;
 }
 .img__kBsq0 {
   position: relative;
@@ -190,27 +133,13 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   width: auto;
   height: auto;
   max-width: 100%;
+  column-gap: 20px;
   padding: 8px;
-}
-.freeBox___1C9HZ > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  margin-left: calc(0px - 20px);
-  width: calc(100% + 20px);
-}
-.freeBox___1C9HZ > :global(.__wab_flex-container) > *,
-.freeBox___1C9HZ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox___1C9HZ > :global(.__wab_flex-container) > picture > img,
-.freeBox___1C9HZ
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 20px;
 }
 .fsyp {
   width: 100%;

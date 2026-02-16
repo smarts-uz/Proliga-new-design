@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuredTeamMember.module.css"; // plasmic-import: -ZjOM5ux0wjZ/css
 
@@ -111,7 +112,16 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -119,6 +129,7 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -131,7 +142,7 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
         path: "variant2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant2
       }
     ],
     [$props, $ctx, $refs]
@@ -140,8 +151,11 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -154,9 +168,7 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         { [sty.rootvariant2]: hasVariant($state, "variant2", "variant2") }
       )}
@@ -177,7 +189,7 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
           displayWidth={"42px"}
           loading={"lazy"}
           src={{
-            src: "/plasmic/copy_of_proliga_new_design/images/willianJosepng.png",
+            src: "/plasmic/copy_of_proliga_new_design/images/willianJosePng.png",
             fullWidth: 256,
             fullHeight: 256,
             aspectRatio: undefined
@@ -196,6 +208,7 @@ function PlasmicInjuredTeamMember__RenderFunc(props: {
           )}
           component={Link}
           href={"https://www.plasmic.app/"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           {hasVariant($state, "variant2", "variant2") ? "STR" : "DEF"}
@@ -260,16 +273,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInjuredTeamMember__VariantsArgs;
     args?: PlasmicInjuredTeamMember__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInjuredTeamMember__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInjuredTeamMember__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInjuredTeamMember__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInjuredTeamMember__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

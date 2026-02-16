@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,11 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInfoPlayerChart.module.css"; // plasmic-import: EQShKtt0DfSk/css
 
@@ -107,7 +107,16 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -115,11 +124,14 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -132,9 +144,7 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -187,11 +197,7 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
           {"32,15,236"}
         </div>
       </div>
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__ch5HJ)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__ch5HJ)}>
         <PlasmicLink__
           className={classNames(
             projectcss.all,
@@ -201,6 +207,7 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
           )}
           component={Link}
           href={"https://www.plasmic.app/"}
+          legacyBehavior={false}
           onClick={async event => {
             const $steps = {};
 
@@ -221,9 +228,8 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
               typeof $steps["updateStateVariable"] === "object" &&
               typeof $steps["updateStateVariable"].then === "function"
             ) {
-              $steps["updateStateVariable"] = await $steps[
-                "updateStateVariable"
-              ];
+              $steps["updateStateVariable"] =
+                await $steps["updateStateVariable"];
             }
           }}
           platform={"nextjs"}
@@ -241,6 +247,7 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
           )}
           component={Link}
           href={"https://www.plasmic.app/"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           {"10 Days"}
@@ -254,11 +261,12 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
           )}
           component={Link}
           href={"https://www.plasmic.app/"}
+          legacyBehavior={false}
           platform={"nextjs"}
         >
           {"5 Days"}
         </PlasmicLink__>
-      </Stack__>
+      </div>
       <SimpleChart
         data-plasmic-name={"chart"}
         data-plasmic-override={overrides.chart}
@@ -302,16 +310,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInfoPlayerChart__VariantsArgs;
     args?: PlasmicInfoPlayerChart__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInfoPlayerChart__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInfoPlayerChart__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInfoPlayerChart__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInfoPlayerChart__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

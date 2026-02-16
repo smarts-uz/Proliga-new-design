@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,11 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInputLabelSelect.module.css"; // plasmic-import: t1udW_QEtlXa/css
 
@@ -122,7 +122,9 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
           label: "Label",
           options: []
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -133,6 +135,7 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -145,7 +148,7 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
         path: "select.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -154,8 +157,11 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -168,9 +174,7 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -199,8 +203,20 @@ function PlasmicInputLabelSelect__RenderFunc(props: {
         data-plasmic-name={"select"}
         data-plasmic-override={overrides.select}
         className={classNames("__wab_instance", sty.select)}
-        onChange={(...eventArgs) => {
-          generateStateOnChangeProp($state, ["select", "value"])(eventArgs[0]);
+        onChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["select", "value"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
         }}
         options={(() => {
           try {
@@ -250,16 +266,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInputLabelSelect__VariantsArgs;
     args?: PlasmicInputLabelSelect__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInputLabelSelect__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInputLabelSelect__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInputLabelSelect__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInputLabelSelect__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

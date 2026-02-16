@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -75,16 +75,40 @@ import Button from "../../Button"; // plasmic-import: lBHNzts6tFyj/component
 import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicShowTeam3.module.css"; // plasmic-import: XfKp2ak1WmbP/css
 
-import ChecksvgIcon from "../plasmic_tabs/icons/PlasmicIcon__Checksvg"; // plasmic-import: zq2s7N0xWucT/icon
+import CheckSvgIcon from "../plasmic_tabs/icons/PlasmicIcon__CheckSvg"; // plasmic-import: zq2s7N0xWucT/icon
 import IconIcon from "../plasmic_tabs/icons/PlasmicIcon__Icon"; // plasmic-import: 8K40faRNhuCj/icon
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -125,7 +149,16 @@ function PlasmicShowTeam3__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -133,6 +166,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -148,7 +182,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return currentUser.customProperties.response[0].id;
@@ -167,7 +201,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
         path: "tourId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.tour.data.response[0].tour_id;
@@ -186,19 +220,25 @@ function PlasmicShowTeam3__RenderFunc(props: {
         path: "transfer",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "tourIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -207,6 +247,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
@@ -254,6 +295,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
         opId: "7392be50-c0a7-46e1-b397-ad6b5b9bb368",
         userArgs: {
           path: [undefined],
+
           params: [$state.transfer]
         },
         cacheKey: `plasmic.$.7392be50-c0a7-46e1-b397-ad6b5b9bb368.$.`,
@@ -314,8 +356,10 @@ function PlasmicShowTeam3__RenderFunc(props: {
         userArgs: {
           path: [
             $state.paginationAll[$state.tourIndex].pageSize,
+
             $state.paginationAll[$state.tourIndex].startIndex
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.51b9cc1c-abdd-4a05-a00b-ec079a5bafa7.$.`,
@@ -342,6 +386,13 @@ function PlasmicShowTeam3__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -363,9 +414,7 @@ function PlasmicShowTeam3__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -373,6 +422,20 @@ function PlasmicShowTeam3__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <ShowteamNavbar
@@ -458,7 +521,6 @@ function PlasmicShowTeam3__RenderFunc(props: {
             <TabsContainer
               data-plasmic-name={"tabsContainer"}
               data-plasmic-override={overrides.tabsContainer}
-              className={classNames("__wab_instance", sty.tabsContainer)}
               initialKey={"tab0"}
               mountMode={"mountAllEagerly"}
               previewAll={false}
@@ -622,16 +684,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShowTeam3__VariantsArgs;
     args?: PlasmicShowTeam3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShowTeam3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicShowTeam3__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShowTeam3__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicShowTeam3__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -698,13 +762,11 @@ export const PlasmicShowTeam3 = Object.assign(
     internalVariantProps: PlasmicShowTeam3__VariantProps,
     internalArgProps: PlasmicShowTeam3__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/showteam-3/[comp_id]/[id]",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

@@ -1,27 +1,30 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SquaresvgIconProps = React.ComponentProps<"svg"> & {
-  title?: string;
-};
+export type IconmonstrArrowDownThinSvgIconProps =
+  React.ComponentProps<"svg"> & {
+    title?: string;
+  };
 
-export function SquaresvgIcon(props: SquaresvgIconProps) {
+export function IconmonstrArrowDownThinSvgIcon(
+  props: IconmonstrArrowDownThinSvgIconProps
+) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
       xmlns={"http://www.w3.org/2000/svg"}
-      fill={"none"}
+      fillRule={"evenodd"}
+      clipRule={"evenodd"}
       viewBox={"0 0 24 24"}
       height={"1em"}
-      width={"1em"}
       style={{
-        stroke: "currentcolor",
+        fill: "currentcolor",
 
-        ...(style || {}),
+        ...(style || {})
       }}
       className={classNames("plasmic-default__svg", className)}
       {...restProps}
@@ -30,16 +33,12 @@ export function SquaresvgIcon(props: SquaresvgIconProps) {
 
       <path
         d={
-          "M17.25 19.25H6.75a2 2 0 01-2-2V6.75a2 2 0 012-2h10.5a2 2 0 012 2v10.5a2 2 0 01-2 2z"
+          "M11 21.883l-6.235-7.527L4 15l7.521 9L19 15l-.764-.645L12 21.884V0h-1v21.883z"
         }
-        stroke={"currentColor"}
-        strokeWidth={"1.5"}
-        strokeLinecap={"round"}
-        strokeLinejoin={"round"}
       ></path>
     </svg>
   );
 }
 
-export default SquaresvgIcon;
+export default IconmonstrArrowDownThinSvgIcon;
 /* prettier-ignore-end */

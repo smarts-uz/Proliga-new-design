@@ -38,7 +38,8 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+  background:
+    url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
       top 50% left 50% / cover repeat,
     var(--token-NTRsRiWyA41Y);
   grid-column-start: 1 !important;
@@ -227,27 +228,12 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: none;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__pEwH > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background: none;
+  row-gap: 16px;
   min-width: 0;
-  margin-top: calc(0px - 16px);
-  height: calc(100% + 16px);
-}
-.freeBox__pEwH > :global(.__wab_flex-container) > *,
-.freeBox__pEwH > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__pEwH > :global(.__wab_flex-container) > picture > img,
-.freeBox__pEwH
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 16px;
+  padding: 8px;
 }
 @media (max-width: 768px) {
   .freeBox__pEwH {

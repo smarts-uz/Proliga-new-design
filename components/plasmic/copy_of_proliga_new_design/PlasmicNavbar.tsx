@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,17 +60,16 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
-import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import Logout from "../../Logout"; // plasmic-import: sncfOMCbdWMu/component
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: j_koFSvK1RER/css
+
+import Icon5Icon from "../proliga_v_4/icons/PlasmicIcon__Icon5"; // plasmic-import: NXdWphelV7Ee/icon
+import Icon4Icon from "../proliga_v_4/icons/PlasmicIcon__Icon4"; // plasmic-import: D1ZJUrIo0Osa/icon
 
 createPlasmicElementProxy;
 
@@ -79,22 +78,25 @@ export type PlasmicNavbar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNavbar__VariantsArgs;
 export const PlasmicNavbar__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicNavbar__ArgsType = {};
+export type PlasmicNavbar__ArgsType = { onUserChange?: (val: string) => void };
 type ArgPropType = keyof PlasmicNavbar__ArgsType;
-export const PlasmicNavbar__ArgProps = new Array<ArgPropType>();
+export const PlasmicNavbar__ArgProps = new Array<ArgPropType>("onUserChange");
 
 export type PlasmicNavbar__OverridesType = {
   root?: Flex__<"div">;
   mainStack?: Flex__<"div">;
-  logo?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   items?: Flex__<"div">;
   competition?: Flex__<"div">;
-  login?: Flex__<"div">;
-  popover?: Flex__<typeof AntdPopover>;
-  logout?: Flex__<typeof Logout>;
+  userMenuContainer?: Flex__<"div">;
+  notificationBell?: Flex__<"svg">;
+  userMenu?: Flex__<"div">;
+  userImage?: Flex__<"div">;
+  arrowDown2?: Flex__<"svg">;
 };
 
 export interface DefaultNavbarProps {
+  onUserChange?: (val: string) => void;
   className?: string;
 }
 
@@ -115,7 +117,16 @@ function PlasmicNavbar__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -123,19 +134,53 @@ function PlasmicNavbar__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "popover.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        path: "user",
+        type: "readonly",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({
+          access_token: "",
+          token_type: "",
+          expires_in: 0,
+          expires_at: 0,
+          refresh_token: "",
+          user: {
+            id: "",
+            aud: "",
+            role: "",
+            email: "",
+            email_confirmed_at: "",
+            phone: "",
+            confirmed_at: "",
+            recovery_sent_at: "",
+            reauthentication_sent_at: "",
+            last_sign_in_at: "",
+            app_metadata: { provider: "", providers: [] },
+            user_metadata: {
+              email: "",
+              email_verified: false,
+              phone_verified: false,
+              sub: ""
+            },
+            identities: [],
+            created_at: "",
+            updated_at: "",
+            is_anonymous: false
+          }
+        }),
+
+        onChangeProp: "onUserChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -144,12 +189,11 @@ function PlasmicNavbar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -162,9 +206,7 @@ function PlasmicNavbar__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -173,67 +215,57 @@ function PlasmicNavbar__RenderFunc(props: {
         data-plasmic-override={overrides.mainStack}
         className={classNames(projectcss.all, sty.mainStack)}
       >
-        <div
-          data-plasmic-name={"logo"}
-          data-plasmic-override={overrides.logo}
-          className={classNames(projectcss.all, sty.logo)}
-        >
-          <Reveal
-            className={classNames("__wab_instance", sty.reveal__hkhGf)}
-            triggerOnce={true}
-          >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__dnAo7)}
-              displayHeight={"49px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"230px"}
-              loading={"lazy"}
-              onClick={async event => {
-                const $steps = {};
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"180px"}
+          loading={"lazy"}
+          onClick={async event => {
+            const $steps = {};
 
-                $steps["goToHomepage"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToHomepage"] != null &&
-                  typeof $steps["goToHomepage"] === "object" &&
-                  typeof $steps["goToHomepage"].then === "function"
-                ) {
-                  $steps["goToHomepage"] = await $steps["goToHomepage"];
-                }
-              }}
-              src={{
-                src: "/plasmic/copy_of_proliga_new_design/images/photo20240724145023RemovebgPreviewjpg.jpg",
-                fullWidth: 1148,
-                fullHeight: 217,
-                aspectRatio: undefined
-              }}
-            />
-          </Reveal>
-        </div>
-        <Stack__
-          as={"div"}
+            $steps["goToHomepage"] = true
+              ? (() => {
+                  const actionArgs = { destination: `/` };
+                  return (({ destination }) => {
+                    if (
+                      typeof destination === "string" &&
+                      destination.startsWith("#")
+                    ) {
+                      document
+                        .getElementById(destination.substr(1))
+                        .scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      __nextRouter?.push(destination);
+                    }
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["goToHomepage"] != null &&
+              typeof $steps["goToHomepage"] === "object" &&
+              typeof $steps["goToHomepage"].then === "function"
+            ) {
+              $steps["goToHomepage"] = await $steps["goToHomepage"];
+            }
+          }}
+          src={{
+            src: "/plasmic/copy_of_proliga_new_design/images/photo20240724145023RemovebgPreviewJpg.jpg",
+            fullWidth: 1148,
+            fullHeight: 217,
+            aspectRatio: undefined
+          }}
+        />
+
+        <div
           data-plasmic-name={"items"}
           data-plasmic-override={overrides.items}
-          hasGap={true}
           className={classNames(projectcss.all, sty.items)}
         >
           <Reveal
@@ -436,9 +468,8 @@ function PlasmicNavbar__RenderFunc(props: {
                     typeof $steps["goToChampionships"] === "object" &&
                     typeof $steps["goToChampionships"].then === "function"
                   ) {
-                    $steps["goToChampionships"] = await $steps[
-                      "goToChampionships"
-                    ];
+                    $steps["goToChampionships"] =
+                      await $steps["goToChampionships"];
                   }
                 }}
               >
@@ -453,204 +484,38 @@ function PlasmicNavbar__RenderFunc(props: {
               </div>
             ) : null}
           </Reveal>
-        </Stack__>
-        <Stack__
-          as={"div"}
-          data-plasmic-name={"login"}
-          data-plasmic-override={overrides.login}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.login)}
+        </div>
+        <div
+          data-plasmic-name={"userMenuContainer"}
+          data-plasmic-override={overrides.userMenuContainer}
+          className={classNames(projectcss.all, sty.userMenuContainer)}
         >
-          {(() => {
-            try {
-              return true;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <AntdPopover
-              data-plasmic-name={"popover"}
-              data-plasmic-override={overrides.popover}
-              arrow={true}
-              className={classNames("__wab_instance", sty.popover)}
-              content={null}
-              contentText={"Popover contents"}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                projectcss.plasmic_tokens,
-                plasmic_antd_5_hostless_css.plasmic_tokens,
-                plasmic_plasmic_rich_components_css.plasmic_tokens
-              )}
-              mouseEnterDelay={0}
-              mouseLeaveDelay={0}
-              onOpenChange={generateStateOnChangeProp($state, [
-                "popover",
-                "open"
-              ])}
-              open={generateStateValueProp($state, ["popover", "open"])}
-              popoverScopeClassName={sty["popover__popover"]}
-              title={null}
-            >
-              {(() => {
-                try {
-                  return currentUser.isLoggedIn === false;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2It2U
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToSignup"] = true
-                      ? (() => {
-                          const actionArgs = { destination: `/signup` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToSignup"] != null &&
-                      typeof $steps["goToSignup"] === "object" &&
-                      typeof $steps["goToSignup"].then === "function"
-                    ) {
-                      $steps["goToSignup"] = await $steps["goToSignup"];
-                    }
-                  }}
-                >
-                  {"Register"}
-                </div>
-              ) : null}
-            </AntdPopover>
-          ) : null}
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__zojM)}
-            displayHeight={"27px"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runElementAction"] = true
-                ? (() => {
-                    const actionArgs = {};
-                    return (({ tplRef, action, args }) => {
-                      return $refs?.[tplRef]?.[action]?.(...(args ?? []));
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runElementAction"] != null &&
-                typeof $steps["runElementAction"] === "object" &&
-                typeof $steps["runElementAction"].then === "function"
-              ) {
-                $steps["runElementAction"] = await $steps["runElementAction"];
-              }
-            }}
-            src={
-              "https://cdn2.iconfinder.com/data/icons/basic-ui-color/35/Menu-512.png"
-            }
+          <Icon5Icon
+            data-plasmic-name={"notificationBell"}
+            data-plasmic-override={overrides.notificationBell}
+            className={classNames(projectcss.all, sty.notificationBell)}
+            role={"img"}
           />
 
-          {(
-            hasVariant(globalVariants, "screen", "mobileOnly")
-              ? true
-              : (() => {
-                  try {
-                    return currentUser.isLoggedIn;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          <div
+            data-plasmic-name={"userMenu"}
+            data-plasmic-override={overrides.userMenu}
+            className={classNames(projectcss.all, sty.userMenu)}
+          >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___50Jks
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return currentUser.email;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          ) : null}
-          {(
-            hasVariant(globalVariants, "screen", "mobileOnly")
-              ? true
-              : (() => {
-                  try {
-                    return true;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
-            <Logout
-              data-plasmic-name={"logout"}
-              data-plasmic-override={overrides.logout}
-              className={classNames("__wab_instance", sty.logout)}
+              data-plasmic-name={"userImage"}
+              data-plasmic-override={overrides.userImage}
+              className={classNames(projectcss.all, sty.userImage)}
             />
-          ) : null}
-        </Stack__>
+
+            <Icon4Icon
+              data-plasmic-name={"arrowDown2"}
+              data-plasmic-override={overrides.arrowDown2}
+              className={classNames(projectcss.all, sty.arrowDown2)}
+              role={"img"}
+            />
+          </div>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
@@ -660,28 +525,40 @@ const PlasmicDescendants = {
   root: [
     "root",
     "mainStack",
-    "logo",
+    "img",
     "items",
     "competition",
-    "login",
-    "popover",
-    "logout"
+    "userMenuContainer",
+    "notificationBell",
+    "userMenu",
+    "userImage",
+    "arrowDown2"
   ],
   mainStack: [
     "mainStack",
-    "logo",
+    "img",
     "items",
     "competition",
-    "login",
-    "popover",
-    "logout"
+    "userMenuContainer",
+    "notificationBell",
+    "userMenu",
+    "userImage",
+    "arrowDown2"
   ],
-  logo: ["logo"],
+  img: ["img"],
   items: ["items", "competition"],
   competition: ["competition"],
-  login: ["login", "popover", "logout"],
-  popover: ["popover"],
-  logout: ["logout"]
+  userMenuContainer: [
+    "userMenuContainer",
+    "notificationBell",
+    "userMenu",
+    "userImage",
+    "arrowDown2"
+  ],
+  notificationBell: ["notificationBell"],
+  userMenu: ["userMenu", "userImage", "arrowDown2"],
+  userImage: ["userImage"],
+  arrowDown2: ["arrowDown2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -689,12 +566,14 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   mainStack: "div";
-  logo: "div";
+  img: typeof PlasmicImg__;
   items: "div";
   competition: "div";
-  login: "div";
-  popover: typeof AntdPopover;
-  logout: typeof Logout;
+  userMenuContainer: "div";
+  notificationBell: "svg";
+  userMenu: "div";
+  userImage: "div";
+  arrowDown2: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -708,16 +587,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNavbar__VariantsArgs;
     args?: PlasmicNavbar__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNavbar__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicNavbar__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNavbar__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicNavbar__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -758,12 +639,14 @@ export const PlasmicNavbar = Object.assign(
   {
     // Helper components rendering sub-elements
     mainStack: makeNodeComponent("mainStack"),
-    logo: makeNodeComponent("logo"),
+    img: makeNodeComponent("img"),
     items: makeNodeComponent("items"),
     competition: makeNodeComponent("competition"),
-    login: makeNodeComponent("login"),
-    popover: makeNodeComponent("popover"),
-    logout: makeNodeComponent("logout"),
+    userMenuContainer: makeNodeComponent("userMenuContainer"),
+    notificationBell: makeNodeComponent("notificationBell"),
+    userMenu: makeNodeComponent("userMenu"),
+    userImage: makeNodeComponent("userImage"),
+    arrowDown2: makeNodeComponent("arrowDown2"),
 
     // Metadata about props expected for PlasmicNavbar
     internalVariantProps: PlasmicNavbar__VariantProps,

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPointInfo.module.css"; // plasmic-import: Up53sXl3JeW5/css
 
@@ -73,9 +74,7 @@ export type PlasmicPointInfo__VariantsArgs = {};
 type VariantPropType = keyof PlasmicPointInfo__VariantsArgs;
 export const PlasmicPointInfo__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicPointInfo__ArgsType = {
-  ochko?: string;
-};
+export type PlasmicPointInfo__ArgsType = { ochko?: string };
 type ArgPropType = keyof PlasmicPointInfo__ArgsType;
 export const PlasmicPointInfo__ArgProps = new Array<ArgPropType>("ochko");
 
@@ -122,7 +121,9 @@ function PlasmicPointInfo__RenderFunc(props: {
         {
           ochko: "6"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -133,6 +134,7 @@ function PlasmicPointInfo__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -143,6 +145,8 @@ function PlasmicPointInfo__RenderFunc(props: {
   const triggers = {
     hover_root: isRootHover
   };
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -155,9 +159,7 @@ function PlasmicPointInfo__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
@@ -521,16 +523,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPointInfo__VariantsArgs;
     args?: PlasmicPointInfo__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPointInfo__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPointInfo__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPointInfo__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicPointInfo__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

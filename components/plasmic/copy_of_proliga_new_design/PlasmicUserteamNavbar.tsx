@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -69,11 +69,11 @@ import {
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import UpdateCapitan from "../../UpdateCapitan"; // plasmic-import: P_oyNDh3kiUq/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUserteamNavbar.module.css"; // plasmic-import: yP6GdWiKL8XJ/css
 
@@ -154,7 +154,9 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
           teamBalance: 0,
           nameOfTeam: " "
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -165,6 +167,7 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -177,7 +180,7 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -186,27 +189,26 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -304,9 +306,7 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens
+          styleTokensClassNames
         )}
         maskClosable={true}
         modalContentClassName={classNames({ [sty["pcls_IourQiJH9lrn"]]: true })}
@@ -399,7 +399,12 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
             $steps["upadateActivity"] = await $steps["upadateActivity"];
           }
         }}
-        onOpenChange={generateStateOnChangeProp($state, ["modal", "open"])}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["modal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={"Do you Want Sell this player?"}
         trigger={
@@ -525,7 +530,7 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
           className={classNames("__wab_instance", sty.updateCapitan)}
         />
       ) : null}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -556,16 +561,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUserteamNavbar__VariantsArgs;
     args?: PlasmicUserteamNavbar__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUserteamNavbar__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicUserteamNavbar__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUserteamNavbar__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicUserteamNavbar__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

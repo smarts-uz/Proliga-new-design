@@ -48,6 +48,7 @@
   .freeBox___6K4Ag {
     display: flex;
     flex-direction: column;
+    column-gap: 0px;
   }
 }
 .freeBox__bpXv {

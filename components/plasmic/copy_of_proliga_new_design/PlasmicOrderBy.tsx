@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,11 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import UpDownOrder from "../../UpDownOrder"; // plasmic-import: QACqVA5nfjte/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicOrderBy.module.css"; // plasmic-import: bY524CGT1Qpz/css
 
@@ -127,7 +127,16 @@ function PlasmicOrderBy__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -135,6 +144,7 @@ function PlasmicOrderBy__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -147,25 +157,25 @@ function PlasmicOrderBy__RenderFunc(props: {
         path: "orderType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "upDownOrder.down",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "upDownOrder2.down",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "upDownOrder3.down",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -174,8 +184,11 @@ function PlasmicOrderBy__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -188,9 +201,7 @@ function PlasmicOrderBy__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.orderBy
       )}
     >
@@ -216,6 +227,7 @@ function PlasmicOrderBy__RenderFunc(props: {
           data-plasmic-override={overrides.link}
           className={classNames(projectcss.all, projectcss.a, sty.link)}
           component={Link}
+          legacyBehavior={false}
           onClick={args.upDownLink}
           platform={"nextjs"}
         >
@@ -229,6 +241,15 @@ function PlasmicOrderBy__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
               args.upDown.apply(null, eventArgs);
             }}
           />
@@ -284,10 +305,20 @@ function PlasmicOrderBy__RenderFunc(props: {
           data-plasmic-override={overrides.upDownOrder2}
           className={classNames("__wab_instance", sty.upDownOrder2)}
           down={generateStateValueProp($state, ["upDownOrder2", "down"])}
-          onDownChange={generateStateOnChangeProp($state, [
-            "upDownOrder2",
-            "down"
-          ])}
+          onDownChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["upDownOrder2", "down"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
         />
       </div>
       <div
@@ -310,10 +341,20 @@ function PlasmicOrderBy__RenderFunc(props: {
           data-plasmic-override={overrides.upDownOrder3}
           className={classNames("__wab_instance", sty.upDownOrder3)}
           down={generateStateValueProp($state, ["upDownOrder3", "down"])}
-          onDownChange={generateStateOnChangeProp($state, [
-            "upDownOrder3",
-            "down"
-          ])}
+          onDownChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["upDownOrder3", "down"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
         />
       </div>
     </div>
@@ -370,16 +411,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicOrderBy__VariantsArgs;
     args?: PlasmicOrderBy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicOrderBy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicOrderBy__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicOrderBy__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicOrderBy__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

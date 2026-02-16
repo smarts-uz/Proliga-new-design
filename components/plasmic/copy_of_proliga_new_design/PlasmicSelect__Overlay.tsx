@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -61,10 +61,11 @@ import {
 
 import * as pp from "@plasmicapp/react-web";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSelect__Overlay.module.css"; // plasmic-import: -JXF18N1eMSf/css
 
@@ -83,9 +84,7 @@ export const PlasmicSelect__Overlay__VariantProps = new Array<VariantPropType>(
   "relativePlacement"
 );
 
-export type PlasmicSelect__Overlay__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicSelect__Overlay__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicSelect__Overlay__ArgsType;
 export const PlasmicSelect__Overlay__ArgProps = new Array<ArgPropType>(
   "children"
@@ -123,7 +122,16 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -131,6 +139,7 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -143,7 +152,7 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
         path: "relativePlacement",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.relativePlacement
       }
     ],
@@ -153,12 +162,15 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
   const superContexts = {
     Select: React.useContext(SUPER__PlasmicSelect.Context)
   };
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -171,9 +183,7 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -301,16 +311,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelect__Overlay__VariantsArgs;
     args?: PlasmicSelect__Overlay__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelect__Overlay__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicSelect__Overlay__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelect__Overlay__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicSelect__Overlay__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

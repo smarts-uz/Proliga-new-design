@@ -37,27 +37,16 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-top: 10px;
   margin-bottom: 30px;
+  column-gap: 32px;
   min-width: 0;
   padding: 8px;
-}
-.info > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 32px);
-  width: calc(100% + 32px);
-}
-.info > :global(.__wab_flex-container) > *,
-.info > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.info > :global(.__wab_flex-container) > picture > img,
-.info > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 32px;
 }
 .text__gilx {
   position: relative;
@@ -104,6 +93,7 @@
   .main {
     display: flex;
     flex-direction: column;
+    column-gap: 0px;
   }
 }
 .sidebar {

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,11 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: nLFZBWuqWsMB/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeamPlayerCreate.module.css"; // plasmic-import: oUEeU2TYbEhh/css
 
@@ -121,7 +121,16 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -129,28 +138,27 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"playersTable"}
       data-plasmic-override={overrides.playersTable}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.playersTable
       )}
     >
@@ -165,11 +173,9 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
           className={classNames("__wab_instance", sty.avatarPlayer)}
         />
       </div>
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"def"}
         data-plasmic-override={overrides.def}
-        hasGap={true}
         className={classNames(projectcss.all, sty.def)}
       >
         <AvatarPlayer
@@ -195,12 +201,10 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
           data-plasmic-override={overrides.avatarPlayer5}
           className={classNames("__wab_instance", sty.avatarPlayer5)}
         />
-      </Stack__>
-      <Stack__
-        as={"div"}
+      </div>
+      <div
         data-plasmic-name={"mid"}
         data-plasmic-override={overrides.mid}
-        hasGap={true}
         className={classNames(projectcss.all, sty.mid)}
       >
         <AvatarPlayer
@@ -226,12 +230,10 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
           data-plasmic-override={overrides.avatarPlayer9}
           className={classNames("__wab_instance", sty.avatarPlayer9)}
         />
-      </Stack__>
-      <Stack__
-        as={"div"}
+      </div>
+      <div
         data-plasmic-name={"str"}
         data-plasmic-override={overrides.str}
-        hasGap={true}
         className={classNames(projectcss.all, sty.str)}
       >
         <AvatarPlayer
@@ -251,8 +253,8 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
           data-plasmic-override={overrides.avatarPlayer12}
           className={classNames("__wab_instance", sty.avatarPlayer12)}
         />
-      </Stack__>
-    </Stack__>
+      </div>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -339,16 +341,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTeamPlayerCreate__VariantsArgs;
     args?: PlasmicTeamPlayerCreate__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTeamPlayerCreate__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTeamPlayerCreate__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTeamPlayerCreate__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicTeamPlayerCreate__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

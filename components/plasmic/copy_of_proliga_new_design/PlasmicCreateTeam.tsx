@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -70,17 +70,40 @@ import Navbar from "../../Navbar"; // plasmic-import: j_koFSvK1RER/component
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
 import Button from "../../Button"; // plasmic-import: JtHKLkRqLyx-/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicCreateTeam.module.css"; // plasmic-import: fczUHaSabDbG/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3vZ6LsfPOxdi/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -119,7 +142,16 @@ function PlasmicCreateTeam__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -127,6 +159,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -142,13 +175,13 @@ function PlasmicCreateTeam__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "userId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return currentUser.customProperties.response[0].id;
@@ -162,6 +195,12 @@ function PlasmicCreateTeam__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -170,6 +209,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
@@ -219,6 +259,13 @@ function PlasmicCreateTeam__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -240,9 +287,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -250,6 +295,20 @@ function PlasmicCreateTeam__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <div className={classNames(projectcss.all, sty.columns__nZrtp)}>
@@ -282,11 +341,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 width={``}
               />
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.column__oxoxI)}
-            >
+            <div className={classNames(projectcss.all, sty.column__oxoxI)}>
               <div className={classNames(projectcss.all, sty.columns__g4VHp)}>
                 {(() => {
                   try {
@@ -330,9 +385,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </h1>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___6CdrU
@@ -344,11 +397,21 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         autoFocus={false}
                         className={classNames("__wab_instance", sty.textInput)}
                         name={``}
-                        onChange={(...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "textInput",
-                            "value"
-                          ])((e => e.target?.value).apply(null, eventArgs));
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "textInput",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
                         }}
                         placeholder={"Komandangizni nomi"}
                         required={true}
@@ -379,8 +442,10 @@ function PlasmicCreateTeam__RenderFunc(props: {
                                     userArgs: {
                                       params: [
                                         $state.userId,
+
                                         $queries.query.data.response[0].id
                                       ],
+
                                       body: [$state.textInput.value]
                                     },
                                     cacheKey: null,
@@ -472,15 +537,14 @@ function PlasmicCreateTeam__RenderFunc(props: {
                             typeof $steps["goToEditTeam2"] === "object" &&
                             typeof $steps["goToEditTeam2"].then === "function"
                           ) {
-                            $steps["goToEditTeam2"] = await $steps[
-                              "goToEditTeam2"
-                            ];
+                            $steps["goToEditTeam2"] =
+                              await $steps["goToEditTeam2"];
                           }
                         }}
                       >
                         {"O'ynash"}
                       </Button>
-                    </Stack__>
+                    </div>
                   </div>
                 ) : null}
                 {(() => {
@@ -609,9 +673,8 @@ function PlasmicCreateTeam__RenderFunc(props: {
                           typeof $steps["goToEditTeam2"] === "object" &&
                           typeof $steps["goToEditTeam2"].then === "function"
                         ) {
-                          $steps["goToEditTeam2"] = await $steps[
-                            "goToEditTeam2"
-                          ];
+                          $steps["goToEditTeam2"] =
+                            await $steps["goToEditTeam2"];
                         }
                       }}
                     >
@@ -620,7 +683,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
-            </Stack__>
+            </div>
           </div>
         </div>
       </div>
@@ -655,16 +718,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCreateTeam__VariantsArgs;
     args?: PlasmicCreateTeam__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCreateTeam__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicCreateTeam__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCreateTeam__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicCreateTeam__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -729,13 +794,11 @@ export const PlasmicCreateTeam = Object.assign(
     internalVariantProps: PlasmicCreateTeam__VariantProps,
     internalArgProps: PlasmicCreateTeam__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/createTeam/[id]",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

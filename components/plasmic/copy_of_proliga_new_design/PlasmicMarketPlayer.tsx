@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -66,11 +66,11 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicMarketPlayer.module.css"; // plasmic-import: I8vvHqaPHWkO/css
 
@@ -121,7 +121,16 @@ function PlasmicMarketPlayer__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -129,6 +138,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -144,7 +154,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return undefined;
@@ -163,7 +173,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
         path: "images",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.query.data;
@@ -187,6 +197,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
 
@@ -218,22 +229,20 @@ function PlasmicMarketPlayer__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -255,9 +264,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
         const currentItem = __plasmic_item_0;
         const currentIndex = __plasmic_idx_0;
         return (
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__oveJ9)}
             key={currentIndex}
             onClick={async event => {
@@ -358,11 +365,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__mwZjW)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__mwZjW)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__yx5O8)}
@@ -374,7 +377,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                 displayWidth={"14px"}
                 loading={"lazy"}
                 src={{
-                  src: "/plasmic/copy_of_proliga_new_design/images/pngClipartComputerIconsEuroCoinsEuroSignCurrencySymbolEuroTextTrademarkpng.png",
+                  src: "/plasmic/copy_of_proliga_new_design/images/pngClipartComputerIconsEuroCoinsEuroSignCurrencySymbolEuroTextTrademarkPng.png",
                   fullWidth: 900,
                   fullHeight: 512,
                   aspectRatio: undefined
@@ -406,12 +409,8 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__isl1L)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__isl1L)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__kBsq0)}
@@ -462,12 +461,8 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___1C9HZ)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox___1C9HZ)}>
               <div
                 data-plasmic-name={"fsyp"}
                 data-plasmic-override={overrides.fsyp}
@@ -504,11 +499,11 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
-          </Stack__>
+            </div>
+          </div>
         );
       })}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -545,16 +540,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMarketPlayer__VariantsArgs;
     args?: PlasmicMarketPlayer__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMarketPlayer__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicMarketPlayer__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMarketPlayer__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicMarketPlayer__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

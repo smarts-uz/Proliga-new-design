@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -68,15 +68,37 @@ import {
 
 import Navbar from "../../Navbar"; // plasmic-import: j_koFSvK1RER/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicChampionships.module.css"; // plasmic-import: k2zpvambpHH_/css
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -117,7 +139,16 @@ function PlasmicChampionships__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -125,6 +156,7 @@ function PlasmicChampionships__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -140,7 +172,7 @@ function PlasmicChampionships__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return currentUser.customProperties.response[0].id;
@@ -154,6 +186,12 @@ function PlasmicChampionships__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -162,6 +200,7 @@ function PlasmicChampionships__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
@@ -197,9 +236,12 @@ function PlasmicChampionships__RenderFunc(props: {
     $queries = new$Queries;
   }
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -221,9 +263,7 @@ function PlasmicChampionships__RenderFunc(props: {
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens,
+          styleTokensClassNames,
           sty.root
         )}
       >
@@ -231,6 +271,20 @@ function PlasmicChampionships__RenderFunc(props: {
           data-plasmic-name={"navbar"}
           data-plasmic-override={overrides.navbar}
           className={classNames("__wab_instance", sty.navbar)}
+          onUserChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
         />
 
         <h1
@@ -250,11 +304,9 @@ function PlasmicChampionships__RenderFunc(props: {
           data-plasmic-override={overrides.freeBox}
           className={classNames(projectcss.all, sty.freeBox)}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            hasGap={true}
             className={classNames(projectcss.all, sty.columns)}
           >
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -275,11 +327,9 @@ function PlasmicChampionships__RenderFunc(props: {
               const currentItem = __plasmic_item_0;
               const currentIndex = __plasmic_idx_0;
               return (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"column"}
                   data-plasmic-override={overrides.column}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.column)}
                   key={currentIndex}
                   onClick={async event => {
@@ -336,9 +386,8 @@ function PlasmicChampionships__RenderFunc(props: {
                       typeof $steps["goToShowTeamNewDesign"] === "object" &&
                       typeof $steps["goToShowTeamNewDesign"].then === "function"
                     ) {
-                      $steps["goToShowTeamNewDesign"] = await $steps[
-                        "goToShowTeamNewDesign"
-                      ];
+                      $steps["goToShowTeamNewDesign"] =
+                        await $steps["goToShowTeamNewDesign"];
                     }
 
                     $steps["createRow"] =
@@ -351,7 +400,9 @@ function PlasmicChampionships__RenderFunc(props: {
                                 userArgs: {
                                   body: [
                                     $state.userId,
+
                                     currentItem.competition_id,
+
                                     $queries.tourList.data.response[0].id
                                   ]
                                 },
@@ -516,10 +567,10 @@ function PlasmicChampionships__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                </Stack__>
+                </div>
               );
             })}
-          </Stack__>
+          </div>
         </div>
         <PlasmicImg__
           alt={""}
@@ -574,16 +625,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicChampionships__VariantsArgs;
     args?: PlasmicChampionships__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicChampionships__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicChampionships__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicChampionships__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicChampionships__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -650,13 +703,11 @@ export const PlasmicChampionships = Object.assign(
     internalVariantProps: PlasmicChampionships__VariantProps,
     internalArgProps: PlasmicChampionships__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/competition",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

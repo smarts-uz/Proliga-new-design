@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -63,18 +63,40 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Logout from "../../Logout"; // plasmic-import: sncfOMCbdWMu/component
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicHomePageAdmin.module.css"; // plasmic-import: 6He0p5VJ5Omi/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -117,7 +139,16 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -125,9 +156,12 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -137,19 +171,19 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "textInput2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "textInput3.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -158,13 +192,17 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -187,9 +225,7 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -240,19 +276,25 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
               </div>
             </div>
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__jS6Nt)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__jS6Nt)}>
             <TextInput
               data-plasmic-name={"textInput"}
               data-plasmic-override={overrides.textInput}
               className={classNames("__wab_instance", sty.textInput)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["textInput", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["textInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Chempionat sort"}
               showEndIcon={true}
@@ -265,10 +307,20 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
               data-plasmic-name={"textInput2"}
               data-plasmic-override={overrides.textInput2}
               className={classNames("__wab_instance", sty.textInput2)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["textInput2", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["textInput2", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Klub sort"}
               value={
@@ -280,27 +332,35 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
               data-plasmic-name={"textInput3"}
               data-plasmic-override={overrides.textInput3}
               className={classNames("__wab_instance", sty.textInput3)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["textInput3", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["textInput3", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Pozitsiya sort"}
               value={
                 generateStateValueProp($state, ["textInput3", "value"]) ?? ""
               }
             />
-          </Stack__>
+          </div>
           <div
             data-plasmic-name={"mainAction"}
             data-plasmic-override={overrides.mainAction}
             className={classNames(projectcss.all, sty.mainAction)}
           >
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"actions"}
               data-plasmic-override={overrides.actions}
-              hasGap={true}
               className={classNames(projectcss.all, sty.actions)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__jxUrv)}>
@@ -413,12 +473,10 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
                   {"Total"}
                 </div>
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
+            </div>
+            <div
               data-plasmic-name={"players"}
               data-plasmic-override={overrides.players}
-              hasGap={true}
               className={classNames(projectcss.all, sty.players)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__ajHz)}>
@@ -531,7 +589,7 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
                   {"11"}
                 </div>
               </div>
-            </Stack__>
+            </div>
           </div>
         </div>
       </div>
@@ -583,16 +641,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHomePageAdmin__VariantsArgs;
     args?: PlasmicHomePageAdmin__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHomePageAdmin__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicHomePageAdmin__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHomePageAdmin__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicHomePageAdmin__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -661,13 +721,11 @@ export const PlasmicHomePageAdmin = Object.assign(
     internalVariantProps: PlasmicHomePageAdmin__VariantProps,
     internalArgProps: PlasmicHomePageAdmin__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/home-page-admin",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

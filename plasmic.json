@@ -230,7 +230,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/antd/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/antd/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "gLnoj82AzKVVT7qXiqAbHD",
@@ -257,8 +260,8 @@
       "icons": [
         {
           "id": "zq2s7N0xWucT",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/plasmic_tabs/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/plasmic_tabs/icons/PlasmicIcon__CheckSvg.tsx"
         },
         {
           "id": "8K40faRNhuCj",
@@ -297,7 +300,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_tabs/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_tabs/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "q8iq2J191QypeBqVSHzb6M",
@@ -404,7 +410,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/tiptap/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/tiptap/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -427,7 +436,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_embed_css/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_embed_css/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "kS7YGZfVr6mU43XDQjXELc",
@@ -450,7 +462,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/react_chartjs_2/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_chartjs_2/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -477,7 +492,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/react_slick/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_slick/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "22U3ZXm4dE59qEW488gxzU",
@@ -512,7 +530,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_graphcms/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_graphcms/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -571,7 +592,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_basic_components/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_basic_components/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -594,7 +618,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/react_awesome_reveal/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/react_awesome_reveal/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -623,7 +650,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_query/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_query/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -678,7 +708,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_rich_components/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_rich_components/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -1079,7 +1112,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/antd_5_hostless/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/antd_5_hostless/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -1102,7 +1138,10 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "styleTokensProviderFilePath": "plasmic/plasmic_nav/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/plasmic_nav/plasmic.tsx",
+      "dataTokensFilePath": ""
     },
     {
       "projectId": "qrPZwqtrqWM4S9b4djCj1H",
@@ -2289,13 +2328,26 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/new-page-3"
+        },
+        {
+          "id": "pZT07rlqywda",
+          "name": "Navbar2",
+          "type": "managed",
+          "projectId": "qrPZwqtrqWM4S9b4djCj1H",
+          "renderModuleFilePath": "plasmic/proliga_v_4/PlasmicNavbar2.tsx",
+          "importSpec": {
+            "modulePath": "Navbar2.tsx"
+          },
+          "cssFilePath": "plasmic/proliga_v_4/PlasmicNavbar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
         {
           "id": "wUfM8ozzkHkf",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__CheckSvg.tsx"
         },
         {
           "id": "3vZ6LsfPOxdi",
@@ -2304,38 +2356,38 @@
         },
         {
           "id": "DJCZ30FSSW4V",
-          "name": "SearchsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__Searchsvg.tsx"
+          "name": "SearchSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SearchSvg.tsx"
         },
         {
           "id": "I0hu55gL5MHN",
-          "name": "SquaresvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__Squaresvg.tsx"
+          "name": "SquareSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SquareSvg.tsx"
         },
         {
           "id": "KT_fzt3f85S5",
-          "name": "SquareCheckFilledsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SquareCheckFilledsvg.tsx"
+          "name": "SquareCheckFilledSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SquareCheckFilledSvg.tsx"
         },
         {
           "id": "PZ_INQhu-OFD",
-          "name": "SquareMinussvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SquareMinussvg.tsx"
+          "name": "SquareMinusSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__SquareMinusSvg.tsx"
         },
         {
           "id": "MbXf79qfNc9-",
-          "name": "Rolling1X10S200Px200PxsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__Rolling1X10S200Px200Pxsvg.tsx"
+          "name": "Rolling1X10S200Px200PxSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__Rolling1X10S200Px200PxSvg.tsx"
         },
         {
           "id": "NJW6VTG4j1-N",
-          "name": "ChevronDownsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ChevronDownsvg.tsx"
+          "name": "ChevronDownSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ChevronDownSvg.tsx"
         },
         {
           "id": "YYr3WFQCnSX8",
-          "name": "ChevronUpsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ChevronUpsvg.tsx"
+          "name": "ChevronUpSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ChevronUpSvg.tsx"
         },
         {
           "id": "-CvT-vR8Bfkd",
@@ -2344,13 +2396,28 @@
         },
         {
           "id": "-7NYYr2J81o2",
-          "name": "ThinArrowTopIconsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ThinArrowTopIconsvg.tsx"
+          "name": "ThinArrowTopIconSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__ThinArrowTopIconSvg.tsx"
         },
         {
           "id": "gvbI6nHpb9NB",
-          "name": "IconmonstrArrowDownThinsvgIcon",
-          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__IconmonstrArrowDownThinsvg.tsx"
+          "name": "IconmonstrArrowDownThinSvgIcon",
+          "moduleFilePath": "plasmic/copy_of_proliga_new_design/icons/PlasmicIcon__IconmonstrArrowDownThinSvg.tsx"
+        },
+        {
+          "id": "Ax6wFq32fsMu",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/proliga_v_4/icons/PlasmicIcon__Icon3.tsx"
+        },
+        {
+          "id": "D1ZJUrIo0Osa",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/proliga_v_4/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "NXdWphelV7Ee",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/proliga_v_4/icons/PlasmicIcon__Icon5.tsx"
         }
       ],
       "images": [
@@ -2367,12 +2434,12 @@
         {
           "id": "FbLaNxUiJRWl",
           "name": "logo_fantasy_dark_bg.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoFantasyDarkBgpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoFantasyDarkBgPng.png"
         },
         {
           "id": "n6mQu6cnhAi4",
           "name": "logo_sponsor_main_white.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoSponsorMainWhitepng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoSponsorMainWhitePng.png"
         },
         {
           "id": "r12IcYs_WZzm",
@@ -2382,7 +2449,7 @@
         {
           "id": "mTMXmXAAJX1k",
           "name": "unnamed.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/unnamedjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/unnamedJpg.jpg"
         },
         {
           "id": "GmDz8ONA1AKD",
@@ -2402,27 +2469,27 @@
         {
           "id": "fE_N9Zm-pNSo",
           "name": "facebook-logo-circle-transparent.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/facebookLogoCircleTransparentpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/facebookLogoCircleTransparentPng.png"
         },
         {
           "id": "7OUk-JZD1Rax",
           "name": "754_facebook_icon.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/_754FacebookIconjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/_754FacebookIconJpg.jpg"
         },
         {
           "id": "96DCrG9Zd-wj",
           "name": "Google__G__logo.svg.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/googleGLogosvgpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/googleGLogoSvgPng.png"
         },
         {
           "id": "H_AGIFWpZWcJ",
           "name": "images.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/imagespng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/imagesPng.png"
         },
         {
           "id": "lBgtM_Z1BhP3",
           "name": "Real-Betis.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/realBetispng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/realBetisPng.png"
         },
         {
           "id": "1gQZrtC_oo0C",
@@ -2432,122 +2499,122 @@
         {
           "id": "Y49mKGho40Bf",
           "name": "empty_state_no_results.webp",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/emptyStateNoResultswebp.webp"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/emptyStateNoResultsWebp.webp"
         },
         {
           "id": "X_YktxU-R2Az",
           "name": "X_logo_2023_original.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xLogo2023Originalsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xLogo2023OriginalSvg.svg"
         },
         {
           "id": "e_03hidr8bFQ",
           "name": "x-social-media-white-icon.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xSocialMediaWhiteIconpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xSocialMediaWhiteIconPng.png"
         },
         {
           "id": "joRL5dKXNvE5",
           "name": "soccer place.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/soccerPlacejpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/soccerPlaceJpg.jpg"
         },
         {
           "id": "abeckRxJAj-h",
           "name": "Sergio Her.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/sergioHerpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/sergioHerPng.png"
         },
         {
           "id": "4du5yGRSSaqF",
           "name": "Dovbyk.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/dovbykpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/dovbykPng.png"
         },
         {
           "id": "CCliDDw7PYFj",
           "name": "Ramos.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ramospng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ramosPng.png"
         },
         {
           "id": "gjdDe93s7hq0",
           "name": "John pache.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/johnPachepng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/johnPachePng.png"
         },
         {
           "id": "_lYvkXqy-E0d",
           "name": "Migueza.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/miguezapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/miguezaPng.png"
         },
         {
           "id": "o7Jv_E0w8HKa",
           "name": "Zahkaryan.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/zahkaryanpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/zahkaryanPng.png"
         },
         {
           "id": "vbQCBSu5Wgnv",
           "name": "Iker munofiz.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ikerMunofizpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ikerMunofizPng.png"
         },
         {
           "id": "ji1zVCwIiFtP",
           "name": "Robert nav.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/robertNavpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/robertNavPng.png"
         },
         {
           "id": "fZYr4PIiKW1t",
           "name": "Alcaraz.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/alcarazpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/alcarazPng.png"
         },
         {
           "id": "KmVssX3rPdW7",
           "name": "Rodrygo.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/rodrygopng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/rodrygoPng.png"
         },
         {
           "id": "9BKqoBnjZ1bz",
           "name": "Willian Jose.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/willianJosepng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/willianJosePng.png"
         },
         {
           "id": "Wn9WfcAoNxzn",
           "name": "Cros.webp",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/croswebp.webp"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/crosWebp.webp"
         },
         {
           "id": "9xkx5rhD1adw",
           "name": "Athletico madrid.webp",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/athleticoMadridwebp.webp"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/athleticoMadridWebp.webp"
         },
         {
           "id": "Nk5-XC5acPPm",
           "name": "Cimy Amela.webp",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/cimyAmelawebp.webp"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/cimyAmelaWebp.webp"
         },
         {
           "id": "pvNVHbhJ0e6g",
           "name": "Rm team.webp",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/rmTeamwebp.webp"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/rmTeamWebp.webp"
         },
         {
           "id": "IjDGyVto0D8s",
           "name": "Real-madrid.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/realMadridpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/realMadridPng.png"
         },
         {
           "id": "9K367kLv8X86",
           "name": "Cadiz.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/cadizpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/cadizPng.png"
         },
         {
           "id": "QwQ4H6Q1sBOt",
           "name": "FcBarcelona.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/fcBarcelonapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/fcBarcelonaPng.png"
         },
         {
           "id": "0Gy-T1VPakwu",
           "name": "Osasuna.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/osasunapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/osasunaPng.png"
         },
         {
           "id": "sHpE4-p10C7M",
           "name": "Alaves.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/alavespng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/alavesPng.png"
         },
         {
           "id": "aoqAyLTvWlHS",
@@ -2557,7 +2624,7 @@
         {
           "id": "ecBA1zzKyqer",
           "name": "images.png 2",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/imagespng2.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/imagesPng2.png"
         },
         {
           "id": "yfIyIWjP__aj",
@@ -2567,12 +2634,12 @@
         {
           "id": "GgxuBmLMfYOp",
           "name": "warning-outline.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/warningOutlinesvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/warningOutlineSvg.svg"
         },
         {
           "id": "_jN8PY5wusQk",
           "name": "1200px-Warning.svg.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/_1200PxWarningsvgpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/_1200PxWarningSvgPng.png"
         },
         {
           "id": "zvdKhnADs_Ec",
@@ -2582,7 +2649,7 @@
         {
           "id": "H141tCEMfBeY",
           "name": "hospital.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/hospitalsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/hospitalSvg.svg"
         },
         {
           "id": "SyzNgg9ez0SJ",
@@ -2607,22 +2674,22 @@
         {
           "id": "O5HHX8IO7PAM",
           "name": "Xetafe.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xetafepng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xetafePng.png"
         },
         {
           "id": "Bi9TV69ga4-d",
           "name": "free-red-hospital-clinic-icon-10725-thumb.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/freeRedHospitalClinicIcon10725Thumbpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/freeRedHospitalClinicIcon10725ThumbPng.png"
         },
         {
           "id": "scg7VyO8Y2_Z",
           "name": "logo_sponsor_main_pink.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoSponsorMainPinkpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoSponsorMainPinkPng.png"
         },
         {
           "id": "AdM58BXUMz22",
           "name": "Borja Mayoral.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/borjaMayoralpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/borjaMayoralPng.png"
         },
         {
           "id": "8B7_BHLqrIRC",
@@ -2637,72 +2704,72 @@
         {
           "id": "qxJJiAI7d_Bg",
           "name": "Courtua.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/courtuapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/courtuaPng.png"
         },
         {
           "id": "VnnRFssuz8yH",
           "name": "Giménez.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/gimenezpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/gimenezPng.png"
         },
         {
           "id": "wosGFR_emmpE",
           "name": "Traoré.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/traorepng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/traorePng.png"
         },
         {
           "id": "mrHSfN3fYmmA",
           "name": "Arda Güler.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ardaGulerpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ardaGulerPng.png"
         },
         {
           "id": "yCXuBeCZFOvD",
           "name": "Ayoze Pérez.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ayozePerezpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ayozePerezPng.png"
         },
         {
           "id": "maKIILzL1Dyz",
           "name": "Budimir.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/budimirpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/budimirPng.png"
         },
         {
           "id": "_JaqK9Ro3IID",
           "name": "Ceballos.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ceballospng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/ceballosPng.png"
         },
         {
           "id": "-ysqdRfZRogy",
           "name": "David García.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/davidGarciapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/davidGarciaPng.png"
         },
         {
           "id": "8zlDhF8YdMjf",
           "name": "De Galarreta.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deGalarretapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deGalarretaPng.png"
         },
         {
           "id": "dnoUMA6WnGdS",
           "name": "De Jong.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deJongpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deJongPng.png"
         },
         {
           "id": "ZdEQT9GbbD9l",
           "name": "De Leon.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deLeonpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/deLeonPng.png"
         },
         {
           "id": "UobStTuEBMUg",
           "name": "Fran García.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/franGarciapng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/franGarciaPng.png"
         },
         {
           "id": "M-JEM16TVa57",
           "name": "Isaac.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/isaacpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/isaacPng.png"
         },
         {
           "id": "SphcsCMP8jZg",
           "name": "free-euro-coin-icon-2141-thumb.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/freeEuroCoinIcon2141Thumbpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/freeEuroCoinIcon2141ThumbPng.png"
         },
         {
           "id": "hJPLW4l8xPs6",
@@ -2712,7 +2779,7 @@
         {
           "id": "_JjickR7CKh2",
           "name": "euro.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/europng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/euroPng.png"
         },
         {
           "id": "GJzd2AdyBeKj",
@@ -2727,7 +2794,7 @@
         {
           "id": "f-L2Hh7WoGHR",
           "name": "png-clipart-computer-icons-euro-coins-euro-sign-currency-symbol-euro-text-trademark.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/pngClipartComputerIconsEuroCoinsEuroSignCurrencySymbolEuroTextTrademarkpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/pngClipartComputerIconsEuroCoinsEuroSignCurrencySymbolEuroTextTrademarkPng.png"
         },
         {
           "id": "qaxT33Okfn5e",
@@ -2737,12 +2804,12 @@
         {
           "id": "WiJF6FT8AGZE",
           "name": "logo-design-template-b588de7cc0b07e82392c3b2ea4ea7b73_screen.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73ScreenJpg.jpg"
         },
         {
           "id": "5o6lDkanaZ1r",
           "name": "first.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/firstjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/firstJpg.jpg"
         },
         {
           "id": "fDOVN3xgztQ0",
@@ -2752,7 +2819,7 @@
         {
           "id": "1nm9kDQ6gkDY",
           "name": "football-stadium-wpbk2e4mrt3gz1mz.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/footballStadiumWpbk2E4Mrt3Gz1Mzjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/footballStadiumWpbk2E4Mrt3Gz1MzJpg.jpg"
         },
         {
           "id": "qAxnZG4vhhiC",
@@ -2772,27 +2839,27 @@
         {
           "id": "Wyj6Qx6PYR9b",
           "name": "pitch-small.e4e4ad56.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/pitchSmalle4E4Ad56Svg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/pitchSmallE4E4Ad56Svg.svg"
         },
         {
           "id": "NVlDAq8bgeY4",
           "name": "icons8-x.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/icons8Xsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/icons8XSvg.svg"
         },
         {
           "id": "J0_B_z_gaM9O",
           "name": "red-x-line-icon.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/redXLineIconsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/redXLineIconSvg.svg"
         },
         {
           "id": "5g_RGXtu317E",
           "name": "form.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/formsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/formSvg.svg"
         },
         {
           "id": "cMZOr-p70lhR",
           "name": "stadion_sports_ru.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/stadionSportsRusvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/stadionSportsRuSvg.svg"
         },
         {
           "id": "8_hDg4Kfi-tA",
@@ -2802,7 +2869,7 @@
         {
           "id": "JYtDO3dBBRvC",
           "name": "x.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/xJpg.jpg"
         },
         {
           "id": "-GYcOHT4vsrd",
@@ -2812,7 +2879,7 @@
         {
           "id": "FcTZbVN3_IVk",
           "name": "stadion.svg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/stadionsvg.svg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/stadionSvg.svg"
         },
         {
           "id": "3SKEunulzdZP",
@@ -2832,7 +2899,7 @@
         {
           "id": "N1YYuV-VR0TJ",
           "name": "user.png",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/userpng.png"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/userPng.png"
         },
         {
           "id": "DikhPRoZu9aJ",
@@ -2852,12 +2919,12 @@
         {
           "id": "3sXCzLPnCy4h",
           "name": "photo_2024-07-24_14-50-23-removebg-preview.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/photo20240724145023RemovebgPreviewjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/photo20240724145023RemovebgPreviewJpg.jpg"
         },
         {
           "id": "goZCeulabsGh",
           "name": "hompage_main-png.jpg",
-          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/hompageMainPngjpg.jpg"
+          "filePath": "../public/plasmic/copy_of_proliga_new_design/images/hompageMainPngJpg.jpg"
         },
         {
           "id": "bjfXzJhIl_Kb",
@@ -2947,17 +3014,17 @@
         {
           "id": "qsjkOcMnbJKB",
           "name": "info.svg",
-          "filePath": "../public/plasmic/proliga_v_4/images/infosvg.svg"
+          "filePath": "../public/plasmic/proliga_v_4/images/infoSvg.svg"
         },
         {
           "id": "6iR2BsS83Mjh",
           "name": "iconoooooo.jpg",
-          "filePath": "../public/plasmic/proliga_v_4/images/iconoooooojpg.jpg"
+          "filePath": "../public/plasmic/proliga_v_4/images/iconooooooJpg.jpg"
         },
         {
           "id": "ODLfBsQsvDWD",
           "name": "hello.png",
-          "filePath": "../public/plasmic/proliga_v_4/images/hellopng.png"
+          "filePath": "../public/plasmic/proliga_v_4/images/helloPng.png"
         },
         {
           "id": "64-3pjLitFqY",
@@ -2987,7 +3054,10 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "styleTokensProviderFilePath": "plasmic/proliga_v_4/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/proliga_v_4/plasmic.tsx",
+      "dataTokensFilePath": ""
     }
   ],
   "globalVariants": {
@@ -3001,9 +3071,10 @@
     ]
   },
   "wrapPagesWithGlobalContexts": true,
+  "preserveJsImportExtensions": false,
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.331",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.331/dist/plasmic.schema.json"
+  "cliVersion": "0.1.359",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.359/dist/plasmic.schema.json"
 }

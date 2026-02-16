@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -67,15 +67,37 @@ import SoccerPlaceMens from "../../SoccerPlaceMens"; // plasmic-import: AD9rteI8
 import Select from "../../Select"; // plasmic-import: WDDaSJMd5buE/component
 import Footer from "../../Footer"; // plasmic-import: sRXlHXHXDYps/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicIdealXl.module.css"; // plasmic-import: s53iPI1wh3wh/css
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -120,7 +142,16 @@ function PlasmicIdealXl__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -128,9 +159,12 @@ function PlasmicIdealXl__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -140,7 +174,13 @@ function PlasmicIdealXl__RenderFunc(props: {
         path: "select.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -149,12 +189,16 @@ function PlasmicIdealXl__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -177,9 +221,7 @@ function PlasmicIdealXl__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.idealXl
           )}
         >
@@ -187,6 +229,20 @@ function PlasmicIdealXl__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__uHUu)}>
@@ -344,11 +400,7 @@ function PlasmicIdealXl__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens)}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__pEwH)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__pEwH)}>
                 <div className={classNames(projectcss.all, sty.freeBox__qeVd)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__n1Qb5)}
@@ -370,10 +422,21 @@ function PlasmicIdealXl__RenderFunc(props: {
                       data-plasmic-name={"select"}
                       data-plasmic-override={overrides.select}
                       className={classNames("__wab_instance", sty.select)}
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, ["select", "value"])(
-                          eventArgs[0]
-                        );
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "select",
+                            "value"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
                       }}
                       options={[
                         { value: "option1", label: "Option 1" },
@@ -390,7 +453,7 @@ function PlasmicIdealXl__RenderFunc(props: {
                 <div
                   className={classNames(projectcss.all, sty.freeBox__qnZMo)}
                 />
-              </Stack__>
+              </div>
             </div>
           </div>
           <Footer
@@ -474,16 +537,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIdealXl__VariantsArgs;
     args?: PlasmicIdealXl__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIdealXl__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicIdealXl__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIdealXl__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicIdealXl__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -537,13 +602,11 @@ export const PlasmicIdealXl = Object.assign(
     internalVariantProps: PlasmicIdealXl__VariantProps,
     internalArgProps: PlasmicIdealXl__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/ideal-xl",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

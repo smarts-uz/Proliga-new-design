@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicBreakinNewsCards.module.css"; // plasmic-import: aZj-iJZhifXL/css
 
@@ -135,7 +136,16 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -143,6 +153,7 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -155,19 +166,19 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
         path: "variant2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant2
       },
       {
         path: "variant3",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant3
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant3
       },
       {
         path: "rmTeam",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.rmTeam
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.rmTeam
       }
     ],
     [$props, $ctx, $refs]
@@ -176,8 +187,11 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -190,9 +204,7 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         { [sty.rootvariant2]: hasVariant($state, "variant2", "variant2") }
       )}
@@ -219,43 +231,43 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
           src={
             hasVariant($state, "rmTeam", "rmTeam")
               ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/rmTeamwebp.webp",
+                  src: "/plasmic/copy_of_proliga_new_design/images/rmTeamWebp.webp",
                   fullWidth: 569,
                   fullHeight: 320,
                   aspectRatio: undefined
                 }
               : hasVariant($state, "variant3", "variant3")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/cimyAmelawebp.webp",
-                  fullWidth: 569,
-                  fullHeight: 320,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "variant2", "variant2")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/athleticoMadridwebp.webp",
-                  fullWidth: 569,
-                  fullHeight: 320,
-                  aspectRatio: undefined
-                }
-              : (() => {
-                  try {
-                    return $props.image;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return {
-                        src: "/plasmic/copy_of_proliga_new_design/images/croswebp.webp",
-                        fullWidth: 569,
-                        fullHeight: 320,
-                        aspectRatio: undefined
-                      };
-                    }
-                    throw e;
+                ? {
+                    src: "/plasmic/copy_of_proliga_new_design/images/cimyAmelaWebp.webp",
+                    fullWidth: 569,
+                    fullHeight: 320,
+                    aspectRatio: undefined
                   }
-                })()
+                : hasVariant($state, "variant2", "variant2")
+                  ? {
+                      src: "/plasmic/copy_of_proliga_new_design/images/athleticoMadridWebp.webp",
+                      fullWidth: 569,
+                      fullHeight: 320,
+                      aspectRatio: undefined
+                    }
+                  : (() => {
+                      try {
+                        return $props.image;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return {
+                            src: "/plasmic/copy_of_proliga_new_design/images/crosWebp.webp",
+                            fullWidth: 569,
+                            fullHeight: 320,
+                            aspectRatio: undefined
+                          };
+                        }
+                        throw e;
+                      }
+                    })()
           }
         />
 
@@ -431,16 +443,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBreakinNewsCards__VariantsArgs;
     args?: PlasmicBreakinNewsCards__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBreakinNewsCards__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicBreakinNewsCards__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBreakinNewsCards__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicBreakinNewsCards__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -63,13 +63,37 @@ import Navbar from "../../Navbar"; // plasmic-import: j_koFSvK1RER/component
 import InjuredClub from "../../InjuredClub"; // plasmic-import: tAs5iSDBu8oK/component
 import InjuredTeamMember from "../../InjuredTeamMember"; // plasmic-import: -ZjOM5ux0wjZ/component
 import Footer from "../../Footer"; // plasmic-import: sRXlHXHXDYps/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicAbsences.module.css"; // plasmic-import: SjHyr0AJYc9o/css
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -109,7 +133,16 @@ function PlasmicAbsences__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -117,11 +150,38 @@ function PlasmicAbsences__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $q: {},
+    $refs
+  });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -144,9 +204,7 @@ function PlasmicAbsences__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -154,6 +212,20 @@ function PlasmicAbsences__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <div
@@ -172,11 +244,7 @@ function PlasmicAbsences__RenderFunc(props: {
             data-plasmic-override={overrides.columns}
             className={classNames(projectcss.all, sty.columns)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.column__mCEpa)}
-            >
+            <div className={classNames(projectcss.all, sty.column__mCEpa)}>
               <InjuredClub
                 className={classNames("__wab_instance", sty.injuredClub__bnvYr)}
               />
@@ -215,12 +283,8 @@ function PlasmicAbsences__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.injuredClub__j9Pop)}
                 variant2={true}
               />
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.column__nlEcM)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.column__nlEcM)}>
               <InjuredClub
                 className={classNames(
                   "__wab_instance",
@@ -289,12 +353,8 @@ function PlasmicAbsences__RenderFunc(props: {
               <InjuredClub
                 className={classNames("__wab_instance", sty.injuredClub__zPtNd)}
               />
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.column__tIfDm)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.column__tIfDm)}>
               <InjuredClub
                 className={classNames("__wab_instance", sty.injuredClub__q2Jbg)}
                 variant3={true}
@@ -331,7 +391,7 @@ function PlasmicAbsences__RenderFunc(props: {
                 )}
                 variant2={true}
               />
-            </Stack__>
+            </div>
           </div>
           <Footer
             data-plasmic-name={"footer"}
@@ -373,16 +433,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAbsences__VariantsArgs;
     args?: PlasmicAbsences__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAbsences__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicAbsences__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAbsences__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicAbsences__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -431,13 +493,11 @@ export const PlasmicAbsences = Object.assign(
     internalVariantProps: PlasmicAbsences__VariantProps,
     internalArgProps: PlasmicAbsences__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/absences",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

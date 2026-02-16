@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuredClub.module.css"; // plasmic-import: tAs5iSDBu8oK/css
 
@@ -119,7 +120,16 @@ function PlasmicInjuredClub__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -127,6 +137,7 @@ function PlasmicInjuredClub__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -139,19 +150,19 @@ function PlasmicInjuredClub__RenderFunc(props: {
         path: "variant1",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant1
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant1
       },
       {
         path: "variant2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant2
       },
       {
         path: "variant3",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.variant3
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.variant3
       }
     ],
     [$props, $ctx, $refs]
@@ -160,8 +171,11 @@ function PlasmicInjuredClub__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -174,9 +188,7 @@ function PlasmicInjuredClub__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         {
           [sty.rootvariant1]: hasVariant($state, "variant1", "variant1"),
@@ -219,31 +231,31 @@ function PlasmicInjuredClub__RenderFunc(props: {
           src={
             hasVariant($state, "variant3", "variant3")
               ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/realMadridpng.png",
+                  src: "/plasmic/copy_of_proliga_new_design/images/realMadridPng.png",
                   fullWidth: 80,
                   fullHeight: 104,
                   aspectRatio: undefined
                 }
               : hasVariant($state, "variant2", "variant2")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/fcBarcelonapng.png",
-                  fullWidth: 96,
-                  fullHeight: 100,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "variant1", "variant1")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/osasunapng.png",
-                  fullWidth: 120,
-                  fullHeight: 120,
-                  aspectRatio: undefined
-                }
-              : {
-                  src: "/plasmic/copy_of_proliga_new_design/images/alavespng.png",
-                  fullWidth: 120,
-                  fullHeight: 120,
-                  aspectRatio: undefined
-                }
+                ? {
+                    src: "/plasmic/copy_of_proliga_new_design/images/fcBarcelonaPng.png",
+                    fullWidth: 96,
+                    fullHeight: 100,
+                    aspectRatio: undefined
+                  }
+                : hasVariant($state, "variant1", "variant1")
+                  ? {
+                      src: "/plasmic/copy_of_proliga_new_design/images/osasunaPng.png",
+                      fullWidth: 120,
+                      fullHeight: 120,
+                      aspectRatio: undefined
+                    }
+                  : {
+                      src: "/plasmic/copy_of_proliga_new_design/images/alavesPng.png",
+                      fullWidth: 120,
+                      fullHeight: 120,
+                      aspectRatio: undefined
+                    }
           }
         />
 
@@ -275,7 +287,7 @@ function PlasmicInjuredClub__RenderFunc(props: {
           displayWidth={"32px"}
           loading={"lazy"}
           src={{
-            src: "/plasmic/copy_of_proliga_new_design/images/_1200PxWarningsvgpng.png",
+            src: "/plasmic/copy_of_proliga_new_design/images/_1200PxWarningSvgPng.png",
             fullWidth: 1200,
             fullHeight: 1108,
             aspectRatio: undefined
@@ -311,16 +323,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInjuredClub__VariantsArgs;
     args?: PlasmicInjuredClub__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInjuredClub__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInjuredClub__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInjuredClub__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInjuredClub__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

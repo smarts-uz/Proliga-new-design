@@ -1,16 +1,16 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type Rolling1X10S200Px200PxsvgIconProps = React.ComponentProps<"svg"> & {
+export type Rolling1X10S200Px200PxSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function Rolling1X10S200Px200PxsvgIcon(
-  props: Rolling1X10S200Px200PxsvgIconProps
+export function Rolling1X10S200Px200PxSvgIcon(
+  props: Rolling1X10S200Px200PxSvgIconProps
 ) {
   const { className, style, title, ...restProps } = props;
   return (
@@ -21,7 +21,7 @@ export function Rolling1X10S200Px200PxsvgIcon(
       style={{
         background: '#fff"',
 
-        ...(style || {}),
+        ...(style || {})
       }}
       shapeRendering={"auto"}
       display={"block"}
@@ -53,5 +53,5 @@ export function Rolling1X10S200Px200PxsvgIcon(
   );
 }
 
-export default Rolling1X10S200Px200PxsvgIcon;
+export default Rolling1X10S200Px200PxSvgIcon;
 /* prettier-ignore-end */

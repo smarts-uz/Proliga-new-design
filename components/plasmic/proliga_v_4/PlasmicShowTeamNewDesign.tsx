@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -85,16 +85,40 @@ import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicShowTeamNewDesign.module.css"; // plasmic-import: BCn-9x0BdgdA/css
 
-import SearchsvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
+import SearchSvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "../copy_of_proliga_new_design/icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -169,7 +193,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -177,6 +210,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -194,7 +228,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "clubs",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.clubsnameid.data.response;
@@ -213,7 +247,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return currentUser.customProperties.response[0].id;
@@ -232,25 +266,25 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "all",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "orderName",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "price"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "price"
       },
       {
         path: "orderType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "desc"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "desc"
       },
       {
         path: "playerId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.teamPlayer.data.response[0].id;
@@ -269,13 +303,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "updateCapitanVisibility",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "selectFormation2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.query.data.response[0].formation;
@@ -294,7 +328,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagination2.currentPage",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 1,
 
         onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
       },
@@ -302,7 +336,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagination2.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -310,7 +344,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagination2.startIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
       },
@@ -318,7 +352,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagination2.endIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
@@ -326,13 +360,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "selectClub2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 1
       },
       {
         path: "pagclubtab2.currentPage",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 1,
 
         onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
       },
@@ -340,7 +374,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagclubtab2.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -348,7 +382,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagclubtab2.startIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
       },
@@ -356,7 +390,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagclubtab2.endIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
@@ -364,13 +398,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "select3.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "DEF"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "DEF"
       },
       {
         path: "pagpostab2.currentPage",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 1,
 
         onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
       },
@@ -378,7 +412,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpostab2.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -386,7 +420,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpostab2.startIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
       },
@@ -394,7 +428,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpostab2.endIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
@@ -402,19 +436,19 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "startPrice2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "endPrice2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 100
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 100
       },
       {
         path: "pagpricetab2.currentPage",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 1,
 
         onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
       },
@@ -422,7 +456,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpricetab2.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -430,7 +464,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpricetab2.startIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
       },
@@ -438,7 +472,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "pagpricetab2.endIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
@@ -446,19 +480,19 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "teamName3.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "0"
       },
       {
         path: "teamName4.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "100"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "100"
       },
       {
         path: "data",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.query2.data.response;
@@ -477,25 +511,25 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "selectClub.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "all"
       },
       {
         path: "teamName5.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "selectClub3.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "all"
       },
       {
         path: "sumPrice",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.teamPlayerS.data.response.reduce(
@@ -518,7 +552,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "filter",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (
@@ -554,17 +588,17 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "data1",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.selectClub.value
                 ? $queries.tabsClub.data.response
                 : $state.selectClub3.value !== "all"
-                ? $queries.tabsPos.data.response
-                : $state.teamName3.value !== "0" ||
-                  $state.teamName4.value !== "100"
-                ? $queries.tabPrice.data.response
-                : $queries.tabAll.data.response;
+                  ? $queries.tabsPos.data.response
+                  : $state.teamName3.value !== "0" ||
+                      $state.teamName4.value !== "100"
+                    ? $queries.tabPrice.data.response
+                    : $queries.tabAll.data.response;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -580,13 +614,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "select.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "sliderCarousel.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.tour;
@@ -608,7 +642,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "tour",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.tourList.data.response.findIndex(
@@ -629,7 +663,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         path: "capitanId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.select.value;
@@ -643,6 +677,12 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -651,6 +691,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
@@ -711,6 +752,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         opId: "38ef613e-6433-4c8c-bfff-633f526d6646",
         userArgs: {
           path: [$state.filter],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.38ef613e-6433-4c8c-bfff-633f526d6646.$.`,
@@ -725,11 +767,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.pagination2.pageSize,
+
             $state.pagination2.startIndex,
+
             "*" + $state.teamName5.value + "*",
+
             $state.orderName,
+
             $state.orderType
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.8d7c2872-ef5b-424b-b01e-b7085ef7962c.$.`,
@@ -737,13 +784,14 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         roleId: "ead2b235-73a3-4579-b15a-7fc91fc1a23a"
       };
     }),
-    clubsnameid: usePlasmicDataOp(() => {
+    clubsNameId: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "145e9346-c08d-49b7-9040-a86258d65343",
         userArgs: {
           params: [
             $queries.countryId.data.response[0].country_id,
+
             $ctx.params.comp_id
           ]
         },
@@ -771,11 +819,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.selectClub.value,
+
             $state.pagination2.pageSize,
+
             $state.pagination2.startIndex,
+
             $state.orderName,
+
             $state.orderType
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.b777671d-460c-4994-8fef-61bbbef80142.$.`,
@@ -790,11 +843,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.selectClub3.value,
+
             $state.pagination2.pageSize,
+
             $state.pagination2.startIndex,
+
             $state.orderName,
+
             $state.orderType
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.7110f3e0-a43a-476d-a2cc-9bed234d79ae.$.`,
@@ -809,13 +867,20 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.teamName3.value,
+
             $state.teamName4.value,
+
             $state.pagination2.pageSize,
+
             $state.pagination2.startIndex,
+
             $state.teamName5.value,
+
             $state.orderName,
+
             $state.orderType
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.ac33b385-6538-4ded-b548-75bf35539922.$.`,
@@ -830,9 +895,12 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.selectClub.value,
+
             $state.teamName5.value,
+
             $state.orderName
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.ee139b75-f09f-4b56-a48c-ec2dd301e604.$.`,
@@ -846,6 +914,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         opId: "db732cb3-be8a-4ab6-976c-d9cde271d3af",
         userArgs: {
           path: [$state.selectClub3.value, $state.teamName5.value],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.db732cb3-be8a-4ab6-976c-d9cde271d3af.$.`,
@@ -860,9 +929,12 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.teamName3.value,
+
             $state.teamName4.value,
+
             $state.teamName5.value
           ],
+
           params: [$queries.query.data.response[0].competition_id]
         },
         cacheKey: `plasmic.$.3b8f3523-d07e-4b2d-97e2-d29ee345e8c8.$.`,
@@ -931,9 +1003,12 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
         userArgs: {
           path: [
             $state.pagination2.pageSize,
+
             $state.pagination2.startIndex,
+
             $state.filter
           ],
+
           params: [$ctx.params.comp_id]
         },
         cacheKey: `plasmic.$.18901baa-baf3-494c-aa88-474f616be563.$.`,
@@ -960,6 +1035,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -981,9 +1063,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -991,6 +1071,20 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__hWNi6)}>
@@ -1075,22 +1169,20 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
               {"YEG\u2019ING!"}
             </div>
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__y7CMy)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__y7CMy)}>
             <div className={classNames(projectcss.all, sty.freeBox___8Vm6W)}>
               <div className={classNames(projectcss.all, sty.freeBox__sCdU6)}>
                 <div className={classNames(projectcss.all, sty.freeBox__qehI6)}>
                   {(() => {
                     const child$Props = {
-                      beforeChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "currentSlide",
-                        ["sliderCarousel", "currentSlide"],
-                        SliderWrapper_Helpers
-                      ),
+                      beforeChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "currentSlide",
+                          ["sliderCarousel", "currentSlide"],
+                          SliderWrapper_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       centerMode: false,
                       className: classNames(
                         "__wab_instance",
@@ -1200,9 +1292,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                     typeof $steps["updateTour"].then ===
                                       "function"
                                   ) {
-                                    $steps["updateTour"] = await $steps[
-                                      "updateTour"
-                                    ];
+                                    $steps["updateTour"] =
+                                      await $steps["updateTour"];
                                   }
                                 }}
                               >
@@ -1235,11 +1326,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__xpjVg)}
                     >
-                      <Stack__
-                        as={"div"}
+                      <div
                         data-plasmic-name={"teamInfo2"}
                         data-plasmic-override={overrides.teamInfo2}
-                        hasGap={true}
                         className={classNames(projectcss.all, sty.teamInfo2)}
                       >
                         <div
@@ -1269,9 +1358,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               projectcss.root_reset,
                               projectcss.plasmic_default_styles,
                               projectcss.plasmic_mixins,
-                              projectcss.plasmic_tokens,
-                              plasmic_antd_5_hostless_css.plasmic_tokens,
-                              plasmic_plasmic_rich_components_css.plasmic_tokens
+                              styleTokensClassNames
                             )}
                             defaultValue={(() => {
                               try {
@@ -1292,6 +1379,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                 "selectFormation2",
                                 "value"
                               ]).apply(null, eventArgs);
+
                               (async (value, option) => {
                                 const $steps = {};
 
@@ -1305,6 +1393,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             params: [
                                               $queries.query.data.response[0].id
                                             ],
+
                                             body: [
                                               $state.selectFormation2.value
                                             ]
@@ -1348,9 +1437,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   typeof $steps["updateFormation"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateFormation"] = await $steps[
-                                    "updateFormation"
-                                  ];
+                                  $steps["updateFormation"] =
+                                    await $steps["updateFormation"];
                                 }
 
                                 $steps["catchError"] =
@@ -1376,9 +1464,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   typeof $steps["catchError"].then ===
                                     "function"
                                 ) {
-                                  $steps["catchError"] = await $steps[
-                                    "catchError"
-                                  ];
+                                  $steps["catchError"] =
+                                    await $steps["catchError"];
                                 }
                               }).apply(null, eventArgs);
                             }}
@@ -1432,10 +1519,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      </div>
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__cGyO
@@ -1476,7 +1561,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             aspectRatio: undefined
                           }}
                         />
-                      </Stack__>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1579,6 +1664,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               opId: "f55979e8-3a3b-49e1-be32-1ec78c309a49",
                                               userArgs: {
                                                 conditions: [currentItem.id],
+
                                                 variables: [null, null]
                                               },
                                               cacheKey: null,
@@ -1683,9 +1769,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                       typeof $steps["updatePlayerId"].then ===
                                         "function"
                                     ) {
-                                      $steps["updatePlayerId"] = await $steps[
-                                        "updatePlayerId"
-                                      ];
+                                      $steps["updatePlayerId"] =
+                                        await $steps["updatePlayerId"];
                                     }
 
                                     $steps["updateUpdateCapitanVisibility"] =
@@ -1743,11 +1828,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             );
                           })}
                         </div>
-                        <Stack__
-                          as={"div"}
+                        <div
                           data-plasmic-name={"def2"}
                           data-plasmic-override={overrides.def2}
-                          hasGap={true}
                           className={classNames(projectcss.all, sty.def2)}
                         >
                           {(_par =>
@@ -1841,6 +1924,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               opId: "f55979e8-3a3b-49e1-be32-1ec78c309a49",
                                               userArgs: {
                                                 conditions: [currentItem.id],
+
                                                 variables: [null, null]
                                               },
                                               cacheKey: null,
@@ -1945,9 +2029,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                       typeof $steps["updatePlayerId"].then ===
                                         "function"
                                     ) {
-                                      $steps["updatePlayerId"] = await $steps[
-                                        "updatePlayerId"
-                                      ];
+                                      $steps["updatePlayerId"] =
+                                        await $steps["updatePlayerId"];
                                     }
 
                                     $steps["updateUpdateCapitanVisibility"] =
@@ -2004,12 +2087,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               </div>
                             );
                           })}
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
+                        </div>
+                        <div
                           data-plasmic-name={"mid2"}
                           data-plasmic-override={overrides.mid2}
-                          hasGap={true}
                           className={classNames(projectcss.all, sty.mid2)}
                         >
                           {(_par =>
@@ -2103,6 +2184,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               opId: "f55979e8-3a3b-49e1-be32-1ec78c309a49",
                                               userArgs: {
                                                 conditions: [currentItem.id],
+
                                                 variables: [null, null]
                                               },
                                               cacheKey: null,
@@ -2207,9 +2289,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                       typeof $steps["updatePlayerId"].then ===
                                         "function"
                                     ) {
-                                      $steps["updatePlayerId"] = await $steps[
-                                        "updatePlayerId"
-                                      ];
+                                      $steps["updatePlayerId"] =
+                                        await $steps["updatePlayerId"];
                                     }
 
                                     $steps["updateUpdateCapitanVisibility"] =
@@ -2266,12 +2347,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               </div>
                             );
                           })}
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
+                        </div>
+                        <div
                           data-plasmic-name={"str2"}
                           data-plasmic-override={overrides.str2}
-                          hasGap={true}
                           className={classNames(projectcss.all, sty.str2)}
                         >
                           {(_par =>
@@ -2365,6 +2444,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               opId: "f55979e8-3a3b-49e1-be32-1ec78c309a49",
                                               userArgs: {
                                                 conditions: [currentItem.id],
+
                                                 variables: [null, null]
                                               },
                                               cacheKey: null,
@@ -2469,9 +2549,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                       typeof $steps["updatePlayerId"].then ===
                                         "function"
                                     ) {
-                                      $steps["updatePlayerId"] = await $steps[
-                                        "updatePlayerId"
-                                      ];
+                                      $steps["updatePlayerId"] =
+                                        await $steps["updatePlayerId"];
                                     }
 
                                     $steps["updateUpdateCapitanVisibility"] =
@@ -2528,7 +2607,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               </div>
                             );
                           })}
-                        </Stack__>
+                        </div>
                       </div>
                       <SoccerPlaceMensNewDesign
                         data-plasmic-name={"soccerPlaceMensNewDesign"}
@@ -2573,6 +2652,15 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   "value"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+
                               (async value => {
                                 const $steps = {};
 
@@ -2610,9 +2698,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   typeof $steps["updateCapitanId"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateCapitanId"] = await $steps[
-                                    "updateCapitanId"
-                                  ];
+                                  $steps["updateCapitanId"] =
+                                    await $steps["updateCapitanId"];
                                 }
                               }).apply(null, eventArgs);
                             }}
@@ -2657,6 +2744,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                         params: [
                                           $queries.query.data.response[0].id
                                         ],
+
                                         body: [null]
                                       },
                                       cacheKey: null,
@@ -2706,8 +2794,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                       userArgs: {
                                         params: [
                                           $queries.query.data.response[0].id,
+
                                           $state.capitanId
                                         ],
+
                                         body: [true]
                                       },
                                       cacheKey: null,
@@ -2760,9 +2850,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                         </button>
                       </div>
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__wE47)}
                     >
                       <EditTeamPageTitle
@@ -2797,7 +2885,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                           "Har turda 2tadan ortiq transfer qilib bo\u2019lmaydi"
                         }
                       />
-                    </Stack__>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2825,11 +2913,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                         sty.freeBox___7GyuM
                       )}
                     >
-                      <Stack__
-                        as={"div"}
+                      <div
                         data-plasmic-name={"columns"}
                         data-plasmic-override={overrides.columns}
-                        hasGap={true}
                         className={classNames(projectcss.all, sty.columns)}
                       >
                         <div
@@ -2861,6 +2947,15 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   "value"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+
                               (async value => {
                                 const $steps = {};
                               }).apply(null, eventArgs);
@@ -2912,11 +3007,23 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               "__wab_instance",
                               sty.teamName5
                             )}
-                            onChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "teamName5",
-                                "value"
-                              ])((e => e.target?.value).apply(null, eventArgs));
+                            onChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "teamName5",
+                                  "value"
+                                ])(
+                                  (e => e.target?.value).apply(null, eventArgs)
+                                );
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
                             }}
                             placeholder={"Nomi"}
                             type={"text"}
@@ -2957,6 +3064,15 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   "value"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+
                               (async value => {
                                 const $steps = {};
                               }).apply(null, eventArgs);
@@ -2987,7 +3103,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             ])}
                           />
                         </div>
-                      </Stack__>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -3025,6 +3141,15 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                   (e => e.target?.value).apply(null, eventArgs)
                                 );
                               }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+
                               (async event => {
                                 const $steps = {};
                               }).apply(null, eventArgs);
@@ -3055,11 +3180,23 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               "__wab_instance",
                               sty.teamName4
                             )}
-                            onChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "teamName4",
-                                "value"
-                              ])((e => e.target?.value).apply(null, eventArgs));
+                            onChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "teamName4",
+                                  "value"
+                                ])(
+                                  (e => e.target?.value).apply(null, eventArgs)
+                                );
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
                             }}
                             placeholder={"500 000"}
                             type={"number"}
@@ -3082,37 +3219,27 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <Stack__
-                        as={"div"}
+                      <div
                         data-plasmic-name={"playerList2"}
                         data-plasmic-override={overrides.playerList2}
-                        hasGap={true}
                         className={classNames(projectcss.all, sty.playerList2)}
                       >
                         <TabsContainer
                           data-plasmic-name={"tabsContainer"}
                           data-plasmic-override={overrides.tabsContainer}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.tabsContainer
-                          )}
                           initialKey={"tab1"}
                           mountMode={"mountLazily"}
                           previewAll={false}
                         >
                           <DataCtxReader__>
                             {$ctx => (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__pLEcf
                                 )}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__jYgT6
@@ -3129,9 +3256,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                     )}
                                     tabKey={"tab1"}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__xct8A
@@ -3455,8 +3580,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                         !_par
                                           ? []
                                           : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
+                                            ? _par
+                                            : [_par])(
                                         (() => {
                                           try {
                                             return $queries.tabAll.data
@@ -3693,6 +3818,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                               $queries.query
                                                                 .data
                                                                 .response[0].id,
+
                                                               currentItem.id
                                                             ]
                                                           },
@@ -3762,7 +3888,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                             userArgs: {
                                                               body: [
                                                                 currentItem.id,
+
                                                                 currentItem.position,
+
                                                                 $queries.query
                                                                   .data
                                                                   .response[0]
@@ -3971,8 +4099,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                         !_par
                                           ? []
                                           : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
+                                            ? _par
+                                            : [_par])(
                                         (() => {
                                           try {
                                             return $state.data;
@@ -4214,8 +4342,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                           userArgs: {
                                                             variables: [
                                                               null,
+
                                                               null
                                                             ],
+
                                                             conditions: [
                                                               $queries.teamPlayer.data.response.find(
                                                                 x =>
@@ -4289,7 +4419,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                             userArgs: {
                                                               body: [
                                                                 currentItem.id,
+
                                                                 currentItem.position,
+
                                                                 $queries.query
                                                                   .data
                                                                   .response[0]
@@ -4529,13 +4661,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               AntdPagination_Helpers
                                             ).apply(null, eventArgs);
                                           },
-                                          onShowSizeChange:
+                                          onShowSizeChange: async (
+                                            ...eventArgs: any
+                                          ) => {
                                             generateStateOnChangePropForCodeComponents(
                                               $state,
                                               "pageSize",
                                               ["pagination2", "pageSize"],
                                               AntdPagination_Helpers
-                                            ),
+                                            ).apply(null, eventArgs);
+                                          },
                                           pageSize: generateStateValueProp(
                                             $state,
                                             ["pagination2", "pageSize"]
@@ -4606,7 +4741,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           />
                                         );
                                       })()}
-                                    </Stack__>
+                                    </div>
                                   </TabContent>
                                   <TabContent
                                     data-plasmic-name={"tabClubContent2"}
@@ -4619,17 +4754,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                     )}
                                     tabKey={"tab2"}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__fsZNv
                                       )}
                                     >
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
+                                      <div
                                         className={classNames(
                                           projectcss.all,
                                           sty.freeBox___53Ed
@@ -4660,15 +4791,17 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             projectcss.root_reset,
                                             projectcss.plasmic_default_styles,
                                             projectcss.plasmic_mixins,
-                                            projectcss.plasmic_tokens,
-                                            plasmic_antd_5_hostless_css.plasmic_tokens,
-                                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                                            styleTokensClassNames
                                           )}
                                           defaultValue={1}
-                                          onChange={generateStateOnChangeProp(
-                                            $state,
-                                            ["selectClub2", "value"]
-                                          )}
+                                          onChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "selectClub2",
+                                              "value"
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           options={(() => {
                                             try {
                                               return $queries.clubsnameid.data
@@ -4695,7 +4828,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             ["selectClub2", "value"]
                                           )}
                                         />
-                                      </Stack__>
+                                      </div>
                                       <OrderBy
                                         className={classNames(
                                           "__wab_instance",
@@ -4801,8 +4934,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                         !_par
                                           ? []
                                           : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
+                                            ? _par
+                                            : [_par])(
                                         (() => {
                                           try {
                                             return $queries.tabsClub.data
@@ -4951,9 +5084,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                   typeof $steps["_"].then ===
                                                     "function"
                                                 ) {
-                                                  $steps["_"] = await $steps[
-                                                    "_"
-                                                  ];
+                                                  $steps["_"] =
+                                                    await $steps["_"];
                                                 }
                                               }}
                                               onclickAvatar={async event => {
@@ -5030,6 +5162,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                               $queries.query
                                                                 .data
                                                                 .response[0].id,
+
                                                               currentItem.id
                                                             ]
                                                           },
@@ -5099,7 +5232,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                             userArgs: {
                                                               body: [
                                                                 currentItem.id,
+
                                                                 currentItem.position,
+
                                                                 $queries.query
                                                                   .data
                                                                   .response[0]
@@ -5342,13 +5477,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               AntdPagination_Helpers
                                             ).apply(null, eventArgs);
                                           },
-                                          onShowSizeChange:
+                                          onShowSizeChange: async (
+                                            ...eventArgs: any
+                                          ) => {
                                             generateStateOnChangePropForCodeComponents(
                                               $state,
                                               "pageSize",
                                               ["pagclubtab2", "pageSize"],
                                               AntdPagination_Helpers
-                                            ),
+                                            ).apply(null, eventArgs);
+                                          },
                                           pageSize: generateStateValueProp(
                                             $state,
                                             ["pagclubtab2", "pageSize"]
@@ -5419,7 +5557,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           />
                                         );
                                       })()}
-                                    </Stack__>
+                                    </div>
                                   </TabContent>
                                   <TabContent
                                     data-plasmic-name={"tabPositionContent2"}
@@ -5432,9 +5570,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                     )}
                                     tabKey={"tab3"}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__ezNmj
@@ -5466,11 +5602,23 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             "__wab_instance",
                                             sty.select3
                                           )}
-                                          onChange={(...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
-                                              "select3",
-                                              "value"
-                                            ])(eventArgs[0]);
+                                          onChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["select3", "value"]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
                                           }}
                                           options={(() => {
                                             const __composite = [
@@ -5604,8 +5752,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                         !_par
                                           ? []
                                           : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
+                                            ? _par
+                                            : [_par])(
                                         (() => {
                                           try {
                                             return $queries.tabsPos.data
@@ -5754,9 +5902,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                   typeof $steps["_"].then ===
                                                     "function"
                                                 ) {
-                                                  $steps["_"] = await $steps[
-                                                    "_"
-                                                  ];
+                                                  $steps["_"] =
+                                                    await $steps["_"];
                                                 }
                                               }}
                                               onclickAvatar={async event => {
@@ -5833,6 +5980,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                               $queries.query
                                                                 .data
                                                                 .response[0].id,
+
                                                               currentItem.id
                                                             ]
                                                           },
@@ -5902,7 +6050,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                             userArgs: {
                                                               body: [
                                                                 currentItem.id,
+
                                                                 currentItem.position,
+
                                                                 $queries.query
                                                                   .data
                                                                   .response[0]
@@ -6145,13 +6295,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               AntdPagination_Helpers
                                             ).apply(null, eventArgs);
                                           },
-                                          onShowSizeChange:
+                                          onShowSizeChange: async (
+                                            ...eventArgs: any
+                                          ) => {
                                             generateStateOnChangePropForCodeComponents(
                                               $state,
                                               "pageSize",
                                               ["pagpostab2", "pageSize"],
                                               AntdPagination_Helpers
-                                            ),
+                                            ).apply(null, eventArgs);
+                                          },
                                           pageSize: generateStateValueProp(
                                             $state,
                                             ["pagpostab2", "pageSize"]
@@ -6222,7 +6375,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           />
                                         );
                                       })()}
-                                    </Stack__>
+                                    </div>
                                   </TabContent>
                                   <TabContent
                                     data-plasmic-name={"tabPriceContent2"}
@@ -6235,17 +6388,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                     )}
                                     tabKey={"tab4"}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__ttvdH
                                       )}
                                     >
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
+                                      <div
                                         className={classNames(
                                           projectcss.all,
                                           sty.freeBox__oo4Ik
@@ -6273,10 +6422,14 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           )}
                                           max={1000}
                                           min={0}
-                                          onChange={generateStateOnChangeProp(
-                                            $state,
-                                            ["startPrice2", "value"]
-                                          )}
+                                          onChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "startPrice2",
+                                              "value"
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           placeholder={"\u041e\u0442"}
                                           type={"number"}
                                           value={generateStateValueProp(
@@ -6296,10 +6449,14 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           )}
                                           max={1000}
                                           min={0}
-                                          onChange={generateStateOnChangeProp(
-                                            $state,
-                                            ["endPrice2", "value"]
-                                          )}
+                                          onChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "endPrice2",
+                                              "value"
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           placeholder={"\u0414\u043e"}
                                           type={"number"}
                                           value={generateStateValueProp(
@@ -6307,7 +6464,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             ["endPrice2", "value"]
                                           )}
                                         />
-                                      </Stack__>
+                                      </div>
                                       {(() => {
                                         try {
                                           return (
@@ -6325,13 +6482,11 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                           throw e;
                                         }
                                       })() ? (
-                                        <Stack__
-                                          as={"div"}
+                                        <div
                                           data-plasmic-name={"price2"}
                                           data-plasmic-override={
                                             overrides.price2
                                           }
-                                          hasGap={true}
                                           className={classNames(
                                             projectcss.all,
                                             sty.price2
@@ -6458,8 +6613,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                             !_par
                                               ? []
                                               : Array.isArray(_par)
-                                              ? _par
-                                              : [_par])(
+                                                ? _par
+                                                : [_par])(
                                             (() => {
                                               try {
                                                 return $queries.tabPrice.data
@@ -6681,9 +6836,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                     ) {
                                                       $steps[
                                                         "clubPlayerLimit"
-                                                      ] = await $steps[
-                                                        "clubPlayerLimit"
-                                                      ];
+                                                      ] =
+                                                        await $steps[
+                                                          "clubPlayerLimit"
+                                                        ];
                                                     }
                                                   }}
                                                   onclickMinus={async event => {
@@ -6702,6 +6858,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                                     .data
                                                                     .response[0]
                                                                     .id,
+
                                                                   currentItem.id
                                                                 ]
                                                               },
@@ -6774,7 +6931,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                                 userArgs: {
                                                                   body: [
                                                                     currentItem.id,
+
                                                                     currentItem.position,
+
                                                                     $queries
                                                                       .query
                                                                       .data
@@ -6835,9 +6994,10 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                     ) {
                                                       $steps[
                                                         "updatePlayerFast"
-                                                      ] = await $steps[
-                                                        "updatePlayerFast"
-                                                      ];
+                                                      ] =
+                                                        await $steps[
+                                                          "updatePlayerFast"
+                                                        ];
                                                     }
 
                                                     $steps["positionLimit"] =
@@ -7032,13 +7192,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                                   AntdPagination_Helpers
                                                 ).apply(null, eventArgs);
                                               },
-                                              onShowSizeChange:
+                                              onShowSizeChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "pageSize",
                                                   ["pagpricetab2", "pageSize"],
                                                   AntdPagination_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               pageSize: generateStateValueProp(
                                                 $state,
                                                 ["pagpricetab2", "pageSize"]
@@ -7111,16 +7274,16 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                                               />
                                             );
                                           })()}
-                                        </Stack__>
+                                        </div>
                                       ) : null}
-                                    </Stack__>
+                                    </div>
                                   </TabContent>
-                                </Stack__>
-                              </Stack__>
+                                </div>
+                              </div>
                             )}
                           </DataCtxReader__>
                         </TabsContainer>
-                      </Stack__>
+                      </div>
                     </div>
                   ) : null}
                   {(() => {
@@ -7141,17 +7304,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___2GWa1
                       )}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__m3J0I
@@ -7248,10 +7407,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                           data-plasmic-override={overrides.line}
                           className={classNames(projectcss.all, sty.line)}
                         />
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      </div>
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__bnVh5
@@ -7330,10 +7487,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                           data-plasmic-override={overrides.line2}
                           className={classNames(projectcss.all, sty.line2)}
                         />
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      </div>
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__xTmd8
@@ -7394,10 +7549,8 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                           data-plasmic-override={overrides.line3}
                           className={classNames(projectcss.all, sty.line3)}
                         />
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      </div>
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__zyRhU
@@ -7486,17 +7639,13 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                      </Stack__>
-                    </Stack__>
+                      </div>
+                    </div>
                   ) : null}
                 </div>
               </div>
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___5NaZ1)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___5NaZ1)}>
               <div className={classNames(projectcss.all, sty.freeBox__nsOAe)}>
                 <div className={classNames(projectcss.all, sty.freeBox__rJk0C)}>
                   <div
@@ -7678,11 +7827,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__c0WXp)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__lg5Tl)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__lg5Tl)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__m4Wsq)}
                   >
@@ -7727,7 +7872,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                               displayWidth={"auto"}
                               loading={"lazy"}
                               src={{
-                                src: "/plasmic/proliga_v_4/images/iconoooooojpg.jpg",
+                                src: "/plasmic/proliga_v_4/images/iconooooooJpg.jpg",
                                 fullWidth: 158,
                                 fullHeight: 106,
                                 aspectRatio: undefined
@@ -7813,7 +7958,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                         displayWidth={"447px"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/proliga_v_4/images/hellopng.png",
+                          src: "/plasmic/proliga_v_4/images/helloPng.png",
                           fullWidth: 932,
                           fullHeight: 2,
                           aspectRatio: undefined
@@ -7918,9 +8063,9 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                       }
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__xgQaf)}>
               <div className={classNames(projectcss.all, sty.freeBox__bImTd)}>
                 <div
@@ -8004,7 +8149,7 @@ function PlasmicShowTeamNewDesign__RenderFunc(props: {
                 />
               </div>
             </div>
-          </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -8197,16 +8342,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShowTeamNewDesign__VariantsArgs;
     args?: PlasmicShowTeamNewDesign__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShowTeamNewDesign__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicShowTeamNewDesign__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShowTeamNewDesign__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicShowTeamNewDesign__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -8306,13 +8453,11 @@ export const PlasmicShowTeamNewDesign = Object.assign(
     internalVariantProps: PlasmicShowTeamNewDesign__VariantProps,
     internalArgProps: PlasmicShowTeamNewDesign__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/showteam/[comp_id]/[id]",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

@@ -1,15 +1,15 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type ThinArrowTopIconsvgIconProps = React.ComponentProps<"svg"> & {
+export type ThinArrowTopIconSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function ThinArrowTopIconsvgIcon(props: ThinArrowTopIconsvgIconProps) {
+export function ThinArrowTopIconSvgIcon(props: ThinArrowTopIconSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -24,7 +24,7 @@ export function ThinArrowTopIconsvgIcon(props: ThinArrowTopIconsvgIconProps) {
       style={{
         fill: "currentcolor",
 
-        ...(style || {}),
+        ...(style || {})
       }}
       className={classNames("plasmic-default__svg", className)}
       {...restProps}
@@ -41,5 +41,5 @@ export function ThinArrowTopIconsvgIcon(props: ThinArrowTopIconsvgIconProps) {
   );
 }
 
-export default ThinArrowTopIconsvgIcon;
+export default ThinArrowTopIconSvgIcon;
 /* prettier-ignore-end */

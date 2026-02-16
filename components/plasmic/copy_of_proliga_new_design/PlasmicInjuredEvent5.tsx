@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuredEvent5.module.css"; // plasmic-import: aJOke30P1rS_/css
 
@@ -182,7 +183,16 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -190,6 +200,7 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -202,119 +213,125 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
         path: "goals",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.goals
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.goals
       },
       {
         path: "goalAssists",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.goalAssists
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.goalAssists
       },
       {
         path: "bigChanceCreated",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.bigChanceCreated
       },
       {
         path: "ballsIntoTheBox",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.ballsIntoTheBox
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.ballsIntoTheBox
       },
       {
         path: "penaltiesWon",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.penaltiesWon
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.penaltiesWon
       },
       {
         path: "penaltiesSaved",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.penaltiesSaved
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.penaltiesSaved
       },
       {
         path: "saves",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.saves
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.saves
       },
       {
         path: "effectiveClearanes",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.effectiveClearanes
       },
       {
         path: "penaltiesMissed",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.penaltiesMissed
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.penaltiesMissed
       },
       {
         path: "ownGoals",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.ownGoals
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.ownGoals
       },
       {
         path: "goalsAgainst",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.goalsAgainst
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.goalsAgainst
       },
       {
         path: "yellowCard",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.yellowCard
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.yellowCard
       },
       {
         path: "secondaryYellowCard",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.secondaryYellowCard
       },
       {
         path: "redCard",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.redCard
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.redCard
       },
       {
         path: "goalAttempts",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.goalAttempts
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.goalAttempts
       },
       {
         path: "effectiveDribbles",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.effectiveDribbles
       },
       {
         path: "recoviries",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.recoviries
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.recoviries
       },
       {
         path: "lostBalls",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.lostBalls
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.lostBalls
       },
       {
         path: "commitedPenalties",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.commitedPenalties
       }
     ],
@@ -324,8 +341,11 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -338,9 +358,7 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -476,42 +494,78 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
             {hasVariant($state, "commitedPenalties", "commitedPenalties")
               ? "Commited penalties"
               : hasVariant($state, "lostBalls", "lostBalls")
-              ? "Lost balls"
-              : hasVariant($state, "recoviries", "recoviries")
-              ? "Recoviries"
-              : hasVariant($state, "effectiveDribbles", "effectiveDribbles")
-              ? "Effective dribbles"
-              : hasVariant($state, "goalAttempts", "goalAttempts")
-              ? "Goal attempts"
-              : hasVariant($state, "redCard", "redCard")
-              ? "Red card"
-              : hasVariant($state, "secondaryYellowCard", "secondaryYellowCard")
-              ? "Secondary yellow card"
-              : hasVariant($state, "yellowCard", "yellowCard")
-              ? "Yellow card"
-              : hasVariant($state, "goalsAgainst", "goalsAgainst")
-              ? "Goals against"
-              : hasVariant($state, "ownGoals", "ownGoals")
-              ? "Own goals"
-              : hasVariant($state, "penaltiesMissed", "penaltiesMissed")
-              ? "Penalties missed"
-              : hasVariant($state, "effectiveClearanes", "effectiveClearanes")
-              ? "Effective clearanes"
-              : hasVariant($state, "saves", "saves")
-              ? "Saves"
-              : hasVariant($state, "penaltiesSaved", "penaltiesSaved")
-              ? "Penalties saved"
-              : hasVariant($state, "penaltiesWon", "penaltiesWon")
-              ? "Penalties won"
-              : hasVariant($state, "ballsIntoTheBox", "ballsIntoTheBox")
-              ? "Balls into the box"
-              : hasVariant($state, "bigChanceCreated", "bigChanceCreated")
-              ? "Big chance created"
-              : hasVariant($state, "goalAssists", "goalAssists")
-              ? "Goal assists"
-              : hasVariant($state, "goals", "goals")
-              ? "Goals"
-              : "Minutes played"}
+                ? "Lost balls"
+                : hasVariant($state, "recoviries", "recoviries")
+                  ? "Recoviries"
+                  : hasVariant($state, "effectiveDribbles", "effectiveDribbles")
+                    ? "Effective dribbles"
+                    : hasVariant($state, "goalAttempts", "goalAttempts")
+                      ? "Goal attempts"
+                      : hasVariant($state, "redCard", "redCard")
+                        ? "Red card"
+                        : hasVariant(
+                              $state,
+                              "secondaryYellowCard",
+                              "secondaryYellowCard"
+                            )
+                          ? "Secondary yellow card"
+                          : hasVariant($state, "yellowCard", "yellowCard")
+                            ? "Yellow card"
+                            : hasVariant($state, "goalsAgainst", "goalsAgainst")
+                              ? "Goals against"
+                              : hasVariant($state, "ownGoals", "ownGoals")
+                                ? "Own goals"
+                                : hasVariant(
+                                      $state,
+                                      "penaltiesMissed",
+                                      "penaltiesMissed"
+                                    )
+                                  ? "Penalties missed"
+                                  : hasVariant(
+                                        $state,
+                                        "effectiveClearanes",
+                                        "effectiveClearanes"
+                                      )
+                                    ? "Effective clearanes"
+                                    : hasVariant($state, "saves", "saves")
+                                      ? "Saves"
+                                      : hasVariant(
+                                            $state,
+                                            "penaltiesSaved",
+                                            "penaltiesSaved"
+                                          )
+                                        ? "Penalties saved"
+                                        : hasVariant(
+                                              $state,
+                                              "penaltiesWon",
+                                              "penaltiesWon"
+                                            )
+                                          ? "Penalties won"
+                                          : hasVariant(
+                                                $state,
+                                                "ballsIntoTheBox",
+                                                "ballsIntoTheBox"
+                                              )
+                                            ? "Balls into the box"
+                                            : hasVariant(
+                                                  $state,
+                                                  "bigChanceCreated",
+                                                  "bigChanceCreated"
+                                                )
+                                              ? "Big chance created"
+                                              : hasVariant(
+                                                    $state,
+                                                    "goalAssists",
+                                                    "goalAssists"
+                                                  )
+                                                ? "Goal assists"
+                                                : hasVariant(
+                                                      $state,
+                                                      "goals",
+                                                      "goals"
+                                                    )
+                                                  ? "Goals"
+                                                  : "Minutes played"}
           </div>
         </div>
         <div className={classNames(projectcss.all, sty.column__dcHqm)}>
@@ -553,16 +607,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInjuredEvent5__VariantsArgs;
     args?: PlasmicInjuredEvent5__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInjuredEvent5__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInjuredEvent5__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInjuredEvent5__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInjuredEvent5__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

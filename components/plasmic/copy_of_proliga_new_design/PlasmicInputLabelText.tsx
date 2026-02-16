@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -60,16 +60,16 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInputLabelText.module.css"; // plasmic-import: jNArPg698Irk/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
 
 createPlasmicElementProxy;
 
@@ -78,10 +78,7 @@ export type PlasmicInputLabelText__VariantsArgs = {};
 type VariantPropType = keyof PlasmicInputLabelText__VariantsArgs;
 export const PlasmicInputLabelText__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicInputLabelText__ArgsType = {
-  label?: string;
-  text?: string;
-};
+export type PlasmicInputLabelText__ArgsType = { label?: string; text?: string };
 type ArgPropType = keyof PlasmicInputLabelText__ArgsType;
 export const PlasmicInputLabelText__ArgProps = new Array<ArgPropType>(
   "label",
@@ -124,7 +121,9 @@ function PlasmicInputLabelText__RenderFunc(props: {
           label: "Label",
           text: "Text"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -135,6 +134,7 @@ function PlasmicInputLabelText__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -147,7 +147,7 @@ function PlasmicInputLabelText__RenderFunc(props: {
         path: "teamName.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -156,8 +156,11 @@ function PlasmicInputLabelText__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -170,9 +173,7 @@ function PlasmicInputLabelText__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -201,10 +202,20 @@ function PlasmicInputLabelText__RenderFunc(props: {
         data-plasmic-name={"teamName"}
         data-plasmic-override={overrides.teamName}
         className={classNames("__wab_instance", sty.teamName)}
-        onChange={(...eventArgs) => {
-          generateStateOnChangeProp($state, ["teamName", "value"])(
-            (e => e.target?.value).apply(null, eventArgs)
-          );
+        onChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["teamName", "value"])(
+              (e => e.target?.value).apply(null, eventArgs)
+            );
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
         }}
         placeholder={(() => {
           try {
@@ -250,16 +261,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInputLabelText__VariantsArgs;
     args?: PlasmicInputLabelText__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInputLabelText__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInputLabelText__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInputLabelText__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInputLabelText__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

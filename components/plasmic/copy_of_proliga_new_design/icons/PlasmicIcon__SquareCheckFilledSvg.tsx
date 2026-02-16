@@ -1,15 +1,15 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SquareCheckFilledsvgIconProps = React.ComponentProps<"svg"> & {
+export type SquareCheckFilledSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SquareCheckFilledsvgIcon(props: SquareCheckFilledsvgIconProps) {
+export function SquareCheckFilledSvgIcon(props: SquareCheckFilledSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -21,7 +21,7 @@ export function SquareCheckFilledsvgIcon(props: SquareCheckFilledsvgIconProps) {
       style={{
         fill: "currentcolor",
 
-        ...(style || {}),
+        ...(style || {})
       }}
       className={classNames("plasmic-default__svg", className)}
       {...restProps}
@@ -40,5 +40,5 @@ export function SquareCheckFilledsvgIcon(props: SquareCheckFilledsvgIconProps) {
   );
 }
 
-export default SquareCheckFilledsvgIcon;
+export default SquareCheckFilledSvgIcon;
 /* prettier-ignore-end */

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -77,15 +77,37 @@ import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: as4LbzE5
 import SideBarMyTeam from "../../SideBarMyTeam"; // plasmic-import: kCfKs1vqA6_E/component
 import Footer from "../../Footer"; // plasmic-import: sRXlHXHXDYps/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeams.module.css"; // plasmic-import: uWjk6FMKZDUs/css
+
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
 
 createPlasmicElementProxy;
 
@@ -138,7 +160,16 @@ function PlasmicTeams__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -146,9 +177,12 @@ function PlasmicTeams__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -161,19 +195,19 @@ function PlasmicTeams__RenderFunc(props: {
         path: "inputState",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "DEF"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "DEF"
       },
       {
         path: "teamplayerstate",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "sellBtnBool",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return undefined;
@@ -192,25 +226,25 @@ function PlasmicTeams__RenderFunc(props: {
         path: "playerId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "capitanBtnVisibility",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "playerState2",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $queries.player2.data;
@@ -224,6 +258,12 @@ function PlasmicTeams__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "navbar.user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -232,6 +272,7 @@ function PlasmicTeams__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
@@ -406,9 +447,12 @@ function PlasmicTeams__RenderFunc(props: {
     $queries = new$Queries;
   }
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -431,9 +475,7 @@ function PlasmicTeams__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -441,6 +483,20 @@ function PlasmicTeams__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+            onUserChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["navbar", "user"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
           />
 
           <UserteamNavbar
@@ -589,9 +645,7 @@ function PlasmicTeams__RenderFunc(props: {
               })}
               <div className={classNames(projectcss.all, sty.freeBox__tB4QR)}>
                 <div className={classNames(projectcss.all, sty.freeBox__tNctp)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__u8Oba)}
                   >
                     <div
@@ -667,11 +721,9 @@ function PlasmicTeams__RenderFunc(props: {
                         })}
                       </div>
                     </div>
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"def"}
                       data-plasmic-override={overrides.def}
-                      hasGap={true}
                       className={classNames(projectcss.all, sty.def)}
                     >
                       {(_par =>
@@ -741,12 +793,10 @@ function PlasmicTeams__RenderFunc(props: {
                           </div>
                         );
                       })}
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
+                    </div>
+                    <div
                       data-plasmic-name={"mid"}
                       data-plasmic-override={overrides.mid}
-                      hasGap={true}
                       className={classNames(projectcss.all, sty.mid)}
                     >
                       {(_par =>
@@ -816,12 +866,10 @@ function PlasmicTeams__RenderFunc(props: {
                           </div>
                         );
                       })}
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
+                    </div>
+                    <div
                       data-plasmic-name={"str"}
                       data-plasmic-override={overrides.str}
-                      hasGap={true}
                       className={classNames(projectcss.all, sty.str)}
                     >
                       {(_par =>
@@ -891,8 +939,8 @@ function PlasmicTeams__RenderFunc(props: {
                           </div>
                         );
                       })}
-                    </Stack__>
-                  </Stack__>
+                    </div>
+                  </div>
                   <SoccerPlaceMens2
                     data-plasmic-name={"soccerPlaceMens2"}
                     data-plasmic-override={overrides.soccerPlaceMens2}
@@ -904,11 +952,7 @@ function PlasmicTeams__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.column___4Akln)}
-            >
+            <div className={classNames(projectcss.all, sty.column___4Akln)}>
               <div className={classNames(projectcss.all, sty.freeBox__ioc1P)}>
                 <div
                   className={classNames(
@@ -949,11 +993,7 @@ function PlasmicTeams__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__gbFrU)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__gbFrU)}>
                 <PlasmicLink__
                   className={classNames(
                     projectcss.all,
@@ -963,6 +1003,7 @@ function PlasmicTeams__RenderFunc(props: {
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
                   platform={"nextjs"}
                 >
                   {"ALL"}
@@ -976,6 +1017,7 @@ function PlasmicTeams__RenderFunc(props: {
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
                   platform={"nextjs"}
                 >
                   {"GOA"}
@@ -989,6 +1031,7 @@ function PlasmicTeams__RenderFunc(props: {
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
                   platform={"nextjs"}
                 >
                   {"DEF"}
@@ -1002,6 +1045,7 @@ function PlasmicTeams__RenderFunc(props: {
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
                   platform={"nextjs"}
                 >
                   {"MID"}
@@ -1015,11 +1059,12 @@ function PlasmicTeams__RenderFunc(props: {
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
+                  legacyBehavior={false}
                   platform={"nextjs"}
                 >
                   {"STR"}
                 </PlasmicLink__>
-              </Stack__>
+              </div>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -1101,7 +1146,7 @@ function PlasmicTeams__RenderFunc(props: {
                   />
                 );
               })}
-            </Stack__>
+            </div>
           </div>
           <SideBarMyTeam
             data-plasmic-name={"sideBarMyTeam"}
@@ -1208,16 +1253,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTeams__VariantsArgs;
     args?: PlasmicTeams__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTeams__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTeams__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTeams__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicTeams__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -1296,13 +1343,11 @@ export const PlasmicTeams = Object.assign(
     internalVariantProps: PlasmicTeams__VariantProps,
     internalArgProps: PlasmicTeams__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/user/team/[id]",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

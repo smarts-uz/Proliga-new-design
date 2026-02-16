@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,19 +59,25 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
 import Button from "../../Button"; // plasmic-import: JtHKLkRqLyx-/component
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicLoginAuth.module.css"; // plasmic-import: maGCetjbMwYp/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3vZ6LsfPOxdi/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
 
 createPlasmicElementProxy;
 
@@ -115,7 +121,16 @@ function PlasmicLoginAuth__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -123,6 +138,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -135,13 +151,13 @@ function PlasmicLoginAuth__RenderFunc(props: {
         path: "emailInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "passwordInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -150,8 +166,13 @@ function PlasmicLoginAuth__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -164,17 +185,11 @@ function PlasmicLoginAuth__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__ajhj)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__ajhj)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__eywfF)}
@@ -199,18 +214,16 @@ function PlasmicLoginAuth__RenderFunc(props: {
         >
           {"Biz bilan o'ynang va sovg'alar yutib oling!"}
         </div>
-      </Stack__>
+      </div>
       <div className={classNames(projectcss.all, sty.freeBox___4UOhR)}>
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
           className={classNames(projectcss.all, sty.columns)}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"login"}
             data-plasmic-override={overrides.login}
-            hasGap={true}
             className={classNames(projectcss.all, sty.login)}
           >
             <div
@@ -226,10 +239,20 @@ function PlasmicLoginAuth__RenderFunc(props: {
               data-plasmic-name={"emailInput"}
               data-plasmic-override={overrides.emailInput}
               className={classNames("__wab_instance", sty.emailInput)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["emailInput", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["emailInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Pochta"}
               required={true}
@@ -251,10 +274,20 @@ function PlasmicLoginAuth__RenderFunc(props: {
               data-plasmic-name={"passwordInput"}
               data-plasmic-override={overrides.passwordInput}
               className={classNames("__wab_instance", sty.passwordInput)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["passwordInput", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["passwordInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Parol"}
               required={true}
@@ -271,6 +304,49 @@ function PlasmicLoginAuth__RenderFunc(props: {
               color={"green"}
               onClick={async event => {
                 const $steps = {};
+
+                $steps["httpPost"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        dataOp: {
+                          sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                          opId: "6ae21ca0-b0fe-416b-99a0-1cd5ec5eff8a",
+                          userArgs: {
+                            body: [
+                              $state.emailInput.value,
+
+                              $state.passwordInput.value
+                            ]
+                          },
+                          cacheKey: null,
+                          invalidatedKeys: ["plasmic_refresh_all"],
+                          roleId: null
+                        }
+                      };
+                      return (async ({ dataOp, continueOnError }) => {
+                        try {
+                          const response = await executePlasmicDataOp(dataOp, {
+                            userAuthToken: dataSourcesCtx?.userAuthToken,
+                            user: dataSourcesCtx?.user
+                          });
+                          await plasmicInvalidate(dataOp.invalidatedKeys);
+                          return response;
+                        } catch (e) {
+                          if (!continueOnError) {
+                            throw e;
+                          }
+                          return e;
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["httpPost"] != null &&
+                  typeof $steps["httpPost"] === "object" &&
+                  typeof $steps["httpPost"].then === "function"
+                ) {
+                  $steps["httpPost"] = await $steps["httpPost"];
+                }
 
                 $steps["updateEmailInputValue"] = true
                   ? (() => {
@@ -302,9 +378,8 @@ function PlasmicLoginAuth__RenderFunc(props: {
                   typeof $steps["updateEmailInputValue"] === "object" &&
                   typeof $steps["updateEmailInputValue"].then === "function"
                 ) {
-                  $steps["updateEmailInputValue"] = await $steps[
-                    "updateEmailInputValue"
-                  ];
+                  $steps["updateEmailInputValue"] =
+                    await $steps["updateEmailInputValue"];
                 }
               }}
             >
@@ -358,7 +433,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 {"Ro'yhatdan o'tish"}
               </div>
             </div>
-          </Stack__>
+          </div>
           <div
             data-plasmic-name={"nadpis"}
             data-plasmic-override={overrides.nadpis}
@@ -375,11 +450,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam"
               }
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__e0Ig)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__e0Ig)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__xvGRu)}
@@ -427,7 +498,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 }
                 width={"150px"}
               />
-            </Stack__>
+            </div>
           </div>
         </div>
       </div>
@@ -483,16 +554,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLoginAuth__VariantsArgs;
     args?: PlasmicLoginAuth__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLoginAuth__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicLoginAuth__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLoginAuth__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicLoginAuth__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

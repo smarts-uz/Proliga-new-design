@@ -17,7 +17,7 @@
   object-fit: contain;
   width: 100%;
   min-width: 0;
-  display: none !important;
+  display: none;
 }
 .img__hEdPj > picture > img {
   object-fit: contain;

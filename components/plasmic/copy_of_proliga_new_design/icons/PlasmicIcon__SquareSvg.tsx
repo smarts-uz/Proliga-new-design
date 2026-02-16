@@ -1,15 +1,15 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SquareMinussvgIconProps = React.ComponentProps<"svg"> & {
+export type SquareSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SquareMinussvgIcon(props: SquareMinussvgIconProps) {
+export function SquareSvgIcon(props: SquareSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -21,7 +21,7 @@ export function SquareMinussvgIcon(props: SquareMinussvgIconProps) {
       style={{
         stroke: "currentcolor",
 
-        ...(style || {}),
+        ...(style || {})
       }}
       className={classNames("plasmic-default__svg", className)}
       {...restProps}
@@ -30,7 +30,7 @@ export function SquareMinussvgIcon(props: SquareMinussvgIconProps) {
 
       <path
         d={
-          "M17.25 19.25H6.75a2 2 0 01-2-2V6.75a2 2 0 012-2h10.5a2 2 0 012 2v10.5a2 2 0 01-2 2zm-3-7.25h-4.5"
+          "M17.25 19.25H6.75a2 2 0 01-2-2V6.75a2 2 0 012-2h10.5a2 2 0 012 2v10.5a2 2 0 01-2 2z"
         }
         stroke={"currentColor"}
         strokeWidth={"1.5"}
@@ -41,5 +41,5 @@ export function SquareMinussvgIcon(props: SquareMinussvgIconProps) {
   );
 }
 
-export default SquareMinussvgIcon;
+export default SquareSvgIcon;
 /* prettier-ignore-end */

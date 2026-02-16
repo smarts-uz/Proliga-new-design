@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -61,19 +61,16 @@ import {
 
 import TextInput from "../../TextInput"; // plasmic-import: 1UJD2btGUkCV/component
 import Button from "../../Button"; // plasmic-import: JtHKLkRqLyx-/component
-
-import { useScreenVariants as useScreenVariantskuWqqBs0ERIp } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: KuWQQBs0eRIp/globalVariant
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicRegister.module.css"; // plasmic-import: sNtHkQCpIuxn/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: DJCZ30FSSW4V/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: wUfM8ozzkHkf/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3vZ6LsfPOxdi/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: wUfM8ozzkHkf/icon
 
 createPlasmicElementProxy;
 
@@ -117,7 +114,16 @@ function PlasmicRegister__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -125,9 +131,12 @@ function PlasmicRegister__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -137,13 +146,13 @@ function PlasmicRegister__RenderFunc(props: {
         path: "emailInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "passwordInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -152,12 +161,11 @@ function PlasmicRegister__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantskuWqqBs0ERIp()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -170,17 +178,11 @@ function PlasmicRegister__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__ka1Lu)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__ka1Lu)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__h0Brw)}
@@ -205,18 +207,16 @@ function PlasmicRegister__RenderFunc(props: {
         >
           {"Biz bilan o'ynang sovg'alar yutib oling!"}
         </div>
-      </Stack__>
+      </div>
       <div className={classNames(projectcss.all, sty.freeBox__sd7Mz)}>
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
           className={classNames(projectcss.all, sty.columns)}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"login"}
             data-plasmic-override={overrides.login}
-            hasGap={true}
             className={classNames(projectcss.all, sty.login)}
           >
             <div
@@ -226,7 +226,7 @@ function PlasmicRegister__RenderFunc(props: {
                 sty.text__gsKgh
               )}
             >
-              {hasVariant(globalVariants, "screen", "dessktop")
+              {hasVariant(globalVariants, "screen", "desktop")
                 ? "EMAIL"
                 : "POCHTA"}
             </div>
@@ -234,10 +234,20 @@ function PlasmicRegister__RenderFunc(props: {
               data-plasmic-name={"emailInput"}
               data-plasmic-override={overrides.emailInput}
               className={classNames("__wab_instance", sty.emailInput)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["emailInput", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["emailInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Pochta"}
               required={true}
@@ -259,10 +269,20 @@ function PlasmicRegister__RenderFunc(props: {
               data-plasmic-name={"passwordInput"}
               data-plasmic-override={overrides.passwordInput}
               className={classNames("__wab_instance", sty.passwordInput)}
-              onChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["passwordInput", "value"])(
-                  (e => e.target?.value).apply(null, eventArgs)
-                );
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["passwordInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
               }}
               placeholder={"Parol"}
               required={true}
@@ -310,9 +330,8 @@ function PlasmicRegister__RenderFunc(props: {
                   typeof $steps["updateEmailInputValue"] === "object" &&
                   typeof $steps["updateEmailInputValue"].then === "function"
                 ) {
-                  $steps["updateEmailInputValue"] = await $steps[
-                    "updateEmailInputValue"
-                  ];
+                  $steps["updateEmailInputValue"] =
+                    await $steps["updateEmailInputValue"];
                 }
               }}
             >
@@ -326,7 +345,7 @@ function PlasmicRegister__RenderFunc(props: {
                   sty.text__ysXcN
                 )}
               >
-                {hasVariant(globalVariants, "screen", "dessktop")
+                {hasVariant(globalVariants, "screen", "desktop")
                   ? "Already have an account?"
                   : "Already have an account?"}
               </div>
@@ -368,7 +387,7 @@ function PlasmicRegister__RenderFunc(props: {
                 {"Kirish"}
               </div>
             </div>
-          </Stack__>
+          </div>
           <div
             data-plasmic-name={"nadpis"}
             data-plasmic-override={overrides.nadpis}
@@ -385,11 +404,7 @@ function PlasmicRegister__RenderFunc(props: {
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam"
               }
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__br6G2)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__br6G2)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__ryKGi)}
@@ -437,7 +452,7 @@ function PlasmicRegister__RenderFunc(props: {
                 }
                 width={"150px"}
               />
-            </Stack__>
+            </div>
           </div>
         </div>
       </div>
@@ -493,16 +508,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicRegister__VariantsArgs;
     args?: PlasmicRegister__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicRegister__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicRegister__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicRegister__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicRegister__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

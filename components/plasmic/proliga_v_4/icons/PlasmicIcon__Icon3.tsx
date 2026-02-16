@@ -1,23 +1,21 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SearchsvgIconProps = React.ComponentProps<"svg"> & {
+export type Icon3IconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SearchsvgIcon(props: SearchsvgIconProps) {
+export function Icon3Icon(props: Icon3IconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
-      xmlns={"http://www.w3.org/2000/svg"}
       fill={"none"}
+      xmlns={"http://www.w3.org/2000/svg"}
       viewBox={"0 0 24 24"}
-      height={"1em"}
-      width={"1em"}
       className={classNames("plasmic-default__svg", className)}
       style={style}
       {...restProps}
@@ -25,17 +23,14 @@ export function SearchsvgIcon(props: SearchsvgIconProps) {
       {title && <title>{title}</title>}
 
       <path
-        stroke={"currentColor"}
-        strokeLinecap={"round"}
-        strokeLinejoin={"round"}
+        d={"M5 9l6.22 5.33a1.2 1.2 0 001.56 0L19 9"}
+        stroke={"#2B3F6C"}
         strokeWidth={"1.5"}
-        d={
-          "M19.25 19.25L15.5 15.5M4.75 11a6.25 6.25 0 1112.5 0 6.25 6.25 0 01-12.5 0z"
-        }
+        strokeLinecap={"round"}
       ></path>
     </svg>
   );
 }
 
-export default SearchsvgIcon;
+export default Icon3Icon;
 /* prettier-ignore-end */

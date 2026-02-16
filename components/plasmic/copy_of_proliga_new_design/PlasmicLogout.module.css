@@ -16,19 +16,10 @@
   width: 170px;
   flex-shrink: 0;
 }
-.svg__g4WJm {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
 .text {
-  color: #ffffff;
-  text-align: center;
-}
-.svg___9Tr9 {
   position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }

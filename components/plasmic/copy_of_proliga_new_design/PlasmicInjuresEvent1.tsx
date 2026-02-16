@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuresEvent1.module.css"; // plasmic-import: chqzQNHroqqa/css
 
@@ -105,7 +106,16 @@ function PlasmicInjuresEvent1__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -113,11 +123,14 @@ function PlasmicInjuresEvent1__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -130,9 +143,7 @@ function PlasmicInjuresEvent1__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -158,6 +169,7 @@ function PlasmicInjuresEvent1__RenderFunc(props: {
               )}
               component={Link}
               href={"https://www.plasmic.app/"}
+              legacyBehavior={false}
               platform={"nextjs"}
             >
               {"SHOW MORE INFO"}
@@ -192,7 +204,7 @@ function PlasmicInjuresEvent1__RenderFunc(props: {
           displayWidth={"139px"}
           loading={"lazy"}
           src={{
-            src: "/plasmic/copy_of_proliga_new_design/images/rodrygopng.png",
+            src: "/plasmic/copy_of_proliga_new_design/images/rodrygoPng.png",
             fullWidth: 256,
             fullHeight: 256,
             aspectRatio: undefined
@@ -230,16 +242,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicInjuresEvent1__VariantsArgs;
     args?: PlasmicInjuresEvent1__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicInjuresEvent1__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicInjuresEvent1__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicInjuresEvent1__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicInjuresEvent1__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

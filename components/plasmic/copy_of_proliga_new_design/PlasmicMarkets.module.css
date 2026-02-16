@@ -68,7 +68,8 @@
   color: var(--token-jgohepLVeKvh);
   font-size: 24px;
   font-weight: 700;
-  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+  background:
+    url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
       top 50% left 50% / cover repeat,
     var(--token-NTRsRiWyA41Y);
   padding-top: 10px;
@@ -98,10 +99,10 @@
   padding: 8px;
 }
 .columns > :nth-child(2n + 1) {
-  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+  width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
 }
 .columns > :nth-child(2n + 2) {
-  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+  width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
 }
 @media (min-width: 0px) and (max-width: 568px) {
   .columns {
@@ -110,11 +111,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     min-width: 0;
+    --plsmc-rc-col-gap: 0px;
   }
 }
 @media (min-width: 0px) and (max-width: 568px) {
   .columns > :nth-child(1n + 1) {
-    width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
+    width: calc((100% - 0 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
   }
 }
 .column__mOiCl {
@@ -142,32 +144,19 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 376px;
   height: auto;
   max-width: 100%;
-  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+  background:
+    url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
       top 50% left 50% / cover repeat,
     var(--token-NTRsRiWyA41Y);
   margin-top: 0px;
   margin-bottom: 5px;
+  column-gap: 16px;
   padding: 8px;
-}
-.link__pZsv > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: calc(0px - 16px);
-  width: calc(100% + 16px);
-}
-.link__pZsv > :global(.__wab_flex-container) > *,
-.link__pZsv > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.link__pZsv > :global(.__wab_flex-container) > picture > img,
-.link__pZsv
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 16px;
 }
 .freeBox___5OFu {
   display: flex;
@@ -367,26 +356,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  min-width: 0;
-  padding: 0px;
-}
-.column__meK53 > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  row-gap: 8px;
   min-width: 0;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.column__meK53 > :global(.__wab_flex-container) > *,
-.column__meK53 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.column__meK53 > :global(.__wab_flex-container) > picture > img,
-.column__meK53
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 8px;
+  padding: 0px;
 }
 .text__bojy {
   position: relative;
@@ -570,15 +544,13 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+  background:
+    url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
       top 50% left 50% / cover repeat,
     var(--token-NTRsRiWyA41Y);
-  margin-top: calc(0px + 8px) !important;
-  margin-right: 0px;
-  margin-bottom: 5px;
-  margin-left: 0px;
   min-width: 0;
   padding: 8px;
+  margin: 0px 0px 5px;
 }
 .img__voP0I {
   position: relative;
@@ -730,7 +702,8 @@
   width: 376px;
   height: 142px;
   max-width: 100%;
-  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+  background:
+    url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
       top 50% left 50% / cover repeat,
     var(--token-NTRsRiWyA41Y);
   flex-shrink: 0;

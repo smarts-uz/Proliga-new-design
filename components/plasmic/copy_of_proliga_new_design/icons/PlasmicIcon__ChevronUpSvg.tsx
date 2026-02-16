@@ -1,44 +1,39 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type IconmonstrArrowDownThinsvgIconProps =
-  React.ComponentProps<"svg"> & {
-    title?: string;
-  };
+export type ChevronUpSvgIconProps = React.ComponentProps<"svg"> & {
+  title?: string;
+};
 
-export function IconmonstrArrowDownThinsvgIcon(
-  props: IconmonstrArrowDownThinsvgIconProps
-) {
+export function ChevronUpSvgIcon(props: ChevronUpSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
       xmlns={"http://www.w3.org/2000/svg"}
-      fillRule={"evenodd"}
-      clipRule={"evenodd"}
+      fill={"none"}
       viewBox={"0 0 24 24"}
       height={"1em"}
-      style={{
-        fill: "currentcolor",
-
-        ...(style || {}),
-      }}
+      width={"1em"}
       className={classNames("plasmic-default__svg", className)}
+      style={style}
       {...restProps}
     >
       {title && <title>{title}</title>}
 
       <path
-        d={
-          "M11 21.883l-6.235-7.527L4 15l7.521 9L19 15l-.764-.645L12 21.884V0h-1v21.883z"
-        }
+        stroke={"currentColor"}
+        strokeLinecap={"round"}
+        strokeLinejoin={"round"}
+        strokeWidth={"1.5"}
+        d={"M15.25 14.25L12 10.75l-3.25 3.5"}
       ></path>
     </svg>
   );
 }
 
-export default IconmonstrArrowDownThinsvgIcon;
+export default ChevronUpSvgIcon;
 /* prettier-ignore-end */

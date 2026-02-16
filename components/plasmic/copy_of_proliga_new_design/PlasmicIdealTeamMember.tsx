@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicIdealTeamMember.module.css"; // plasmic-import: lQi1dW4jp46h/css
 
@@ -156,7 +157,16 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -164,6 +174,7 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -176,61 +187,61 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
         path: "sergioRamos",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.sergioRamos
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.sergioRamos
       },
       {
         path: "johnPache2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.johnPache2
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.johnPache2
       },
       {
         path: "mingueza",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.mingueza
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.mingueza
       },
       {
         path: "zakaryan",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.zakaryan
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.zakaryan
       },
       {
         path: "ikerMundez",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.ikerMundez
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.ikerMundez
       },
       {
         path: "robertNav",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.robertNav
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.robertNav
       },
       {
         path: "alcaraz",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.alcaraz
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.alcaraz
       },
       {
         path: "rodrygo",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.rodrygo
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.rodrygo
       },
       {
         path: "dovbyk",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dovbyk
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.dovbyk
       },
       {
         path: "willianJose",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.willianJose
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.willianJose
       }
     ],
     [$props, $ctx, $refs]
@@ -239,8 +250,11 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -253,9 +267,7 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         {
           [sty.rootalcaraz]: hasVariant($state, "alcaraz", "alcaraz"),
@@ -391,92 +403,93 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
           src={
             hasVariant($state, "willianJose", "willianJose")
               ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/willianJosepng.png",
+                  src: "/plasmic/copy_of_proliga_new_design/images/willianJosePng.png",
                   fullWidth: 256,
                   fullHeight: 256,
                   aspectRatio: undefined
                 }
               : hasVariant($state, "dovbyk", "dovbyk")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/dovbykpng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "rodrygo", "rodrygo")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/rodrygopng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "alcaraz", "alcaraz")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/alcarazpng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "robertNav", "robertNav")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/robertNavpng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "ikerMundez", "ikerMundez")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/ikerMunofizpng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "zakaryan", "zakaryan")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/zahkaryanpng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "mingueza", "mingueza")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/miguezapng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "johnPache2", "johnPache2")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/johnPachepng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : hasVariant($state, "sergioRamos", "sergioRamos")
-              ? {
-                  src: "/plasmic/copy_of_proliga_new_design/images/ramospng.png",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }
-              : (() => {
-                  try {
-                    return $props.playerImage;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return {
-                        src: "/plasmic/copy_of_proliga_new_design/images/sergioHerpng.png",
+                ? {
+                    src: "/plasmic/copy_of_proliga_new_design/images/dovbykPng.png",
+                    fullWidth: 256,
+                    fullHeight: 256,
+                    aspectRatio: undefined
+                  }
+                : hasVariant($state, "rodrygo", "rodrygo")
+                  ? {
+                      src: "/plasmic/copy_of_proliga_new_design/images/rodrygoPng.png",
+                      fullWidth: 256,
+                      fullHeight: 256,
+                      aspectRatio: undefined
+                    }
+                  : hasVariant($state, "alcaraz", "alcaraz")
+                    ? {
+                        src: "/plasmic/copy_of_proliga_new_design/images/alcarazPng.png",
                         fullWidth: 256,
                         fullHeight: 256,
                         aspectRatio: undefined
-                      };
-                    }
-                    throw e;
-                  }
-                })()
+                      }
+                    : hasVariant($state, "robertNav", "robertNav")
+                      ? {
+                          src: "/plasmic/copy_of_proliga_new_design/images/robertNavPng.png",
+                          fullWidth: 256,
+                          fullHeight: 256,
+                          aspectRatio: undefined
+                        }
+                      : hasVariant($state, "ikerMundez", "ikerMundez")
+                        ? {
+                            src: "/plasmic/copy_of_proliga_new_design/images/ikerMunofizPng.png",
+                            fullWidth: 256,
+                            fullHeight: 256,
+                            aspectRatio: undefined
+                          }
+                        : hasVariant($state, "zakaryan", "zakaryan")
+                          ? {
+                              src: "/plasmic/copy_of_proliga_new_design/images/zahkaryanPng.png",
+                              fullWidth: 256,
+                              fullHeight: 256,
+                              aspectRatio: undefined
+                            }
+                          : hasVariant($state, "mingueza", "mingueza")
+                            ? {
+                                src: "/plasmic/copy_of_proliga_new_design/images/miguezaPng.png",
+                                fullWidth: 256,
+                                fullHeight: 256,
+                                aspectRatio: undefined
+                              }
+                            : hasVariant($state, "johnPache2", "johnPache2")
+                              ? {
+                                  src: "/plasmic/copy_of_proliga_new_design/images/johnPachePng.png",
+                                  fullWidth: 256,
+                                  fullHeight: 256,
+                                  aspectRatio: undefined
+                                }
+                              : hasVariant($state, "sergioRamos", "sergioRamos")
+                                ? {
+                                    src: "/plasmic/copy_of_proliga_new_design/images/ramosPng.png",
+                                    fullWidth: 256,
+                                    fullHeight: 256,
+                                    aspectRatio: undefined
+                                  }
+                                : (() => {
+                                    try {
+                                      return $props.playerImage;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return {
+                                          src: "/plasmic/copy_of_proliga_new_design/images/sergioHerPng.png",
+                                          fullWidth: 256,
+                                          fullHeight: 256,
+                                          aspectRatio: undefined
+                                        };
+                                      }
+                                      throw e;
+                                    }
+                                  })()
           }
         />
 
@@ -587,16 +600,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIdealTeamMember__VariantsArgs;
     args?: PlasmicIdealTeamMember__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIdealTeamMember__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicIdealTeamMember__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIdealTeamMember__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicIdealTeamMember__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

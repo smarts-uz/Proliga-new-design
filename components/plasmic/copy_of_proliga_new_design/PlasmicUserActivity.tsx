@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -59,10 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "../proliga_v_4/plasmic"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectModule
+import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUserActivity.module.css"; // plasmic-import: aR0WJlZINKrw/css
 
@@ -73,10 +74,7 @@ export type PlasmicUserActivity__VariantsArgs = {};
 type VariantPropType = keyof PlasmicUserActivity__VariantsArgs;
 export const PlasmicUserActivity__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicUserActivity__ArgsType = {
-  date?: any;
-  activity?: string;
-};
+export type PlasmicUserActivity__ArgsType = { date?: any; activity?: string };
 type ArgPropType = keyof PlasmicUserActivity__ArgsType;
 export const PlasmicUserActivity__ArgProps = new Array<ArgPropType>(
   "date",
@@ -119,7 +117,9 @@ function PlasmicUserActivity__RenderFunc(props: {
           date: "2024-05-25T13:02:06.141Z",
           activity: "0"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -130,28 +130,27 @@ function PlasmicUserActivity__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -230,7 +229,7 @@ function PlasmicUserActivity__RenderFunc(props: {
         loading={"lazy"}
         src={"https://cdn-icons-png.flaticon.com/512/6688/6688059.png"}
       />
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -259,16 +258,18 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUserActivity__VariantsArgs;
     args?: PlasmicUserActivity__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUserActivity__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicUserActivity__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUserActivity__VariantsArgs, ReservedPropsType> &
+    // Specify args directly as props
+    Omit<PlasmicUserActivity__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
