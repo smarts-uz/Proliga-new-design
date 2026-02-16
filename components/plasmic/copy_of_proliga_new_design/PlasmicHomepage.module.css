@@ -93,10 +93,15 @@
 }
 .text {
   position: relative;
-  width: 100%;
+  width: 956px;
   height: 456px;
   max-width: 100%;
-  padding-right: 276px;
+  padding-right: 0px;
   padding-top: 126px;
-  min-width: 0;
+  margin-right: 0px;
+  margin-left: 175px;
+}
+.ul {
+  display: flex;
+  flex-direction: column;
 }

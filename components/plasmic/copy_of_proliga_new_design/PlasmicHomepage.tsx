@@ -107,7 +107,8 @@ export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   navbar2?: Flex__<typeof Navbar>;
   text?: Flex__<"div">;
-  h5?: Flex__<"h5">;
+  ul?: Flex__<"ul">;
+  h1?: Flex__<"h1">;
 };
 
 export interface DefaultHomepageProps {}
@@ -236,18 +237,34 @@ function PlasmicHomepage__RenderFunc(props: {
             <React.Fragment>
               <React.Fragment>{""}</React.Fragment>
               {
-                <h5
-                  data-plasmic-name={"h5"}
-                  data-plasmic-override={overrides.h5}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h5,
-                    projectcss.__wab_text,
-                    sty.h5
-                  )}
+                <ul
+                  data-plasmic-name={"ul"}
+                  data-plasmic-override={overrides.ul}
+                  className={classNames(projectcss.all, projectcss.ul, sty.ul)}
                 >
-                  {"Asror qotobosh sikaman sani hali "}
-                </h5>
+                  <h1
+                    data-plasmic-name={"h1"}
+                    data-plasmic-override={overrides.h1}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>
+                        {"Asror qotobosh sikaman sani hali\n"}
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#FFFFFF" }}
+                      >
+                        {"Durdon bilan qoship chort jalap  kut nahuy "}
+                      </span>
+                    </React.Fragment>
+                  </h1>
+                </ul>
               }
               <React.Fragment>{""}</React.Fragment>
             </React.Fragment>
@@ -259,10 +276,11 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar2", "text", "h5"],
+  root: ["root", "navbar2", "text", "ul", "h1"],
   navbar2: ["navbar2"],
-  text: ["text", "h5"],
-  h5: ["h5"]
+  text: ["text", "ul", "h1"],
+  ul: ["ul", "h1"],
+  h1: ["h1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -271,7 +289,8 @@ type NodeDefaultElementType = {
   root: "div";
   navbar2: typeof Navbar;
   text: "div";
-  h5: "h5";
+  ul: "ul";
+  h1: "h1";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -338,7 +357,8 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     navbar2: makeNodeComponent("navbar2"),
     text: makeNodeComponent("text"),
-    h5: makeNodeComponent("h5"),
+    ul: makeNodeComponent("ul"),
+    h1: makeNodeComponent("h1"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
