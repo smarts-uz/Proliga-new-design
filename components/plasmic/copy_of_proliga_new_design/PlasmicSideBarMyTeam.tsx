@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSideBarMyTeam.module.css"; // plasmic-import: kCfKs1vqA6_E/css
 
 createPlasmicElementProxy;
@@ -139,27 +138,21 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__zto0D)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__v3LCe
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__zto0D)}>
+        <div className={classNames("all", "__wab_text", sty.text__v3LCe)}>
           {"PROLIGA Fantasy"}
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__ss3YL)}
+        className={classNames("all", sty.freeBox__ss3YL)}
         onClick={async event => {
           const $steps = {};
 
@@ -206,7 +199,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
           width={"23.13"}
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__qDwk)}>
+      <div className={classNames("all", sty.freeBox__qDwk)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__sH7JM)}
@@ -223,11 +216,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
         />
 
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__gpHx4
-          )}
+          className={classNames("all", "__wab_text", sty.text__gpHx4)}
           onClick={async event => {
             const $steps = {};
 
@@ -260,7 +249,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
           {"My Team"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__ra4Wj)}>
+      <div className={classNames("all", sty.freeBox__ra4Wj)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__gZ0Kh)}
@@ -279,11 +268,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
         />
 
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__vLBpz
-          )}
+          className={classNames("all", "__wab_text", sty.text__vLBpz)}
           onClick={async event => {
             const $steps = {};
 
@@ -319,7 +304,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
       <PlasmicLink__
         data-plasmic-name={"link"}
         data-plasmic-override={overrides.link}
-        className={classNames(projectcss.all, projectcss.a, sty.link)}
+        className={classNames("all", "a", "a__qrPZw", sty.link)}
         component={Link}
         href={`/activity`}
         legacyBehavior={false}
@@ -342,33 +327,15 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
           width={"23.13"}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___8IJsT
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text___8IJsT)}>
           {"Activity"}
         </div>
       </PlasmicLink__>
-      <div className={classNames(projectcss.all, sty.freeBox__k5Qk)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__b3Nt4
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__k5Qk)}>
+        <div className={classNames("all", "__wab_text", sty.text__b3Nt4)}>
           {"END OF THE FIXTURE (36)"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wwasR
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__wwasR)}>
           {"Friyday 16:00 Goo"}
         </div>
       </div>

@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSwitch.module.css"; // plasmic-import: hHMHnoOZA_CD/css
 
 createPlasmicElementProxy;
@@ -132,8 +131,6 @@ function PlasmicSwitch__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -153,6 +150,9 @@ function PlasmicSwitch__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -170,10 +170,10 @@ function PlasmicSwitch__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootisOn]: hasVariant($state, "isOn", "isOn") }
@@ -211,7 +211,7 @@ function PlasmicSwitch__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxisOn]: hasVariant($state, "isOn", "isOn")
         })}
       />

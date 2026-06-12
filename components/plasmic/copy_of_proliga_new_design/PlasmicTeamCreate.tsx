@@ -77,7 +77,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeamCreate.module.css"; // plasmic-import: 9F8z4nLGbExt/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -95,11 +94,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -164,11 +170,6 @@ function PlasmicTeamCreate__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -212,6 +213,12 @@ function PlasmicTeamCreate__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -271,7 +278,7 @@ function PlasmicTeamCreate__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -286,17 +293,17 @@ function PlasmicTeamCreate__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -321,14 +328,14 @@ function PlasmicTeamCreate__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__fBaoA)}>
+          <div className={classNames("all", sty.freeBox__fBaoA)}>
             <TeamPlayerCreate
               data-plasmic-name={"teamPlayerCreate"}
               data-plasmic-override={overrides.teamPlayerCreate}
               className={classNames("__wab_instance", sty.teamPlayerCreate)}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__uW71B)}>
+            <div className={classNames("all", sty.freeBox__uW71B)}>
               <MessageCard
                 className={classNames("__wab_instance", sty.messageCard__zF4F)}
                 heading={"qoida"}
@@ -413,10 +420,10 @@ function PlasmicTeamCreate__RenderFunc(props: {
                   "selectedRowKeys"
                 ]),
                 themeResetClassName: classNames(
-                  projectcss.root_reset,
-                  projectcss.root_reset_tags,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
+                  "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+                  "root_reset_qrPZwqtrqWM4S9b4djCj1H_tags",
+                  "plasmic_default_styles",
+                  "plasmic_mixins",
                   styleTokensClassNames
                 )
               };
@@ -586,9 +593,10 @@ export const PlasmicTeamCreate = Object.assign(
     internalArgProps: PlasmicTeamCreate__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/team-create",
       pagePath: "/team-create",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

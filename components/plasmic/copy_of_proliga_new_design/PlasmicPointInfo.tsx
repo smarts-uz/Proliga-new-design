@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPointInfo.module.css"; // plasmic-import: Up53sXl3JeW5/css
 
 createPlasmicElementProxy;
@@ -155,10 +154,10 @@ function PlasmicPointInfo__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -167,7 +166,7 @@ function PlasmicPointInfo__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+        className={classNames("all", "__wab_text", sty.text)}
       >
         <React.Fragment>
           {(() => {
@@ -188,7 +187,7 @@ function PlasmicPointInfo__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
         {(
           triggers.hover_root
@@ -210,11 +209,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"goalAsist"}
             data-plasmic-override={overrides.goalAsist}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.goalAsist
-            )}
+            className={classNames("all", "__wab_text", sty.goalAsist)}
           >
             {"Enter some text"}
           </div>
@@ -239,11 +234,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"missedPenalty"}
             data-plasmic-override={overrides.missedPenalty}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.missedPenalty
-            )}
+            className={classNames("all", "__wab_text", sty.missedPenalty)}
           >
             {"Enter some text"}
           </div>
@@ -268,11 +259,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"shutout"}
             data-plasmic-override={overrides.shutout}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.shutout
-            )}
+            className={classNames("all", "__wab_text", sty.shutout)}
           >
             {"Enter some text"}
           </div>
@@ -297,11 +284,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"every2MissedGoals"}
             data-plasmic-override={overrides.every2MissedGoals}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.every2MissedGoals
-            )}
+            className={classNames("all", "__wab_text", sty.every2MissedGoals)}
           >
             {"Enter some text"}
           </div>
@@ -326,11 +309,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"goal"}
             data-plasmic-override={overrides.goal}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.goal
-            )}
+            className={classNames("all", "__wab_text", sty.goal)}
           >
             {"Enter some text"}
           </div>
@@ -355,11 +334,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"isLineup"}
             data-plasmic-override={overrides.isLineup}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.isLineup
-            )}
+            className={classNames("all", "__wab_text", sty.isLineup)}
           >
             {"Enter some text"}
           </div>
@@ -384,11 +359,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"isLineupMore60"}
             data-plasmic-override={overrides.isLineupMore60}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.isLineupMore60
-            )}
+            className={classNames("all", "__wab_text", sty.isLineupMore60)}
           >
             {"Enter some text"}
           </div>
@@ -413,11 +384,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"redCard"}
             data-plasmic-override={overrides.redCard}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.redCard
-            )}
+            className={classNames("all", "__wab_text", sty.redCard)}
           >
             {"Enter some text"}
           </div>
@@ -442,11 +409,7 @@ function PlasmicPointInfo__RenderFunc(props: {
           <div
             data-plasmic-name={"yellowCard"}
             data-plasmic-override={overrides.yellowCard}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.yellowCard
-            )}
+            className={classNames("all", "__wab_text", sty.yellowCard)}
           >
             {"Enter some text"}
           </div>

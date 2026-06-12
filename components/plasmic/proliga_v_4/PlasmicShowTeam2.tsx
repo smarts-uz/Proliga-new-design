@@ -80,7 +80,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicShowTeam2.module.css"; // plasmic-import: Sd_QJ3SDhBGt/css
 
 import CheckSvgIcon from "../plasmic_tabs/icons/PlasmicIcon__CheckSvg"; // plasmic-import: zq2s7N0xWucT/icon
@@ -101,11 +100,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -178,11 +184,6 @@ function PlasmicShowTeam2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -250,6 +251,12 @@ function PlasmicShowTeam2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -387,7 +394,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -402,17 +409,17 @@ function PlasmicShowTeam2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -516,7 +523,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
             })()}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__mWQyC)}>
+          <div className={classNames("all", sty.freeBox__mWQyC)}>
             <TabsContainer
               data-plasmic-name={"tabsContainer"}
               data-plasmic-override={overrides.tabsContainer}
@@ -526,12 +533,8 @@ function PlasmicShowTeam2__RenderFunc(props: {
             >
               <DataCtxReader__>
                 {$ctx => (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___4TlWt)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__ejjXd)}
-                    >
+                  <div className={classNames("all", sty.freeBox___4TlWt)}>
+                    <div className={classNames("all", sty.freeBox__ejjXd)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -581,8 +584,8 @@ function PlasmicShowTeam2__RenderFunc(props: {
                                 data-plasmic-name={"text"}
                                 data-plasmic-override={overrides.text}
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text
                                 )}
                               >
@@ -616,9 +619,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
                         )}
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__xbC1X)}
-                    >
+                    <div className={classNames("all", sty.freeBox__xbC1X)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -654,7 +655,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
                                 overrides.transferVisibility
                               }
                               className={classNames(
-                                projectcss.all,
+                                "all",
                                 sty.transferVisibility
                               )}
                             />
@@ -662,10 +663,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
                             <div
                               data-plasmic-name={"showScore"}
                               data-plasmic-override={overrides.showScore}
-                              className={classNames(
-                                projectcss.all,
-                                sty.showScore
-                              )}
+                              className={classNames("all", sty.showScore)}
                             />
 
                             <div
@@ -674,7 +672,7 @@ function PlasmicShowTeam2__RenderFunc(props: {
                                 overrides.transferTourVisibility
                               }
                               className={classNames(
-                                projectcss.all,
+                                "all",
                                 sty.transferTourVisibility
                               )}
                             />
@@ -853,9 +851,10 @@ export const PlasmicShowTeam2 = Object.assign(
     internalArgProps: PlasmicShowTeam2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/showteam-2/[comp_id]/[id]",
       pagePath: "/showteam-2/[comp_id]/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

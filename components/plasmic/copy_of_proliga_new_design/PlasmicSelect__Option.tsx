@@ -66,7 +66,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSelect__Option.module.css"; // plasmic-import: 2LAHFvjam5tT/css
 
 import SUPER__PlasmicSelect from "./PlasmicSelect"; // plasmic-import: WDDaSJMd5buE/render
@@ -148,8 +147,6 @@ function PlasmicSelect__Option__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -174,6 +171,9 @@ function PlasmicSelect__Option__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -195,10 +195,10 @@ function PlasmicSelect__Option__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -215,7 +215,7 @@ function PlasmicSelect__Option__RenderFunc(props: {
       <div
         data-plasmic-name={"labelContainer"}
         data-plasmic-override={overrides.labelContainer}
-        className={classNames(projectcss.all, sty.labelContainer)}
+        className={classNames("all", sty.labelContainer)}
       >
         {renderPlasmicSlot({
           defaultContents: "Option",

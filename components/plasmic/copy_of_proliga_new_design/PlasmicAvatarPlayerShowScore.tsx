@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicAvatarPlayerShowScore.module.css"; // plasmic-import: IigZUWrCtPw2/css
 
 createPlasmicElementProxy;
@@ -163,10 +162,10 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -201,7 +200,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
         />
       ) : null}
       <div
-        className={classNames(projectcss.all, sty.freeBox__ynDch)}
+        className={classNames("all", sty.freeBox__ynDch)}
         onClick={args.updateCapitan}
       >
         {(() => {
@@ -270,15 +269,9 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
           />
         ) : null}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__ivxIi)}>
-        <div className={classNames(projectcss.all, sty.freeBox__qy3Ru)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__uzDle
-            )}
-          >
+      <div className={classNames("all", sty.freeBox__ivxIi)}>
+        <div className={classNames("all", sty.freeBox__qy3Ru)}>
+          <div className={classNames("all", "__wab_text", sty.text__uzDle)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -296,7 +289,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
             </React.Fragment>
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__p9Be)}>
+        <div className={classNames("all", sty.freeBox__p9Be)}>
           <PointInfo
             data-plasmic-name={"pointInfo"}
             data-plasmic-override={overrides.pointInfo}
@@ -317,13 +310,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__r50Jn
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__r50Jn)}>
               {"-"}
             </div>
           ) : null}
@@ -340,7 +327,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__jpQPh)}>
+            <div className={classNames("all", sty.freeBox__jpQPh)}>
               {(() => {
                 try {
                   return $props.capitanVisibility != true;
@@ -355,11 +342,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__vtlKh
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__vtlKh)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -392,11 +375,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gOu0O
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__gOu0O)}
                 >
                   <React.Fragment>
                     {(() => {

@@ -66,7 +66,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicRegister.module.css"; // plasmic-import: sNtHkQCpIuxn/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
@@ -136,10 +135,6 @@ function PlasmicRegister__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -157,6 +152,11 @@ function PlasmicRegister__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -174,15 +174,15 @@ function PlasmicRegister__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__ka1Lu)}>
+      <div className={classNames("all", sty.freeBox__ka1Lu)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__h0Brw)}
@@ -198,34 +198,22 @@ function PlasmicRegister__RenderFunc(props: {
           }
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__a4Mad
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__a4Mad)}>
           {"Biz bilan o'ynang sovg'alar yutib oling!"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__sd7Mz)}>
+      <div className={classNames("all", sty.freeBox__sd7Mz)}>
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
-          className={classNames(projectcss.all, sty.columns)}
+          className={classNames("all", sty.columns)}
         >
           <div
             data-plasmic-name={"login"}
             data-plasmic-override={overrides.login}
-            className={classNames(projectcss.all, sty.login)}
+            className={classNames("all", sty.login)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gsKgh
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__gsKgh)}>
               {hasVariant(globalVariants, "screen", "desktop")
                 ? "EMAIL"
                 : "POCHTA"}
@@ -256,13 +244,7 @@ function PlasmicRegister__RenderFunc(props: {
               }
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jTp
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__jTp)}>
               {"Parol"}
             </div>
             <TextInput
@@ -337,24 +319,14 @@ function PlasmicRegister__RenderFunc(props: {
             >
               {"Ro'yhatdan o'tish"}
             </Button>
-            <div className={classNames(projectcss.all, sty.freeBox__bOhfp)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ysXcN
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__bOhfp)}>
+              <div className={classNames("all", "__wab_text", sty.text__ysXcN)}>
                 {hasVariant(globalVariants, "screen", "desktop")
                   ? "Already have an account?"
                   : "Already have an account?"}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bv6Vw
-                )}
+                className={classNames("all", "__wab_text", sty.text__bv6Vw)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -391,20 +363,14 @@ function PlasmicRegister__RenderFunc(props: {
           <div
             data-plasmic-name={"nadpis"}
             data-plasmic-override={overrides.nadpis}
-            className={classNames(projectcss.all, sty.nadpis)}
+            className={classNames("all", sty.nadpis)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__sLhDx
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__sLhDx)}>
               {
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\noptio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\nobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam"
               }
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__br6G2)}>
+            <div className={classNames("all", sty.freeBox__br6G2)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__ryKGi)}

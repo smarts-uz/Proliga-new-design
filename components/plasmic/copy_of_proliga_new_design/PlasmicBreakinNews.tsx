@@ -67,7 +67,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicBreakinNews.module.css"; // plasmic-import: kUph7KCegjg_/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -85,11 +84,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -154,8 +160,6 @@ function PlasmicBreakinNews__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -167,6 +171,9 @@ function PlasmicBreakinNews__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -177,7 +184,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -192,17 +199,17 @@ function PlasmicBreakinNews__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -230,22 +237,18 @@ function PlasmicBreakinNews__RenderFunc(props: {
           <div
             data-plasmic-name={"freeBox"}
             data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
+            className={classNames("all", sty.freeBox)}
           />
 
           <div
             data-plasmic-name={"text"}
             data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
+            className={classNames("all", "__wab_text", sty.text)}
           >
             {"Breaking news"}
           </div>
-          <div className={classNames(projectcss.all, sty.columns__cfdJq)}>
-            <div className={classNames(projectcss.all, sty.column__oGf9R)}>
+          <div className={classNames("all", sty.columns__cfdJq)}>
+            <div className={classNames("all", sty.column__oGf9R)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -253,7 +256,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__stdOg)}>
+            <div className={classNames("all", sty.column__stdOg)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -261,7 +264,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__n7Rn4)}>
+            <div className={classNames("all", sty.column__n7Rn4)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -270,8 +273,8 @@ function PlasmicBreakinNews__RenderFunc(props: {
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.columns__q0Zi0)}>
-            <div className={classNames(projectcss.all, sty.column__mqVau)}>
+          <div className={classNames("all", sty.columns__q0Zi0)}>
+            <div className={classNames("all", sty.column__mqVau)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -279,7 +282,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column___2NZux)}>
+            <div className={classNames("all", sty.column___2NZux)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -287,7 +290,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__iLsTz)}>
+            <div className={classNames("all", sty.column__iLsTz)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -296,8 +299,8 @@ function PlasmicBreakinNews__RenderFunc(props: {
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.columns__kxJlF)}>
-            <div className={classNames(projectcss.all, sty.column__nf3Ja)}>
+          <div className={classNames("all", sty.columns__kxJlF)}>
+            <div className={classNames("all", sty.column__nf3Ja)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -305,7 +308,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__o2TeB)}>
+            <div className={classNames("all", sty.column__o2TeB)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -313,7 +316,7 @@ function PlasmicBreakinNews__RenderFunc(props: {
                 )}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column___3PnSu)}>
+            <div className={classNames("all", sty.column___3PnSu)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -322,8 +325,8 @@ function PlasmicBreakinNews__RenderFunc(props: {
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.columns__qUj20)}>
-            <div className={classNames(projectcss.all, sty.column___948Pq)}>
+          <div className={classNames("all", sty.columns__qUj20)}>
+            <div className={classNames("all", sty.column___948Pq)}>
               <BreakinNewsCards
                 className={classNames(
                   "__wab_instance",
@@ -433,9 +436,10 @@ export const PlasmicBreakinNews = Object.assign(
     internalArgProps: PlasmicBreakinNews__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/breaking-news",
       pagePath: "/breaking-news",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

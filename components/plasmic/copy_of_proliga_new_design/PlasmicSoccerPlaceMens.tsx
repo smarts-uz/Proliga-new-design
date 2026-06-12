@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSoccerPlaceMens.module.css"; // plasmic-import: AD9rteI8dV2J/css
 
 createPlasmicElementProxy;
@@ -150,10 +149,10 @@ function PlasmicSoccerPlaceMens__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -161,7 +160,7 @@ function PlasmicSoccerPlaceMens__RenderFunc(props: {
       <div
         data-plasmic-name={"def"}
         data-plasmic-override={overrides.def}
-        className={classNames(projectcss.all, sty.def)}
+        className={classNames("all", sty.def)}
       >
         <IdealTeamMember
           className={classNames("__wab_instance", sty.idealTeamMember__cb6GQ)}
@@ -196,7 +195,7 @@ function PlasmicSoccerPlaceMens__RenderFunc(props: {
       <div
         data-plasmic-name={"str"}
         data-plasmic-override={overrides.str}
-        className={classNames(projectcss.all, sty.str)}
+        className={classNames("all", sty.str)}
       >
         <IdealTeamMember
           className={classNames("__wab_instance", sty.idealTeamMember__ptc4S)}
@@ -291,7 +290,7 @@ function PlasmicSoccerPlaceMens__RenderFunc(props: {
       <div
         data-plasmic-name={"mid"}
         data-plasmic-override={overrides.mid}
-        className={classNames(projectcss.all, sty.mid)}
+        className={classNames("all", sty.mid)}
       >
         <IdealTeamMember
           className={classNames("__wab_instance", sty.idealTeamMember__jxBNp)}
@@ -416,7 +415,7 @@ function PlasmicSoccerPlaceMens__RenderFunc(props: {
       <div
         data-plasmic-name={"goa"}
         data-plasmic-override={overrides.goa}
-        className={classNames(projectcss.all, sty.goa)}
+        className={classNames("all", sty.goa)}
       >
         <IdealTeamMember
           className={classNames("__wab_instance", sty.idealTeamMember___831)}

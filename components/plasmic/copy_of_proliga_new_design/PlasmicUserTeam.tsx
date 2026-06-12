@@ -76,7 +76,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUserTeam.module.css"; // plasmic-import: vgALlIplrjGw/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -94,11 +93,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -170,11 +176,6 @@ function PlasmicUserTeam__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -186,6 +187,12 @@ function PlasmicUserTeam__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -228,7 +235,7 @@ function PlasmicUserTeam__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -243,17 +250,17 @@ function PlasmicUserTeam__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -262,9 +269,10 @@ function PlasmicUserTeam__RenderFunc(props: {
             data-plasmic-name={"h1"}
             data-plasmic-override={overrides.h1}
             className={classNames(
-              projectcss.all,
-              projectcss.h1,
-              projectcss.__wab_text,
+              "all",
+              "h1",
+              "h1__qrPZw",
+              "__wab_text",
               sty.h1
             )}
           >
@@ -307,45 +315,27 @@ function PlasmicUserTeam__RenderFunc(props: {
           <div
             data-plasmic-name={"info"}
             data-plasmic-override={overrides.info}
-            className={classNames(projectcss.all, sty.info)}
+            className={classNames("all", sty.info)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gilx
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__gilx)}>
               {"Team "}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4UMov
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___4UMov)}>
               {"Points"}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__osEin
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__osEin)}>
               {"Balance"}
             </div>
           </div>
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main)}
+            className={classNames("all", sty.main)}
           >
             <div
               data-plasmic-name={"sidebar"}
               data-plasmic-override={overrides.sidebar}
-              className={classNames(projectcss.all, sty.sidebar)}
+              className={classNames("all", sty.sidebar)}
             >
               <SideBarMyTeam
                 data-plasmic-name={"sideBarMyTeam"}
@@ -356,7 +346,7 @@ function PlasmicUserTeam__RenderFunc(props: {
             <div
               data-plasmic-name={"match"}
               data-plasmic-override={overrides.match}
-              className={classNames(projectcss.all, sty.match)}
+              className={classNames("all", sty.match)}
             >
               <SoccerPlaceMens
                 data-plasmic-name={"soccerPlaceMens"}
@@ -371,7 +361,7 @@ function PlasmicUserTeam__RenderFunc(props: {
             <div
               data-plasmic-name={"matches"}
               data-plasmic-override={overrides.matches}
-              className={classNames(projectcss.all, sty.matches)}
+              className={classNames("all", sty.matches)}
             >
               <PlayerPickerRow
                 data-plasmic-name={"playerPickerRow"}
@@ -523,9 +513,10 @@ export const PlasmicUserTeam = Object.assign(
     internalArgProps: PlasmicUserTeam__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/team/[id]",
       pagePath: "/team/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -74,7 +74,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUserteamNavbar.module.css"; // plasmic-import: yP6GdWiKL8XJ/css
 
 createPlasmicElementProxy;
@@ -172,8 +171,6 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -185,6 +182,9 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -204,21 +204,15 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__esqtx
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__esqtx)}>
         <React.Fragment>
           {(() => {
             try {
@@ -236,50 +230,22 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
         </React.Fragment>
       </div>
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__i5OnO
-        )}
+        className={classNames("all", "__wab_text", sty.text__i5OnO)}
         onClick={args.onlickEditTeam}
       >
         {"Edit team"}
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__okBfk
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__okBfk)}>
         {"Team"}
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__sEg4Q
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__sEg4Q)}>
         {"Points"}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__xjyEu)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__uXl0
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__xjyEu)}>
+        <div className={classNames("all", "__wab_text", sty.text__uXl0)}>
           {"Balance"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__rVwpi
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__rVwpi)}>
           <React.Fragment>
             {(() => {
               try {
@@ -303,9 +269,9 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
         className={classNames("__wab_instance", sty.modal)}
         closeButtonClassName={classNames({ [sty["pcls_AqghIw-7_Kzt"]]: true })}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         maskClosable={true}
@@ -426,13 +392,7 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.button}
               className={classNames("__wab_instance", sty.button)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sWoHg
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__sWoHg)}>
                 {"Sell"}
               </div>
             </AntdButton>
@@ -440,14 +400,8 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
         }
         wrapClassName={classNames({ [sty["pcls_TXOaEixpPSuJ"]]: true })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__wRrj)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__z10Xm
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__wRrj)}>
+          <div className={classNames("all", "__wab_text", sty.text__z10Xm)}>
             {"Modal content"}
           </div>
         </div>

@@ -91,7 +91,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicEditTeam.module.css"; // plasmic-import: 7F9P627JjGX5/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
@@ -114,11 +113,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -217,13 +223,6 @@ function PlasmicEditTeam__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -499,6 +498,14 @@ function PlasmicEditTeam__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -793,7 +800,7 @@ function PlasmicEditTeam__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -808,17 +815,17 @@ function PlasmicEditTeam__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -843,7 +850,7 @@ function PlasmicEditTeam__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__d9SL9)}>
+          <div className={classNames("all", sty.freeBox__d9SL9)}>
             <SearchComponent
               data-plasmic-name={"searchComponent"}
               data-plasmic-override={overrides.searchComponent}
@@ -853,18 +860,18 @@ function PlasmicEditTeam__RenderFunc(props: {
             <div
               data-plasmic-name={"columns"}
               data-plasmic-override={overrides.columns}
-              className={classNames(projectcss.all, sty.columns)}
+              className={classNames("all", sty.columns)}
             >
               <div
                 data-plasmic-name={"stadion"}
                 data-plasmic-override={overrides.stadion}
-                className={classNames(projectcss.all, sty.stadion)}
+                className={classNames("all", sty.stadion)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__u5AC)}>
+                <div className={classNames("all", sty.freeBox__u5AC)}>
                   <div
                     data-plasmic-name={"teamInfo"}
                     data-plasmic-override={overrides.teamInfo}
-                    className={classNames(projectcss.all, sty.teamInfo)}
+                    className={classNames("all", sty.teamInfo)}
                   >
                     <AntdSelect
                       data-plasmic-name={"selectFormation"}
@@ -875,9 +882,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                         sty.selectFormation
                       )}
                       defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
+                        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+                        "plasmic_default_styles",
+                        "plasmic_mixins",
                         styleTokensClassNames
                       )}
                       defaultValue={(() => {
@@ -1004,8 +1011,8 @@ function PlasmicEditTeam__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__l9Edg
                       )}
                     >
@@ -1027,8 +1034,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__csfsV
                       )}
                     >
@@ -1056,8 +1063,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__etslg
                       )}
                     >
@@ -1090,9 +1097,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                       )}
                       defaultOpen={false}
                       defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
+                        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+                        "plasmic_default_styles",
+                        "plasmic_mixins",
                         styleTokensClassNames
                       )}
                       mode={"single"}
@@ -1222,8 +1229,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                       placeholder={
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__c6Slp
                           )}
                         >
@@ -1242,7 +1249,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   <div
                     data-plasmic-name={"goa"}
                     data-plasmic-override={overrides.goa}
-                    className={classNames(projectcss.all, sty.goa)}
+                    className={classNames("all", sty.goa)}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -1266,10 +1273,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___9N6NV
-                          )}
+                          className={classNames("all", sty.freeBox___9N6NV)}
                           key={currentIndex}
                         >
                           <AvatarPlayer
@@ -1468,7 +1472,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   <div
                     data-plasmic-name={"def"}
                     data-plasmic-override={overrides.def}
-                    className={classNames(projectcss.all, sty.def)}
+                    className={classNames("all", sty.def)}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -1492,10 +1496,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xpcOg
-                          )}
+                          className={classNames("all", sty.freeBox__xpcOg)}
                           key={currentIndex}
                         >
                           <AvatarPlayer
@@ -1690,7 +1691,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   <div
                     data-plasmic-name={"mid"}
                     data-plasmic-override={overrides.mid}
-                    className={classNames(projectcss.all, sty.mid)}
+                    className={classNames("all", sty.mid)}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -1714,10 +1715,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__n9Ua6
-                          )}
+                          className={classNames("all", sty.freeBox__n9Ua6)}
                           key={currentIndex}
                         >
                           <AvatarPlayer
@@ -1916,7 +1914,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   <div
                     data-plasmic-name={"str"}
                     data-plasmic-override={overrides.str}
-                    className={classNames(projectcss.all, sty.str)}
+                    className={classNames("all", sty.str)}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -1940,10 +1938,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___0MH0R
-                          )}
+                          className={classNames("all", sty.freeBox___0MH0R)}
                           key={currentIndex}
                         >
                           <AvatarPlayer
@@ -2146,7 +2141,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens2)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.column__xGqS)}>
+              <div className={classNames("all", sty.column__xGqS)}>
                 <MessageCard
                   className={classNames(
                     "__wab_instance",
@@ -2258,11 +2253,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                   </Button>
                 ) : null}
               </div>
-              <div className={classNames(projectcss.all, sty.column__xAq6D)}>
+              <div className={classNames("all", sty.column__xAq6D)}>
                 <div
                   data-plasmic-name={"playerList"}
                   data-plasmic-override={overrides.playerList}
-                  className={classNames(projectcss.all, sty.playerList)}
+                  className={classNames("all", sty.playerList)}
                 >
                   <TextInput
                     data-plasmic-name={"textInput"}
@@ -2304,17 +2299,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                   >
                     <DataCtxReader__>
                       {$ctx => (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__w59FF
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__w59FF)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___1TNqg
-                            )}
+                            className={classNames("all", sty.freeBox___1TNqg)}
                           >
                             <TabButton
                               data-plasmic-name={"tabAll"}
@@ -2328,8 +2315,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                               <Button2>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__eWtnO
                                   )}
                                 >
@@ -2349,8 +2336,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                               <Button2>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__z8QRb
                                   )}
                                 >
@@ -2370,8 +2357,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                               <Button2>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__fHeOf
                                   )}
                                 >
@@ -2391,8 +2378,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                               <Button2>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__qzTKj
                                   )}
                                 >
@@ -2410,10 +2397,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                             />
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qifia
-                            )}
+                            className={classNames("all", sty.freeBox__qifia)}
                           >
                             <TabContent
                               data-plasmic-name={"tabAllContent"}
@@ -2425,10 +2409,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                               tabKey={"tab1"}
                             >
                               <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__rs3K
-                                )}
+                                className={classNames("all", sty.freeBox__rs3K)}
                               >
                                 <OrderBy
                                   data-plasmic-name={"orderByAll"}
@@ -3305,20 +3286,20 @@ function PlasmicEditTeam__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__qaRg3
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__jDCx
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__tp4Fm
                                     )}
                                   >
@@ -3335,9 +3316,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       sty.selectClub
                                     )}
                                     defaultStylesClassName={classNames(
-                                      projectcss.root_reset,
-                                      projectcss.plasmic_default_styles,
-                                      projectcss.plasmic_mixins,
+                                      "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+                                      "plasmic_default_styles",
+                                      "plasmic_mixins",
                                       styleTokensClassNames
                                     )}
                                     defaultValue={1}
@@ -4066,20 +4047,20 @@ function PlasmicEditTeam__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___3NRil
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__rljSc
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__kdebt
                                     )}
                                   >
@@ -4825,20 +4806,20 @@ function PlasmicEditTeam__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__aisrZ
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__pfR4I
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text___01IfV
                                     )}
                                   >
@@ -4912,10 +4893,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                   <div
                                     data-plasmic-name={"price"}
                                     data-plasmic-override={overrides.price}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.price
-                                    )}
+                                    className={classNames("all", sty.price)}
                                   >
                                     <OrderBy
                                       className={classNames(
@@ -5996,9 +5974,10 @@ export const PlasmicEditTeam = Object.assign(
     internalArgProps: PlasmicEditTeam__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/old/[comp_id]/[id]",
       pagePath: "/old/[comp_id]/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

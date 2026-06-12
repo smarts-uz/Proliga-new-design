@@ -66,7 +66,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuresEvent3.module.css"; // plasmic-import: 16Wp8_IOhFej/css
 
 createPlasmicElementProxy;
@@ -129,8 +128,6 @@ function PlasmicInjuresEvent3__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -145,6 +142,9 @@ function PlasmicInjuresEvent3__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -162,21 +162,15 @@ function PlasmicInjuresEvent3__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___6NoB
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text___6NoB)}>
         {"FIXTURES"}
       </div>
       {(() => {
@@ -224,236 +218,164 @@ function PlasmicInjuresEvent3__RenderFunc(props: {
             data-plasmic-override={overrides.sliderCarousel}
             {...child$Props}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__c5Egy)}>
-              <div className={classNames(projectcss.all, sty.columns__tEqWs)}>
-                <div className={classNames(projectcss.all, sty.column__dbGq)}>
+            <div className={classNames("all", sty.freeBox__c5Egy)}>
+              <div className={classNames("all", sty.columns__tEqWs)}>
+                <div className={classNames("all", sty.column__dbGq)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zqBz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zqBz)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__n6Stc)}>
+                <div className={classNames("all", sty.column__n6Stc)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___6Uh58
                     )}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__z8Vme)}>
+                <div className={classNames("all", sty.column__z8Vme)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__asGiN
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__asGiN)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__cRnx)}>
+                <div className={classNames("all", sty.column__cRnx)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wl4Et
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__wl4Et)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__oxP3U)}>
+                <div className={classNames("all", sty.column__oxP3U)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__f6ZqK
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__f6ZqK)}
                   >
                     {"F30"}
                   </div>
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__sPTvw)}>
-              <div className={classNames(projectcss.all, sty.columns__teqDa)}>
-                <div className={classNames(projectcss.all, sty.column__tZiVj)}>
+            <div className={classNames("all", sty.freeBox__sPTvw)}>
+              <div className={classNames("all", sty.columns__teqDa)}>
+                <div className={classNames("all", sty.column__tZiVj)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__spAgB
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__spAgB)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__f2Jfp)}>
+                <div className={classNames("all", sty.column__f2Jfp)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rwQfJ
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__rwQfJ)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__ktUlp)}>
+                <div className={classNames("all", sty.column__ktUlp)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___8KpLj
                     )}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__vpyDx)}>
+                <div className={classNames("all", sty.column__vpyDx)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tj8Wu
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__tj8Wu)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__vHzQd)}>
+                <div className={classNames("all", sty.column__vHzQd)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dq7Ei
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__dq7Ei)}
                   >
                     {"F30"}
                   </div>
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jhArp)}>
-              <div className={classNames(projectcss.all, sty.columns__vW5Ee)}>
-                <div className={classNames(projectcss.all, sty.column___9CjWd)}>
+            <div className={classNames("all", sty.freeBox__jhArp)}>
+              <div className={classNames("all", sty.columns__vW5Ee)}>
+                <div className={classNames("all", sty.column___9CjWd)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__q2GIp
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__q2GIp)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__eCkmO)}>
+                <div className={classNames("all", sty.column__eCkmO)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jCEz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__jCEz)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__v40WF)}>
+                <div className={classNames("all", sty.column__v40WF)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mMxmd
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__mMxmd)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__hoMmG)}>
+                <div className={classNames("all", sty.column__hoMmG)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__u8L3H
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__u8L3H)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__vVi8S)}>
+                <div className={classNames("all", sty.column__vVi8S)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vkbHs
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vkbHs)}
                   >
                     {"F30"}
                   </div>
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__q02MT)}>
-              <div className={classNames(projectcss.all, sty.columns__eu5Aw)}>
-                <div className={classNames(projectcss.all, sty.column__kbynU)}>
+            <div className={classNames("all", sty.freeBox__q02MT)}>
+              <div className={classNames("all", sty.columns__eu5Aw)}>
+                <div className={classNames("all", sty.column__kbynU)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__oKiPl
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__oKiPl)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__vL31V)}>
+                <div className={classNames("all", sty.column__vL31V)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nszme
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nszme)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column___9SuC7)}>
+                <div className={classNames("all", sty.column___9SuC7)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ie995
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ie995)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__ud6Fn)}>
+                <div className={classNames("all", sty.column__ud6Fn)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wdAl
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__wdAl)}
                   >
                     {"F30"}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.column__yr2Hd)}>
+                <div className={classNames("all", sty.column__yr2Hd)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nKx4N
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nKx4N)}
                   >
                     {"F30"}
                   </div>

@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuresEvent4.module.css"; // plasmic-import: JTwV6PXJOEX1/css
 
 createPlasmicElementProxy;
@@ -137,58 +136,34 @@ function PlasmicInjuresEvent4__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___0MIdR
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text___0MIdR)}>
         {"Fixture 34"}
       </div>
       <div
         data-plasmic-name={"columns"}
         data-plasmic-override={overrides.columns}
-        className={classNames(projectcss.all, sty.columns)}
+        className={classNames("all", sty.columns)}
       >
-        <div className={classNames(projectcss.all, sty.column___8Vm62)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__vCdDv
-            )}
-          >
+        <div className={classNames("all", sty.column___8Vm62)}>
+          <div className={classNames("all", "__wab_text", sty.text__vCdDv)}>
             {"Amount"}
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.column__nOTgV)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__rZH8
-            )}
-          >
+        <div className={classNames("all", sty.column__nOTgV)}>
+          <div className={classNames("all", "__wab_text", sty.text__rZH8)}>
             {"Stats"}
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.column__i2QH)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__sCetl
-            )}
-          >
+        <div className={classNames("all", sty.column__i2QH)}>
+          <div className={classNames("all", "__wab_text", sty.text__sCetl)}>
             {"Points"}
           </div>
         </div>

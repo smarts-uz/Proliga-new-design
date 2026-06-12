@@ -72,7 +72,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicIdealXl.module.css"; // plasmic-import: s53iPI1wh3wh/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -90,11 +89,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -164,10 +170,6 @@ function PlasmicIdealXl__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -185,6 +187,11 @@ function PlasmicIdealXl__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -195,7 +202,7 @@ function PlasmicIdealXl__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -210,17 +217,17 @@ function PlasmicIdealXl__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"idealXl"}
           data-plasmic-override={overrides.idealXl}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.idealXl
           )}
@@ -245,15 +252,9 @@ function PlasmicIdealXl__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__uHUu)}>
-            <div className={classNames(projectcss.all, sty.freeBox__j1Oe2)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tdAUg
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__uHUu)}>
+            <div className={classNames("all", sty.freeBox__j1Oe2)}>
+              <div className={classNames("all", "__wab_text", sty.text__tdAUg)}>
                 <React.Fragment>
                   <React.Fragment>{""}</React.Fragment>
                   {
@@ -261,16 +262,17 @@ function PlasmicIdealXl__RenderFunc(props: {
                       data-plasmic-name={"h4"}
                       data-plasmic-override={overrides.h4}
                       className={classNames(
-                        projectcss.all,
-                        projectcss.h4,
-                        projectcss.__wab_text,
+                        "all",
+                        "h4",
+                        "h4__qrPZw",
+                        "__wab_text",
                         sty.h4
                       )}
                     >
                       <React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                           }
                           style={{ color: "var(--token-jgohepLVeKvh)" }}
                         >
@@ -284,9 +286,9 @@ function PlasmicIdealXl__RenderFunc(props: {
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__f0P5I)}>
-            <div className={classNames(projectcss.all, sty.freeBox__uEzog)}>
-              <div className={classNames(projectcss.all, sty.freeBox__p1Dn7)}>
+          <div className={classNames("all", sty.freeBox__f0P5I)}>
+            <div className={classNames("all", sty.freeBox__uEzog)}>
+              <div className={classNames("all", sty.freeBox__p1Dn7)}>
                 <AntdDropdown
                   data-plasmic-name={"dropdown"}
                   data-plasmic-override={overrides.dropdown}
@@ -303,8 +305,8 @@ function PlasmicIdealXl__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__p2Cbi
                           )}
                         >
@@ -320,8 +322,8 @@ function PlasmicIdealXl__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___2Ius4
                           )}
                         >
@@ -342,8 +344,8 @@ function PlasmicIdealXl__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__odM05
                       )}
                     >
@@ -353,14 +355,10 @@ function PlasmicIdealXl__RenderFunc(props: {
                 </AntdDropdown>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__etY5F)}>
-              <div className={classNames(projectcss.all, sty.freeBox__aO9Bh)}>
+            <div className={classNames("all", sty.freeBox__etY5F)}>
+              <div className={classNames("all", sty.freeBox__aO9Bh)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__riwfn
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__riwfn)}
                 >
                   <React.Fragment>
                     <React.Fragment>{""}</React.Fragment>
@@ -369,16 +367,17 @@ function PlasmicIdealXl__RenderFunc(props: {
                         data-plasmic-name={"h5"}
                         data-plasmic-override={overrides.h5}
                         className={classNames(
-                          projectcss.all,
-                          projectcss.h5,
-                          projectcss.__wab_text,
+                          "all",
+                          "h5",
+                          "h5__qrPZw",
+                          "__wab_text",
                           sty.h5
                         )}
                       >
                         <React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                             }
                             style={{ color: "var(--token-jgohepLVeKvh)" }}
                           >
@@ -392,32 +391,28 @@ function PlasmicIdealXl__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__aeVqq)}>
-              <div className={classNames(projectcss.all, sty.freeBox___3MUby)}>
+            <div className={classNames("all", sty.freeBox__aeVqq)}>
+              <div className={classNames("all", sty.freeBox___3MUby)}>
                 <SoccerPlaceMens
                   data-plasmic-name={"soccerPlaceMens"}
                   data-plasmic-override={overrides.soccerPlaceMens}
                   className={classNames("__wab_instance", sty.soccerPlaceMens)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__pEwH)}>
-                <div className={classNames(projectcss.all, sty.freeBox__qeVd)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__n1Qb5)}
-                  >
+              <div className={classNames("all", sty.freeBox__pEwH)}>
+                <div className={classNames("all", sty.freeBox__qeVd)}>
+                  <div className={classNames("all", sty.freeBox__n1Qb5)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__rnC2G
                       )}
                     >
                       {"Players"}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__aiMw7)}
-                  >
+                  <div className={classNames("all", sty.freeBox__aiMw7)}>
                     <Select
                       data-plasmic-name={"select"}
                       data-plasmic-override={overrides.select}
@@ -450,9 +445,7 @@ function PlasmicIdealXl__RenderFunc(props: {
                     />
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__qnZMo)}
-                />
+                <div className={classNames("all", sty.freeBox__qnZMo)} />
               </div>
             </div>
           </div>
@@ -603,9 +596,10 @@ export const PlasmicIdealXl = Object.assign(
     internalArgProps: PlasmicIdealXl__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/ideal-xl",
       pagePath: "/ideal-xl",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

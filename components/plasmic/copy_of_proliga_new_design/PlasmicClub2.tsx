@@ -74,7 +74,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicClub2.module.css"; // plasmic-import: 3Fflfi2VS-8E/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -92,11 +91,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -162,11 +168,6 @@ function PlasmicClub2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -197,6 +198,12 @@ function PlasmicClub2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -261,7 +268,7 @@ function PlasmicClub2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -276,17 +283,17 @@ function PlasmicClub2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -311,8 +318,8 @@ function PlasmicClub2__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__m5Tb)}>
-            <div className={classNames(projectcss.all, sty.freeBox__d8C2J)}>
+          <div className={classNames("all", sty.freeBox__m5Tb)}>
+            <div className={classNames("all", sty.freeBox__d8C2J)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__bSvMe)}
@@ -338,13 +345,7 @@ function PlasmicClub2__RenderFunc(props: {
                 })()}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__blk56
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__blk56)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -362,57 +363,27 @@ function PlasmicClub2__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__kHy8W)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nnmln
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__kHy8W)}>
+              <div className={classNames("all", "__wab_text", sty.text__nnmln)}>
                 {"Total points"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pHgd4
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__pHgd4)}>
                 {"1746"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___2GhEl)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hdGxq
-                )}
-              >
+            <div className={classNames("all", sty.freeBox___2GhEl)}>
+              <div className={classNames("all", "__wab_text", sty.text__hdGxq)}>
                 {"Player available"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zFg0X
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__zFg0X)}>
                 {"24/27"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__ijkpl)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hN7Cq
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__ijkpl)}>
+              <div className={classNames("all", "__wab_text", sty.text__hN7Cq)}>
                 {"Market Value"}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__k9IBd)}>
+              <div className={classNames("all", sty.freeBox__k9IBd)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___6RQie)}
@@ -432,22 +403,12 @@ function PlasmicClub2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eGg9F
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eGg9F)}
                 >
                   {"24.886.777"}
                 </div>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__o8P0F
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__o8P0F)}>
                 {"-120.765.857(-83%)"}
               </div>
             </div>
@@ -455,20 +416,14 @@ function PlasmicClub2__RenderFunc(props: {
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
             <div
               data-plasmic-name={"column"}
               data-plasmic-override={overrides.column}
-              className={classNames(projectcss.all, sty.column)}
+              className={classNames("all", sty.column)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fsqA3
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__fsqA3)}>
                 {"Team of the week"}
               </div>
               <SoccerPlaceMens
@@ -595,9 +550,10 @@ export const PlasmicClub2 = Object.assign(
     internalArgProps: PlasmicClub2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/clubs-2/[id]",
       pagePath: "/clubs-2/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

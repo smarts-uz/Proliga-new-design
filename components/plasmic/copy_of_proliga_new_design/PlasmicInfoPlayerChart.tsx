@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInfoPlayerChart.module.css"; // plasmic-import: EQShKtt0DfSk/css
 
 createPlasmicElementProxy;
@@ -140,24 +139,18 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___6EqWn
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text___6EqWn)}>
         {"Value record"}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__lQkN3)}>
+      <div className={classNames("all", sty.freeBox__lQkN3)}>
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
@@ -178,31 +171,20 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__hEmPh
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__hEmPh)}>
           {"Market value"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__ttuk7
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__ttuk7)}>
           {"32,15,236"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__ch5HJ)}>
+      <div className={classNames("all", sty.freeBox__ch5HJ)}>
         <PlasmicLink__
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.link__jAyvb
           )}
           component={Link}
@@ -240,9 +222,10 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
         </PlasmicLink__>
         <PlasmicLink__
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.link__tUiqf
           )}
           component={Link}
@@ -254,9 +237,10 @@ function PlasmicInfoPlayerChart__RenderFunc(props: {
         </PlasmicLink__>
         <PlasmicLink__
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.link__uGtAb
           )}
           component={Link}

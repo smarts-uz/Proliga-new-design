@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicUserActivity.module.css"; // plasmic-import: aR0WJlZINKrw/css
 
 createPlasmicElementProxy;
@@ -146,10 +145,10 @@ function PlasmicUserActivity__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -157,24 +156,12 @@ function PlasmicUserActivity__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__fMz0M
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__fMz0M)}>
           {"Market Operation"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__uMZrN
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__uMZrN)}>
           <React.Fragment>
             {(() => {
               try {
@@ -192,13 +179,7 @@ function PlasmicUserActivity__RenderFunc(props: {
           </React.Fragment>
         </div>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__jAwBm
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__jAwBm)}>
         <React.Fragment>
           {(() => {
             try {

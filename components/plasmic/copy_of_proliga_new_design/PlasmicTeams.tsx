@@ -82,7 +82,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeams.module.css"; // plasmic-import: uWjk6FMKZDUs/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -100,11 +99,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -182,13 +188,6 @@ function PlasmicTeams__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -268,6 +267,14 @@ function PlasmicTeams__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -449,7 +456,7 @@ function PlasmicTeams__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -464,17 +471,17 @@ function PlasmicTeams__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -552,15 +559,11 @@ function PlasmicTeams__RenderFunc(props: {
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
-            <div className={classNames(projectcss.all, sty.column__uBjUl)}>
+            <div className={classNames("all", sty.column__uBjUl)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___3UxgB
-                )}
+                className={classNames("all", "__wab_text", sty.text___3UxgB)}
               >
                 {"Line-Up"}
               </div>
@@ -588,8 +591,8 @@ function PlasmicTeams__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__eP52O
                             )}
                           >
@@ -605,8 +608,8 @@ function PlasmicTeams__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__pBiYt
                             )}
                           >
@@ -632,8 +635,8 @@ function PlasmicTeams__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vuZz
                         )}
                       >
@@ -643,22 +646,15 @@ function PlasmicTeams__RenderFunc(props: {
                   </AntdDropdown>
                 );
               })}
-              <div className={classNames(projectcss.all, sty.freeBox__tB4QR)}>
-                <div className={classNames(projectcss.all, sty.freeBox__tNctp)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__u8Oba)}
-                  >
+              <div className={classNames("all", sty.freeBox__tB4QR)}>
+                <div className={classNames("all", sty.freeBox__tNctp)}>
+                  <div className={classNames("all", sty.freeBox__u8Oba)}>
                     <div
                       data-plasmic-name={"goa"}
                       data-plasmic-override={overrides.goa}
-                      className={classNames(projectcss.all, sty.goa)}
+                      className={classNames("all", sty.goa)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ct4KL
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__ct4KL)}>
                         {(_par =>
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
@@ -724,7 +720,7 @@ function PlasmicTeams__RenderFunc(props: {
                     <div
                       data-plasmic-name={"def"}
                       data-plasmic-override={overrides.def}
-                      className={classNames(projectcss.all, sty.def)}
+                      className={classNames("all", sty.def)}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -746,10 +742,7 @@ function PlasmicTeams__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__fkC7S
-                            )}
+                            className={classNames("all", sty.freeBox__fkC7S)}
                             key={currentIndex}
                           >
                             <AvatarPlayer
@@ -797,7 +790,7 @@ function PlasmicTeams__RenderFunc(props: {
                     <div
                       data-plasmic-name={"mid"}
                       data-plasmic-override={overrides.mid}
-                      className={classNames(projectcss.all, sty.mid)}
+                      className={classNames("all", sty.mid)}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -819,10 +812,7 @@ function PlasmicTeams__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__sVsro
-                            )}
+                            className={classNames("all", sty.freeBox__sVsro)}
                             key={currentIndex}
                           >
                             <AvatarPlayer
@@ -870,7 +860,7 @@ function PlasmicTeams__RenderFunc(props: {
                     <div
                       data-plasmic-name={"str"}
                       data-plasmic-override={overrides.str}
-                      className={classNames(projectcss.all, sty.str)}
+                      className={classNames("all", sty.str)}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -892,10 +882,7 @@ function PlasmicTeams__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jhAkB
-                            )}
+                            className={classNames("all", sty.freeBox__jhAkB)}
                             key={currentIndex}
                           >
                             <AvatarPlayer
@@ -952,24 +939,16 @@ function PlasmicTeams__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.column___4Akln)}>
-              <div className={classNames(projectcss.all, sty.freeBox__ioc1P)}>
+            <div className={classNames("all", sty.column___4Akln)}>
+              <div className={classNames("all", sty.freeBox__ioc1P)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jo1S
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__jo1S)}
                 >
                   {"Squad"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__tIk8V)}>
+                <div className={classNames("all", sty.freeBox__tIk8V)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dRqVx
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__dRqVx)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -993,12 +972,13 @@ function PlasmicTeams__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gbFrU)}>
+              <div className={classNames("all", sty.freeBox__gbFrU)}>
                 <PlasmicLink__
                   className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
+                    "all",
+                    "a",
+                    "a__qrPZw",
+                    "__wab_text",
                     sty.link__jLU
                   )}
                   component={Link}
@@ -1010,9 +990,10 @@ function PlasmicTeams__RenderFunc(props: {
                 </PlasmicLink__>
                 <PlasmicLink__
                   className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
+                    "all",
+                    "a",
+                    "a__qrPZw",
+                    "__wab_text",
                     sty.link___5Wi5I
                   )}
                   component={Link}
@@ -1024,9 +1005,10 @@ function PlasmicTeams__RenderFunc(props: {
                 </PlasmicLink__>
                 <PlasmicLink__
                   className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
+                    "all",
+                    "a",
+                    "a__qrPZw",
+                    "__wab_text",
                     sty.link__zoyAy
                   )}
                   component={Link}
@@ -1038,9 +1020,10 @@ function PlasmicTeams__RenderFunc(props: {
                 </PlasmicLink__>
                 <PlasmicLink__
                   className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
+                    "all",
+                    "a",
+                    "a__qrPZw",
+                    "__wab_text",
                     sty.link__r2Ar9
                   )}
                   component={Link}
@@ -1052,9 +1035,10 @@ function PlasmicTeams__RenderFunc(props: {
                 </PlasmicLink__>
                 <PlasmicLink__
                   className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
+                    "all",
+                    "a",
+                    "a__qrPZw",
+                    "__wab_text",
                     sty.link___7MJ5
                   )}
                   component={Link}
@@ -1344,9 +1328,10 @@ export const PlasmicTeams = Object.assign(
     internalArgProps: PlasmicTeams__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/user/team/[id]",
       pagePath: "/user/team/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

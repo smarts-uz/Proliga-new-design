@@ -73,7 +73,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicMarkets.module.css"; // plasmic-import: za_31RmYfyg7/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -91,11 +90,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -159,11 +165,6 @@ function PlasmicMarkets__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -175,6 +176,12 @@ function PlasmicMarkets__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -223,7 +230,7 @@ function PlasmicMarkets__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -238,17 +245,17 @@ function PlasmicMarkets__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -273,28 +280,16 @@ function PlasmicMarkets__RenderFunc(props: {
             }}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__zktmw
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__zktmw)}>
             {"Markets"}
           </div>
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
-            <div className={classNames(projectcss.all, sty.column__mOiCl)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xtfWm
-                )}
-              >
+            <div className={classNames("all", sty.column__mOiCl)}>
+              <div className={classNames("all", "__wab_text", sty.text__xtfWm)}>
                 {"Highest transfer Rises"}
               </div>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -317,8 +312,9 @@ function PlasmicMarkets__RenderFunc(props: {
                 return (
                   <PlasmicLink__
                     className={classNames(
-                      projectcss.all,
-                      projectcss.a,
+                      "all",
+                      "a",
+                      "a__qrPZw",
                       sty.link__pZsv
                     )}
                     component={Link}
@@ -370,9 +366,7 @@ function PlasmicMarkets__RenderFunc(props: {
                     }}
                     platform={"nextjs"}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox___5OFu)}
-                    >
+                    <div className={classNames("all", sty.freeBox___5OFu)}>
                       <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__gyH56)}
@@ -387,19 +381,12 @@ function PlasmicMarkets__RenderFunc(props: {
                         width={"112px"}
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gw3Ce)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__jppk0
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__gw3Ce)}>
+                      <div className={classNames("all", sty.freeBox__jppk0)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__gyVye
                           )}
                         >
@@ -421,8 +408,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___8AtkE
                           )}
                         >
@@ -443,16 +430,11 @@ function PlasmicMarkets__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2MrSt
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___2MrSt)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___4ULmt
                           )}
                         >
@@ -460,8 +442,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__nuOe
                           )}
                         >
@@ -483,19 +465,12 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__kvbhM)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tBy5I
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__kvbhM)}>
+                      <div className={classNames("all", sty.freeBox__tBy5I)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__phMLx
                           )}
                         >
@@ -518,8 +493,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__fCh61
                         )}
                       >
@@ -527,8 +502,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__hr6Oy
                         )}
                       >
@@ -541,14 +516,8 @@ function PlasmicMarkets__RenderFunc(props: {
                 );
               })}
             </div>
-            <div className={classNames(projectcss.all, sty.column__meK53)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bojy
-                )}
-              >
+            <div className={classNames("all", sty.column__meK53)}>
+              <div className={classNames("all", "__wab_text", sty.text__bojy)}>
                 {"Highest market reduction"}
               </div>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -570,18 +539,11 @@ function PlasmicMarkets__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__kzvoc)}
+                    className={classNames("all", sty.freeBox__kzvoc)}
                     key={currentIndex}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__aOObZ)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__vDjkn
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__aOObZ)}>
+                      <div className={classNames("all", sty.freeBox__vDjkn)}>
                         <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__y1QXc)}
@@ -608,23 +570,14 @@ function PlasmicMarkets__RenderFunc(props: {
                           width={"112px"}
                         />
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__oeFr1
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__rv9Wc
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__oeFr1)}>
+                        <div className={classNames("all", sty.freeBox__rv9Wc)}>
                           <PlasmicLink__
                             className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
+                              "all",
+                              "a",
+                              "a__qrPZw",
+                              "__wab_text",
                               sty.link__chRmA
                             )}
                             component={Link}
@@ -635,8 +588,8 @@ function PlasmicMarkets__RenderFunc(props: {
                           </PlasmicLink__>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__ytYPp
                             )}
                           >
@@ -658,16 +611,11 @@ function PlasmicMarkets__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__cTmjd
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__cTmjd)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__eJy8
                             )}
                           >
@@ -675,23 +623,14 @@ function PlasmicMarkets__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__b6HgV
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__poplp
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__b6HgV)}>
+                        <div className={classNames("all", sty.freeBox__poplp)}>
                           <PlasmicLink__
                             className={classNames(
-                              projectcss.all,
-                              projectcss.a,
-                              projectcss.__wab_text,
+                              "all",
+                              "a",
+                              "a__qrPZw",
+                              "__wab_text",
                               sty.link__peb7
                             )}
                             component={Link}
@@ -704,8 +643,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__boiWo
                           )}
                         >
@@ -713,8 +652,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__ft7V0
                           )}
                         >
@@ -744,7 +683,7 @@ function PlasmicMarkets__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__duBc)}
+                    className={classNames("all", sty.freeBox__duBc)}
                     key={currentIndex}
                   >
                     <PlasmicImg__
@@ -761,20 +700,14 @@ function PlasmicMarkets__RenderFunc(props: {
                       width={"112px"}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vVmxa)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___6XNat
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__vVmxa)}>
+                      <div className={classNames("all", sty.freeBox___6XNat)}>
                         <PlasmicLink__
                           className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            projectcss.__wab_text,
+                            "all",
+                            "a",
+                            "a__qrPZw",
+                            "__wab_text",
                             sty.link__awcl
                           )}
                           component={Link}
@@ -800,8 +733,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </PlasmicLink__>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__nKnbb
                           )}
                         >
@@ -824,8 +757,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__aTvV9
                         )}
                       >
@@ -833,8 +766,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___5IuDk
                         )}
                       >
@@ -843,13 +776,11 @@ function PlasmicMarkets__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__nVcFd)}
-                    >
+                    <div className={classNames("all", sty.freeBox__nVcFd)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__i7Vel
                         )}
                       >
@@ -871,8 +802,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__qHQlr
                         )}
                       >
@@ -880,8 +811,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jd4Y
                         )}
                       >
@@ -924,7 +855,7 @@ function PlasmicMarkets__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__uRn9W)}
+                    className={classNames("all", sty.freeBox__uRn9W)}
                     key={currentIndex}
                   >
                     <PlasmicImg__
@@ -952,20 +883,14 @@ function PlasmicMarkets__RenderFunc(props: {
                       })()}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__skWq)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__fpdJh
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__skWq)}>
+                      <div className={classNames("all", sty.freeBox__fpdJh)}>
                         <PlasmicLink__
                           className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            projectcss.__wab_text,
+                            "all",
+                            "a",
+                            "a__qrPZw",
+                            "__wab_text",
                             sty.link__tn0Cj
                           )}
                           component={Link}
@@ -991,8 +916,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </PlasmicLink__>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__s9M72
                           )}
                         >
@@ -1013,16 +938,11 @@ function PlasmicMarkets__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__a3Vgz
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__a3Vgz)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__wp5P
                           )}
                         >
@@ -1030,8 +950,8 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__kL64B
                           )}
                         >
@@ -1053,20 +973,14 @@ function PlasmicMarkets__RenderFunc(props: {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__jddw0)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__iFm0
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__jddw0)}>
+                      <div className={classNames("all", sty.freeBox__iFm0)}>
                         <PlasmicLink__
                           className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            projectcss.__wab_text,
+                            "all",
+                            "a",
+                            "a__qrPZw",
+                            "__wab_text",
                             sty.link__w3Ws
                           )}
                           component={Link}
@@ -1093,8 +1007,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___4IrhU
                         )}
                       >
@@ -1102,8 +1016,8 @@ function PlasmicMarkets__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ifi73
                         )}
                       >
@@ -1227,9 +1141,10 @@ export const PlasmicMarkets = Object.assign(
     internalArgProps: PlasmicMarkets__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/markets",
       pagePath: "/markets",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

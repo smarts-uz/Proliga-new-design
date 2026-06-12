@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInfoPlayer.module.css"; // plasmic-import: wuCFF0EG1o6D/css
 
 createPlasmicElementProxy;
@@ -139,15 +138,15 @@ function PlasmicInfoPlayer__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__i5Ito)}>
+      <div className={classNames("all", sty.freeBox__i5Ito)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img___7AtH0)}
@@ -173,36 +172,19 @@ function PlasmicInfoPlayer__RenderFunc(props: {
           })()}
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__d2CWh)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__anjym
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__d2CWh)}>
+        <div className={classNames("all", "__wab_text", sty.text__anjym)}>
           {"Position"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__sqBs5
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__sqBs5)}>
           {"FSYP"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__qVwh6)}>
+      <div className={classNames("all", sty.freeBox__qVwh6)}>
         <PlasmicLink__
           data-plasmic-name={"link"}
           data-plasmic-override={overrides.link}
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link
-          )}
+          className={classNames("all", "a", "a__qrPZw", "__wab_text", sty.link)}
           component={Link}
           href={"https://www.plasmic.app/"}
           legacyBehavior={false}
@@ -210,21 +192,11 @@ function PlasmicInfoPlayer__RenderFunc(props: {
         >
           {"STR"}
         </PlasmicLink__>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__hA3G0
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__hA3G0)}>
           {"Borja Mayoral"}
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__hHhht
-          )}
+          className={classNames("all", "__wab_text", sty.text__hHhht)}
           onClick={async event => {
             const $steps = {};
 
@@ -253,27 +225,15 @@ function PlasmicInfoPlayer__RenderFunc(props: {
           {"166"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox___615I)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___4Fk
-          )}
-        >
+      <div className={classNames("all", sty.freeBox___615I)}>
+        <div className={classNames("all", "__wab_text", sty.text___4Fk)}>
           {"Value"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__jnec
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__jnec)}>
           {"Average:"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__b8BOt)}>
+      <div className={classNames("all", sty.freeBox__b8BOt)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__xqHhA)}
@@ -292,22 +252,10 @@ function PlasmicInfoPlayer__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__kyHcr
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__kyHcr)}>
           {"8.175.716"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__zGjQ5
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__zGjQ5)}>
           {"6,15"}
         </div>
       </div>

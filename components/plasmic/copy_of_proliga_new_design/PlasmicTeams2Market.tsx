@@ -78,7 +78,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeams2Market.module.css"; // plasmic-import: CPupy-Wnmsa0/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
@@ -99,11 +98,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -174,13 +180,6 @@ function PlasmicTeams2Market__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -216,6 +215,14 @@ function PlasmicTeams2Market__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -290,7 +297,7 @@ function PlasmicTeams2Market__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -311,10 +318,10 @@ function PlasmicTeams2Market__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root
         )}
@@ -339,12 +346,13 @@ function PlasmicTeams2Market__RenderFunc(props: {
           }}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__nQf0S)}>
+        <div className={classNames("all", sty.freeBox__nQf0S)}>
           <PlasmicLink__
             className={classNames(
-              projectcss.all,
-              projectcss.a,
-              projectcss.__wab_text,
+              "all",
+              "a",
+              "a__qrPZw",
+              "__wab_text",
               sty.link___1D9YU
             )}
             component={Link}
@@ -356,9 +364,10 @@ function PlasmicTeams2Market__RenderFunc(props: {
           </PlasmicLink__>
           <PlasmicLink__
             className={classNames(
-              projectcss.all,
-              projectcss.a,
-              projectcss.__wab_text,
+              "all",
+              "a",
+              "a__qrPZw",
+              "__wab_text",
               sty.link__daPfw
             )}
             component={Link}
@@ -372,14 +381,14 @@ function PlasmicTeams2Market__RenderFunc(props: {
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
-          className={classNames(projectcss.all, sty.columns)}
+          className={classNames("all", sty.columns)}
         >
           <div
             data-plasmic-name={"column"}
             data-plasmic-override={overrides.column}
-            className={classNames(projectcss.all, sty.column)}
+            className={classNames("all", sty.column)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___5Emq)}>
+            <div className={classNames("all", sty.freeBox___5Emq)}>
               <TextInput
                 data-plasmic-name={"textInput"}
                 data-plasmic-override={overrides.textInput}
@@ -409,9 +418,10 @@ function PlasmicTeams2Market__RenderFunc(props: {
 
               <PlasmicLink__
                 className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  projectcss.__wab_text,
+                  "all",
+                  "a",
+                  "a__qrPZw",
+                  "__wab_text",
                   sty.link__uUb
                 )}
                 component={Link}
@@ -454,11 +464,7 @@ function PlasmicTeams2Market__RenderFunc(props: {
                 })()}
                 placeholder={
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__njLc7
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__njLc7)}
                   >
                     {"TEAM"}
                   </div>
@@ -499,11 +505,7 @@ function PlasmicTeams2Market__RenderFunc(props: {
                 })()}
                 placeholder={
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ulxg3
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ulxg3)}
                   >
                     {"POS."}
                   </div>
@@ -580,7 +582,7 @@ function PlasmicTeams2Market__RenderFunc(props: {
           className={classNames("__wab_instance", sty.playerAction)}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__veHm1)}>
+        <div className={classNames("all", sty.freeBox__veHm1)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -623,7 +625,7 @@ function PlasmicTeams2Market__RenderFunc(props: {
             );
           })}
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__vmaVl)}>
+        <div className={classNames("all", sty.freeBox__vmaVl)}>
           <SideBarMyTeam
             data-plasmic-name={"sideBarMyTeam"}
             data-plasmic-override={overrides.sideBarMyTeam}
@@ -762,9 +764,10 @@ export const PlasmicTeams2Market = Object.assign(
     internalArgProps: PlasmicTeams2Market__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/new-page",
       pagePath: "/new-page",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

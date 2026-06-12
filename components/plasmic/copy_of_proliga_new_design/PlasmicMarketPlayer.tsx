@@ -71,7 +71,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicMarketPlayer.module.css"; // plasmic-import: I8vvHqaPHWkO/css
 
 createPlasmicElementProxy;
@@ -143,11 +142,6 @@ function PlasmicMarketPlayer__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -193,6 +187,12 @@ function PlasmicMarketPlayer__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -238,10 +238,10 @@ function PlasmicMarketPlayer__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -265,7 +265,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
         const currentIndex = __plasmic_idx_0;
         return (
           <div
-            className={classNames(projectcss.all, sty.freeBox__oveJ9)}
+            className={classNames("all", sty.freeBox__oveJ9)}
             key={currentIndex}
             onClick={async event => {
               const $steps = {};
@@ -315,14 +315,10 @@ function PlasmicMarketPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"playerName"}
               data-plasmic-override={overrides.playerName}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.playerName
-              )}
+              className={classNames("all", "__wab_text", sty.playerName)}
             >
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -343,11 +339,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"position"}
               data-plasmic-override={overrides.position}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.position
-              )}
+              className={classNames("all", "__wab_text", sty.position)}
             >
               <React.Fragment>
                 {(() => {
@@ -365,7 +357,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__mwZjW)}>
+            <div className={classNames("all", sty.freeBox__mwZjW)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__yx5O8)}
@@ -387,11 +379,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
               <div
                 data-plasmic-name={"price"}
                 data-plasmic-override={overrides.price}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.price
-                )}
+                className={classNames("all", "__wab_text", sty.price)}
               >
                 <React.Fragment>
                   {(() => {
@@ -410,7 +398,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__isl1L)}>
+            <div className={classNames("all", sty.freeBox__isl1L)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__kBsq0)}
@@ -439,11 +427,7 @@ function PlasmicMarketPlayer__RenderFunc(props: {
               <div
                 data-plasmic-name={"team"}
                 data-plasmic-override={overrides.team}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.team
-                )}
+                className={classNames("all", "__wab_text", sty.team)}
               >
                 <React.Fragment>
                   {(() => {
@@ -462,26 +446,18 @@ function PlasmicMarketPlayer__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___1C9HZ)}>
+            <div className={classNames("all", sty.freeBox___1C9HZ)}>
               <div
                 data-plasmic-name={"fsyp"}
                 data-plasmic-override={overrides.fsyp}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.fsyp
-                )}
+                className={classNames("all", "__wab_text", sty.fsyp)}
               >
                 {"FSYP"}
               </div>
               <div
                 data-plasmic-name={"point"}
                 data-plasmic-override={overrides.point}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.point
-                )}
+                className={classNames("all", "__wab_text", sty.point)}
               >
                 <React.Fragment>
                   {(() => {

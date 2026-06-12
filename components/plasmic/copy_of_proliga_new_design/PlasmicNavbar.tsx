@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: j_koFSvK1RER/css
 
 import Icon5Icon from "../proliga_v_4/icons/PlasmicIcon__Icon5"; // plasmic-import: NXdWphelV7Ee/icon
@@ -139,10 +138,6 @@ function PlasmicNavbar__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -185,6 +180,11 @@ function PlasmicNavbar__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -202,10 +202,10 @@ function PlasmicNavbar__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -213,7 +213,7 @@ function PlasmicNavbar__RenderFunc(props: {
       <div
         data-plasmic-name={"mainStack"}
         data-plasmic-override={overrides.mainStack}
-        className={classNames(projectcss.all, sty.mainStack)}
+        className={classNames("all", sty.mainStack)}
       >
         <PlasmicImg__
           data-plasmic-name={"img"}
@@ -266,7 +266,7 @@ function PlasmicNavbar__RenderFunc(props: {
         <div
           data-plasmic-name={"items"}
           data-plasmic-override={overrides.items}
-          className={classNames(projectcss.all, sty.items)}
+          className={classNames("all", sty.items)}
         >
           <Reveal
             cascade={false}
@@ -276,11 +276,7 @@ function PlasmicNavbar__RenderFunc(props: {
             triggerOnce={false}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4DInn
-              )}
+              className={classNames("all", "__wab_text", sty.text___4DInn)}
               onClick={async event => {
                 const $steps = {};
 
@@ -312,7 +308,9 @@ function PlasmicNavbar__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"O'yinlar"}
@@ -325,11 +323,7 @@ function PlasmicNavbar__RenderFunc(props: {
             triggerOnce={true}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1TxI5
-              )}
+              className={classNames("all", "__wab_text", sty.text___1TxI5)}
               onClick={async event => {
                 const $steps = {};
 
@@ -361,7 +355,9 @@ function PlasmicNavbar__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"Yutuqlar"}
@@ -374,11 +370,7 @@ function PlasmicNavbar__RenderFunc(props: {
             triggerOnce={true}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mh979
-              )}
+              className={classNames("all", "__wab_text", sty.text__mh979)}
               onClick={async event => {
                 const $steps = {};
 
@@ -410,7 +402,9 @@ function PlasmicNavbar__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"Qoidalar"}
@@ -438,11 +432,7 @@ function PlasmicNavbar__RenderFunc(props: {
               <div
                 data-plasmic-name={"competition"}
                 data-plasmic-override={overrides.competition}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.competition
-                )}
+                className={classNames("all", "__wab_text", sty.competition)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -475,7 +465,9 @@ function PlasmicNavbar__RenderFunc(props: {
               >
                 <React.Fragment>
                   <span
-                    className={"plasmic_default__all plasmic_default__span"}
+                    className={
+                      "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                    }
                     style={{ color: "#FFFFFF" }}
                   >
                     {"Chempionatlar"}
@@ -488,30 +480,30 @@ function PlasmicNavbar__RenderFunc(props: {
         <div
           data-plasmic-name={"userMenuContainer"}
           data-plasmic-override={overrides.userMenuContainer}
-          className={classNames(projectcss.all, sty.userMenuContainer)}
+          className={classNames("all", sty.userMenuContainer)}
         >
           <Icon5Icon
             data-plasmic-name={"notificationBell"}
             data-plasmic-override={overrides.notificationBell}
-            className={classNames(projectcss.all, sty.notificationBell)}
+            className={classNames("all", sty.notificationBell)}
             role={"img"}
           />
 
           <div
             data-plasmic-name={"userMenu"}
             data-plasmic-override={overrides.userMenu}
-            className={classNames(projectcss.all, sty.userMenu)}
+            className={classNames("all", sty.userMenu)}
           >
             <div
               data-plasmic-name={"userImage"}
               data-plasmic-override={overrides.userImage}
-              className={classNames(projectcss.all, sty.userImage)}
+              className={classNames("all", sty.userImage)}
             />
 
             <Icon4Icon
               data-plasmic-name={"arrowDown2"}
               data-plasmic-override={overrides.arrowDown2}
-              className={classNames(projectcss.all, sty.arrowDown2)}
+              className={classNames("all", sty.arrowDown2)}
               role={"img"}
             />
           </div>

@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicHomepage2.module.css"; // plasmic-import: MZSEwWpfabOg/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -85,11 +84,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -154,8 +160,6 @@ function PlasmicHomepage2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -167,6 +171,9 @@ function PlasmicHomepage2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -177,7 +184,7 @@ function PlasmicHomepage2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -192,17 +199,17 @@ function PlasmicHomepage2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -230,32 +237,22 @@ function PlasmicHomepage2__RenderFunc(props: {
           <div
             data-plasmic-name={"heroSection"}
             data-plasmic-override={overrides.heroSection}
-            className={classNames(projectcss.all, sty.heroSection)}
+            className={classNames("all", sty.heroSection)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__nAwg0)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fqFv8
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__nAwg0)}>
+              <div className={classNames("all", "__wab_text", sty.text__fqFv8)}>
                 <React.Fragment>
                   <span
-                    className={"plasmic_default__all plasmic_default__span"}
+                    className={
+                      "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                    }
                     style={{ color: "#FFF3F3" }}
                   >
                     {"O\u2019Z FUTBOL JAMOANGIZNI\n"}
                   </span>
                 </React.Fragment>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tdDtH
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__tdDtH)}>
                 {"BIZ BILAN YARATING!"}
               </div>
               <PlasmicImg__
@@ -278,7 +275,7 @@ function PlasmicHomepage2__RenderFunc(props: {
                 }}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__eSux)}>
+              <div className={classNames("all", sty.freeBox__eSux)}>
                 <Button
                   className={classNames("__wab_instance", sty.button__odUTq)}
                   color={"yellow"}
@@ -312,11 +309,7 @@ function PlasmicHomepage2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qVxIg
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qVxIg)}
                   >
                     {"Ro\u2019yxatdan o\u2019tish"}
                   </div>
@@ -353,15 +346,13 @@ function PlasmicHomepage2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rwxlj
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__rwxlj)}
                   >
                     <React.Fragment>
                       <span
-                        className={"plasmic_default__all plasmic_default__span"}
+                        className={
+                          "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                        }
                         style={{ color: "#FFF400" }}
                       >
                         {"O\u2019YINGA KIRISH"}
@@ -473,9 +464,10 @@ export const PlasmicHomepage2 = Object.assign(
     internalArgProps: PlasmicHomepage2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/new-page-3",
       pagePath: "/new-page-3",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

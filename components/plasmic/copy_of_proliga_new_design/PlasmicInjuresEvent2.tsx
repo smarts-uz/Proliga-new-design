@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuresEvent2.module.css"; // plasmic-import: AR1esKMtR6qm/css
 
 createPlasmicElementProxy;
@@ -137,22 +136,22 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__lxkDw)}>
+      <div className={classNames("all", sty.freeBox__lxkDw)}>
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
-          className={classNames(projectcss.all, sty.columns)}
+          className={classNames("all", sty.columns)}
         >
-          <div className={classNames(projectcss.all, sty.column__z8VAc)}>
-            <div className={classNames(projectcss.all, sty.freeBox__aj8Cb)}>
+          <div className={classNames("all", sty.column__z8VAc)}>
+            <div className={classNames("all", sty.freeBox__aj8Cb)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__wwGUq)}
@@ -171,20 +170,15 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1BGr
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text___1BGr)}>
                 {"Borja Mayoral"}
               </div>
               <PlasmicLink__
                 className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  projectcss.__wab_text,
+                  "all",
+                  "a",
+                  "a__qrPZw",
+                  "__wab_text",
                   sty.link__jN3O
                 )}
                 component={Link}
@@ -196,7 +190,7 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
                 {"STR"}
               </PlasmicLink__>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__qxadt)}>
+            <div className={classNames("all", sty.freeBox__qxadt)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__juZlX)}
@@ -215,17 +209,11 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zoBx
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__zoBx)}>
                 {"Injured"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__cCzmC)}>
+            <div className={classNames("all", sty.freeBox__cCzmC)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__afdQx)}
@@ -245,20 +233,17 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5J9Pq
-                )}
+                className={classNames("all", "__wab_text", sty.text___5J9Pq)}
               >
                 {"9.949.399"}
               </div>
             </div>
             <PlasmicLink__
               className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
+                "all",
+                "a",
+                "a__qrPZw",
+                "__wab_text",
                 sty.link__e5Nlh
               )}
               component={Link}
@@ -269,72 +254,41 @@ function PlasmicInjuresEvent2__RenderFunc(props: {
               {"VALUE RECORD"}
             </PlasmicLink__>
           </div>
-          <div className={classNames(projectcss.all, sty.column___71M8M)}>
-            <div className={classNames(projectcss.all, sty.freeBox__ddVQn)}>
+          <div className={classNames("all", sty.column___71M8M)}>
+            <div className={classNames("all", sty.freeBox__ddVQn)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2XSVd
-                )}
+                className={classNames("all", "__wab_text", sty.text___2XSVd)}
               >
                 {"FSYP"}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0MKuu
-                )}
+                className={classNames("all", "__wab_text", sty.text___0MKuu)}
               >
                 {"166"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__phiGx)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ytuwA
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__phiGx)}>
+              <div className={classNames("all", "__wab_text", sty.text__ytuwA)}>
                 {"FSYP 22/23"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qEtlz
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__qEtlz)}>
                 {"149"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___1GrZj)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qmD5Z
-                )}
-              >
+            <div className={classNames("all", sty.freeBox___1GrZj)}>
+              <div className={classNames("all", "__wab_text", sty.text__qmD5Z)}>
                 {"AVERAGE"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__b5H7O
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__b5H7O)}>
                 {"6.15"}
               </div>
             </div>
             <PlasmicLink__
               className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
+                "all",
+                "a",
+                "a__qrPZw",
+                "__wab_text",
                 sty.link__a83K4
               )}
               component={Link}

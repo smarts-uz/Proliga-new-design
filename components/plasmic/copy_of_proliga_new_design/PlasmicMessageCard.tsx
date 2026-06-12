@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicMessageCard.module.css"; // plasmic-import: bj3CfNb3_uqC/css
 
 createPlasmicElementProxy;
@@ -144,23 +143,17 @@ function PlasmicMessageCard__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         "glass-effect"
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__g58U2)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__zlbFq
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__g58U2)}>
+        <div className={classNames("all", "__wab_text", sty.text__zlbFq)}>
           <React.Fragment>
             {(() => {
               try {
@@ -178,14 +171,8 @@ function PlasmicMessageCard__RenderFunc(props: {
           </React.Fragment>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__gNl9H)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qfkOd
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__gNl9H)}>
+        <div className={classNames("all", "__wab_text", sty.text__qfkOd)}>
           <React.Fragment>
             {(() => {
               try {

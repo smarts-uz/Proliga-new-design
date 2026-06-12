@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSearchComponent.module.css"; // plasmic-import: ibG0Wlhj_XRG/css
 
 createPlasmicElementProxy;
@@ -139,10 +138,10 @@ function PlasmicSearchComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -150,24 +149,14 @@ function PlasmicSearchComponent__RenderFunc(props: {
       <div
         data-plasmic-name={"columns"}
         data-plasmic-override={overrides.columns}
-        className={classNames(projectcss.all, sty.columns)}
+        className={classNames("all", sty.columns)}
       >
-        <div className={classNames(projectcss.all, sty.column___7Bo0N)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__ybp45
-            )}
-          >
+        <div className={classNames("all", sty.column___7Bo0N)}>
+          <div className={classNames("all", "__wab_text", sty.text__ybp45)}>
             {"Fixture 31 In Progress"}
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__zXpu9
-            )}
+            className={classNames("all", "__wab_text", sty.text__zXpu9)}
             onClick={async event => {
               const $steps = {};
 
@@ -195,8 +184,8 @@ function PlasmicSearchComponent__RenderFunc(props: {
             {"13 Apr - 16 Apr"}
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.column__xbQT)}>
-          <div className={classNames(projectcss.all, sty.freeBox__suWom)}>
+        <div className={classNames("all", sty.column__xbQT)}>
+          <div className={classNames("all", sty.freeBox__suWom)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -217,32 +206,16 @@ function PlasmicSearchComponent__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__o9RpG)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pfr4E
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__o9RpG)}>
+              <div className={classNames("all", "__wab_text", sty.text__pfr4E)}>
                 {"MVP 23/24"}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___3LawY
-                )}
+                className={classNames("all", "__wab_text", sty.text___3LawY)}
               >
                 {"BELLINGHAM"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__c65QC
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__c65QC)}>
                 {"FSYP"}
               </div>
             </div>

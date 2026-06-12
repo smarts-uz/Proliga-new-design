@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicInjuredEvent5.module.css"; // plasmic-import: aJOke30P1rS_/css
 
 createPlasmicElementProxy;
@@ -205,8 +204,6 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -337,6 +334,9 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -354,10 +354,10 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -365,21 +365,15 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
       <div
         data-plasmic-name={"columns"}
         data-plasmic-override={overrides.columns}
-        className={classNames(projectcss.all, sty.columns)}
+        className={classNames("all", sty.columns)}
       >
-        <div className={classNames(projectcss.all, sty.column___8UzfX)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__x13W
-            )}
-          >
+        <div className={classNames("all", sty.column___8UzfX)}>
+          <div className={classNames("all", "__wab_text", sty.text__x13W)}>
             {"_"}
           </div>
         </div>
         <div
-          className={classNames(projectcss.all, sty.column__pGJmr, {
+          className={classNames("all", sty.column__pGJmr, {
             [sty.columngoalsAgainst__pGJmrKCzTa]: hasVariant(
               $state,
               "goalsAgainst",
@@ -388,108 +382,99 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___9RtrP,
-              {
-                [sty.textballsIntoTheBox___9RtrPpq40Q]: hasVariant(
-                  $state,
-                  "ballsIntoTheBox",
-                  "ballsIntoTheBox"
-                ),
-                [sty.textbigChanceCreated___9RtrP6O0UO]: hasVariant(
-                  $state,
-                  "bigChanceCreated",
-                  "bigChanceCreated"
-                ),
-                [sty.textcommitedPenalties___9RtrPgi3Zc]: hasVariant(
-                  $state,
-                  "commitedPenalties",
-                  "commitedPenalties"
-                ),
-                [sty.texteffectiveClearanes___9RtrPqqLyE]: hasVariant(
-                  $state,
-                  "effectiveClearanes",
-                  "effectiveClearanes"
-                ),
-                [sty.texteffectiveDribbles___9RtrPUbj7S]: hasVariant(
-                  $state,
-                  "effectiveDribbles",
-                  "effectiveDribbles"
-                ),
-                [sty.textgoalAssists___9RtrP8Fzg1]: hasVariant(
-                  $state,
-                  "goalAssists",
-                  "goalAssists"
-                ),
-                [sty.textgoalAttempts___9RtrPzf16L]: hasVariant(
-                  $state,
-                  "goalAttempts",
-                  "goalAttempts"
-                ),
-                [sty.textgoalsAgainst___9RtrPkCzTa]: hasVariant(
-                  $state,
-                  "goalsAgainst",
-                  "goalsAgainst"
-                ),
-                [sty.textgoals___9RtrP6L3E]: hasVariant(
-                  $state,
-                  "goals",
-                  "goals"
-                ),
-                [sty.textlostBalls___9RtrPMnThs]: hasVariant(
-                  $state,
-                  "lostBalls",
-                  "lostBalls"
-                ),
-                [sty.textownGoals___9RtrP1M5Ry]: hasVariant(
-                  $state,
-                  "ownGoals",
-                  "ownGoals"
-                ),
-                [sty.textpenaltiesMissed___9RtrP4Muw8]: hasVariant(
-                  $state,
-                  "penaltiesMissed",
-                  "penaltiesMissed"
-                ),
-                [sty.textpenaltiesSaved___9RtrP9FAOn]: hasVariant(
-                  $state,
-                  "penaltiesSaved",
-                  "penaltiesSaved"
-                ),
-                [sty.textpenaltiesWon___9RtrPocA5L]: hasVariant(
-                  $state,
-                  "penaltiesWon",
-                  "penaltiesWon"
-                ),
-                [sty.textrecoviries___9RtrPLzVh]: hasVariant(
-                  $state,
-                  "recoviries",
-                  "recoviries"
-                ),
-                [sty.textredCard___9RtrPc2Cu3]: hasVariant(
-                  $state,
-                  "redCard",
-                  "redCard"
-                ),
-                [sty.textsaves___9RtrPlwCyS]: hasVariant(
-                  $state,
-                  "saves",
-                  "saves"
-                ),
-                [sty.textsecondaryYellowCard___9RtrPCyaNv]: hasVariant(
-                  $state,
-                  "secondaryYellowCard",
-                  "secondaryYellowCard"
-                ),
-                [sty.textyellowCard___9RtrP1ESs9]: hasVariant(
-                  $state,
-                  "yellowCard",
-                  "yellowCard"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text___9RtrP, {
+              [sty.textballsIntoTheBox___9RtrPpq40Q]: hasVariant(
+                $state,
+                "ballsIntoTheBox",
+                "ballsIntoTheBox"
+              ),
+              [sty.textbigChanceCreated___9RtrP6O0UO]: hasVariant(
+                $state,
+                "bigChanceCreated",
+                "bigChanceCreated"
+              ),
+              [sty.textcommitedPenalties___9RtrPgi3Zc]: hasVariant(
+                $state,
+                "commitedPenalties",
+                "commitedPenalties"
+              ),
+              [sty.texteffectiveClearanes___9RtrPqqLyE]: hasVariant(
+                $state,
+                "effectiveClearanes",
+                "effectiveClearanes"
+              ),
+              [sty.texteffectiveDribbles___9RtrPUbj7S]: hasVariant(
+                $state,
+                "effectiveDribbles",
+                "effectiveDribbles"
+              ),
+              [sty.textgoalAssists___9RtrP8Fzg1]: hasVariant(
+                $state,
+                "goalAssists",
+                "goalAssists"
+              ),
+              [sty.textgoalAttempts___9RtrPzf16L]: hasVariant(
+                $state,
+                "goalAttempts",
+                "goalAttempts"
+              ),
+              [sty.textgoalsAgainst___9RtrPkCzTa]: hasVariant(
+                $state,
+                "goalsAgainst",
+                "goalsAgainst"
+              ),
+              [sty.textgoals___9RtrP6L3E]: hasVariant($state, "goals", "goals"),
+              [sty.textlostBalls___9RtrPMnThs]: hasVariant(
+                $state,
+                "lostBalls",
+                "lostBalls"
+              ),
+              [sty.textownGoals___9RtrP1M5Ry]: hasVariant(
+                $state,
+                "ownGoals",
+                "ownGoals"
+              ),
+              [sty.textpenaltiesMissed___9RtrP4Muw8]: hasVariant(
+                $state,
+                "penaltiesMissed",
+                "penaltiesMissed"
+              ),
+              [sty.textpenaltiesSaved___9RtrP9FAOn]: hasVariant(
+                $state,
+                "penaltiesSaved",
+                "penaltiesSaved"
+              ),
+              [sty.textpenaltiesWon___9RtrPocA5L]: hasVariant(
+                $state,
+                "penaltiesWon",
+                "penaltiesWon"
+              ),
+              [sty.textrecoviries___9RtrPLzVh]: hasVariant(
+                $state,
+                "recoviries",
+                "recoviries"
+              ),
+              [sty.textredCard___9RtrPc2Cu3]: hasVariant(
+                $state,
+                "redCard",
+                "redCard"
+              ),
+              [sty.textsaves___9RtrPlwCyS]: hasVariant(
+                $state,
+                "saves",
+                "saves"
+              ),
+              [sty.textsecondaryYellowCard___9RtrPCyaNv]: hasVariant(
+                $state,
+                "secondaryYellowCard",
+                "secondaryYellowCard"
+              ),
+              [sty.textyellowCard___9RtrP1ESs9]: hasVariant(
+                $state,
+                "yellowCard",
+                "yellowCard"
+              )
+            })}
           >
             {hasVariant($state, "commitedPenalties", "commitedPenalties")
               ? "Commited penalties"
@@ -568,14 +553,8 @@ function PlasmicInjuredEvent5__RenderFunc(props: {
                                                   : "Minutes played"}
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.column__dcHqm)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__pPyFt
-            )}
-          >
+        <div className={classNames("all", sty.column__dcHqm)}>
+          <div className={classNames("all", "__wab_text", sty.text__pPyFt)}>
             {"_"}
           </div>
         </div>

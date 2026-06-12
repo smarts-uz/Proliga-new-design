@@ -68,7 +68,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicHomePageAdmin.module.css"; // plasmic-import: 6He0p5VJ5Omi/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: DJCZ30FSSW4V/icon
@@ -89,11 +88,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -161,10 +167,6 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -188,6 +190,11 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -199,7 +206,7 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -214,69 +221,45 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__kn6RO
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__kn6RO)}>
             {"Calculation"}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___38QKw)}>
+          <div className={classNames("all", sty.freeBox___38QKw)}>
             <Logout
               data-plasmic-name={"logout"}
               data-plasmic-override={overrides.logout}
               className={classNames("__wab_instance", sty.logout)}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__ldfrM)}>
-            <div className={classNames(projectcss.all, sty.freeBox__cnDtm)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iuEr
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__ldfrM)}>
+            <div className={classNames("all", sty.freeBox__cnDtm)}>
+              <div className={classNames("all", "__wab_text", sty.text__iuEr)}>
                 {"CHEMPIONAT"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hnRy2
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__hnRy2)}>
                 {"KLUB"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xZrR
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__xZrR)}>
                 {"POZITSIYA"}
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__jS6Nt)}>
+          <div className={classNames("all", sty.freeBox__jS6Nt)}>
             <TextInput
               data-plasmic-name={"textInput"}
               data-plasmic-override={overrides.textInput}
@@ -356,119 +339,79 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
           <div
             data-plasmic-name={"mainAction"}
             data-plasmic-override={overrides.mainAction}
-            className={classNames(projectcss.all, sty.mainAction)}
+            className={classNames("all", sty.mainAction)}
           >
             <div
               data-plasmic-name={"actions"}
               data-plasmic-override={overrides.actions}
-              className={classNames(projectcss.all, sty.actions)}
+              className={classNames("all", sty.actions)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__jxUrv)}>
+              <div className={classNames("all", sty.freeBox__jxUrv)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fojVb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__fojVb)}
                 >
                   {"Footbals"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__de2I5)}>
+              <div className={classNames("all", sty.freeBox__de2I5)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fxCZu
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__fxCZu)}
                 >
                   {"MInut"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__iLonf)}>
+              <div className={classNames("all", sty.freeBox__iLonf)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__m4Bp
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__m4Bp)}
                 >
                   {"Gol"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__lm18J)}>
+              <div className={classNames("all", sty.freeBox__lm18J)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tbQpb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tbQpb)}
                 >
                   {"Assist"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__o6Hny)}>
+              <div className={classNames("all", sty.freeBox__o6Hny)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xhG9O
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xhG9O)}
                 >
                   {"Empty game"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___241PO)}>
+              <div className={classNames("all", sty.freeBox___241PO)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ukG52
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ukG52)}
                 >
                   {"No penalty"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__lUzgO)}>
+              <div className={classNames("all", sty.freeBox__lUzgO)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dVrei
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__dVrei)}
                 >
                   {"-2 Gol"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__zKjH)}>
+              <div className={classNames("all", sty.freeBox__zKjH)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hwnby
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hwnby)}
                 >
                   {"Yellow card"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__zfg1Z)}>
+              <div className={classNames("all", sty.freeBox__zfg1Z)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dEDbj
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__dEDbj)}
                 >
                   {"Red card"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gNfi5)}>
+              <div className={classNames("all", sty.freeBox__gNfi5)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___6Uy8F
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___6Uy8F)}
                 >
                   {"Total"}
                 </div>
@@ -477,114 +420,74 @@ function PlasmicHomePageAdmin__RenderFunc(props: {
             <div
               data-plasmic-name={"players"}
               data-plasmic-override={overrides.players}
-              className={classNames(projectcss.all, sty.players)}
+              className={classNames("all", sty.players)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__ajHz)}>
+              <div className={classNames("all", sty.freeBox__ajHz)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ksd8
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ksd8)}
                 >
                   {"Ronaldo"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__ctM0)}>
+              <div className={classNames("all", sty.freeBox__ctM0)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pzFoX
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pzFoX)}
                 >
                   {"50"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__cRkv)}>
+              <div className={classNames("all", sty.freeBox__cRkv)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__k5ZW
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__k5ZW)}
                 >
                   {"2"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__dXbS4)}>
+              <div className={classNames("all", sty.freeBox__dXbS4)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hc3Mv
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hc3Mv)}
                 >
                   {"1"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___8L8Dm)}>
+              <div className={classNames("all", sty.freeBox___8L8Dm)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lNdjr
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__lNdjr)}
                 >
                   {"0"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__ioilg)}>
+              <div className={classNames("all", sty.freeBox__ioilg)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ozdP6
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ozdP6)}
                 >
                   {"0"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__crHg)}>
+              <div className={classNames("all", sty.freeBox__crHg)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ho6C
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ho6C)}
                 >
                   {"0"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__tPv8N)}>
+              <div className={classNames("all", sty.freeBox__tPv8N)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__yrDy
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__yrDy)}
                 >
                   {"2"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___8SbNx)}>
+              <div className={classNames("all", sty.freeBox___8SbNx)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3Zz3W
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___3Zz3W)}
                 >
                   {"1"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__zoLki)}>
+              <div className={classNames("all", sty.freeBox__zoLki)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tVj3X
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tVj3X)}
                 >
                   {"11"}
                 </div>
@@ -722,9 +625,10 @@ export const PlasmicHomePageAdmin = Object.assign(
     internalArgProps: PlasmicHomePageAdmin__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/home-page-admin",
       pagePath: "/home-page-admin",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicOrderByNewDesign.module.css"; // plasmic-import: pBfrWGe6jKYv/css
 
 createPlasmicElementProxy;
@@ -150,8 +149,6 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -181,6 +178,9 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -198,10 +198,10 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.orderBy
       )}
@@ -209,39 +209,27 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
       <div
         data-plasmic-name={"\u043f\u043e\u0437\u0438\u0446\u0438\u044f"}
         data-plasmic-override={overrides.позиция}
-        className={classNames(projectcss.all, sty.позиция)}
+        className={classNames("all", sty.позиция)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__zKwvt
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__zKwvt)}>
           {"Pozitsiya"}
         </div>
       </div>
       <div
         data-plasmic-name={"name"}
         data-plasmic-override={overrides.name}
-        className={classNames(projectcss.all, sty.name)}
+        className={classNames("all", sty.name)}
         onClick={async event => {
           const $steps = {};
         }}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__dqYoo
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__dqYoo)}>
           {"O'yinchi"}
         </div>
         <PlasmicLink__
           data-plasmic-name={"link"}
           data-plasmic-override={overrides.link}
-          className={classNames(projectcss.all, projectcss.a, sty.link)}
+          className={classNames("all", "a", "a__qrPZw", sty.link)}
           component={Link}
           legacyBehavior={false}
           onClick={args.upDownLink}
@@ -274,31 +262,19 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
       <div
         data-plasmic-name={"\u043a\u043b\u0443\u0431"}
         data-plasmic-override={overrides.клуб}
-        className={classNames(projectcss.all, sty.клуб)}
+        className={classNames("all", sty.клуб)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__i8Cl
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__i8Cl)}>
           {"Klub"}
         </div>
       </div>
       <div
         data-plasmic-name={"\u0446\u0435\u043d\u0430"}
         data-plasmic-override={overrides.цена}
-        className={classNames(projectcss.all, sty.цена)}
+        className={classNames("all", sty.цена)}
         onClick={args.onclickAllPoint}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qNmEe
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__qNmEe)}>
           {"Ochko"}
         </div>
         <UpDownOrder
@@ -325,16 +301,10 @@ function PlasmicOrderByNewDesign__RenderFunc(props: {
       <div
         data-plasmic-name={"\u043e\u0447\u043a\u043e"}
         data-plasmic-override={overrides.очко}
-        className={classNames(projectcss.all, sty.очко)}
+        className={classNames("all", sty.очко)}
         onClick={args.onclickPrice}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___7Rkfr
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text___7Rkfr)}>
           {"Narx"}
         </div>
         <UpDownOrder

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicNavbar2.module.css"; // plasmic-import: pZT07rlqywda/css
 
 createPlasmicElementProxy;
@@ -146,10 +145,10 @@ function PlasmicNavbar2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -157,7 +156,7 @@ function PlasmicNavbar2__RenderFunc(props: {
       <div
         data-plasmic-name={"mainStack"}
         data-plasmic-override={overrides.mainStack}
-        className={classNames(projectcss.all, sty.mainStack)}
+        className={classNames("all", sty.mainStack)}
       >
         <PlasmicImg__
           data-plasmic-name={"img"}
@@ -210,7 +209,7 @@ function PlasmicNavbar2__RenderFunc(props: {
         <div
           data-plasmic-name={"logo"}
           data-plasmic-override={overrides.logo}
-          className={classNames(projectcss.all, sty.logo)}
+          className={classNames("all", sty.logo)}
         >
           <Reveal
             children={null}
@@ -221,7 +220,7 @@ function PlasmicNavbar2__RenderFunc(props: {
         <div
           data-plasmic-name={"items"}
           data-plasmic-override={overrides.items}
-          className={classNames(projectcss.all, sty.items)}
+          className={classNames("all", sty.items)}
         >
           <Reveal
             cascade={false}
@@ -231,11 +230,7 @@ function PlasmicNavbar2__RenderFunc(props: {
             triggerOnce={false}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__g8WO
-              )}
+              className={classNames("all", "__wab_text", sty.text__g8WO)}
               onClick={async event => {
                 const $steps = {};
 
@@ -267,7 +262,9 @@ function PlasmicNavbar2__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"O'yinlar"}
@@ -280,11 +277,7 @@ function PlasmicNavbar2__RenderFunc(props: {
             triggerOnce={true}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__n1H5Z
-              )}
+              className={classNames("all", "__wab_text", sty.text__n1H5Z)}
               onClick={async event => {
                 const $steps = {};
 
@@ -316,7 +309,9 @@ function PlasmicNavbar2__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"Yutuqlar"}
@@ -329,11 +324,7 @@ function PlasmicNavbar2__RenderFunc(props: {
             triggerOnce={true}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wJ90
-              )}
+              className={classNames("all", "__wab_text", sty.text__wJ90)}
               onClick={async event => {
                 const $steps = {};
 
@@ -365,7 +356,9 @@ function PlasmicNavbar2__RenderFunc(props: {
             >
               <React.Fragment>
                 <span
-                  className={"plasmic_default__all plasmic_default__span"}
+                  className={
+                    "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                  }
                   style={{ color: "#FFFFFF" }}
                 >
                   {"Qoidalar"}
@@ -393,11 +386,7 @@ function PlasmicNavbar2__RenderFunc(props: {
               <div
                 data-plasmic-name={"competition"}
                 data-plasmic-override={overrides.competition}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.competition
-                )}
+                className={classNames("all", "__wab_text", sty.competition)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -430,7 +419,9 @@ function PlasmicNavbar2__RenderFunc(props: {
               >
                 <React.Fragment>
                   <span
-                    className={"plasmic_default__all plasmic_default__span"}
+                    className={
+                      "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
+                    }
                     style={{ color: "#FFFFFF" }}
                   >
                     {"Chempionatlar"}
@@ -443,12 +434,12 @@ function PlasmicNavbar2__RenderFunc(props: {
         <div
           data-plasmic-name={"login"}
           data-plasmic-override={overrides.login}
-          className={classNames(projectcss.all, sty.login)}
+          className={classNames("all", sty.login)}
         >
           <div
             data-plasmic-name={"freeBox"}
             data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
+            className={classNames("all", sty.freeBox)}
           />
         </div>
       </div>

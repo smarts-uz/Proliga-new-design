@@ -71,7 +71,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPlayerPickerNewDesign.module.css"; // plasmic-import: Lk6JgqMmYsF6/css
 
 createPlasmicElementProxy;
@@ -224,21 +223,15 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__chTgW
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__chTgW)}>
         <React.Fragment>
           {(() => {
             try {
@@ -255,13 +248,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___89ZTj
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text___89ZTj)}>
         <React.Fragment>
           {(() => {
             try {
@@ -278,13 +265,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__wEpef
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__wEpef)}>
         <React.Fragment>
           {(() => {
             try {
@@ -301,13 +282,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__zpatG
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__zpatG)}>
         <React.Fragment>
           {(() => {
             try {
@@ -324,13 +299,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__vxgcA
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__vxgcA)}>
         <React.Fragment>
           {(() => {
             try {
@@ -350,7 +319,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
       <div
         data-plasmic-name={"checkBuy"}
         data-plasmic-override={overrides.checkBuy}
-        className={classNames(projectcss.all, sty.checkBuy)}
+        className={classNames("all", sty.checkBuy)}
       >
         {(() => {
           try {
@@ -368,7 +337,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           <div
             data-plasmic-name={"minusBalance"}
             data-plasmic-override={overrides.minusBalance}
-            className={classNames(projectcss.all, sty.minusBalance)}
+            className={classNames("all", sty.minusBalance)}
           >
             {(() => {
               try {
@@ -418,7 +387,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
               <div
                 data-plasmic-name={"buy"}
                 data-plasmic-override={overrides.buy}
-                className={classNames(projectcss.all, sty.buy)}
+                className={classNames("all", sty.buy)}
               >
                 {(() => {
                   try {
@@ -439,7 +408,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
                   <div
                     data-plasmic-name={"buyPlus"}
                     data-plasmic-override={overrides.buyPlus}
-                    className={classNames(projectcss.all, sty.buyPlus)}
+                    className={classNames("all", sty.buyPlus)}
                   >
                     {(() => {
                       try {
@@ -511,11 +480,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
                   />
                 ) : null}
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0GhD4
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___0GhD4)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -553,7 +518,7 @@ function PlasmicPlayerPickerNewDesign__RenderFunc(props: {
           <div
             data-plasmic-name={"buySell"}
             data-plasmic-override={overrides.buySell}
-            className={classNames(projectcss.all, sty.buySell)}
+            className={classNames("all", sty.buySell)}
           >
             {(() => {
               try {

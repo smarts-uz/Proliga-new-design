@@ -71,7 +71,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicRankings.module.css"; // plasmic-import: S2d4_Y9RJ5wv/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -89,7 +88,14 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     title: "Rankings",
 
@@ -97,7 +103,7 @@ export function generateDynamicMetadata($q: any, $ctx: any) {
       title: "Rankings"
     },
     twitter: {
-      card: "summary",
+      card: "summary" as const,
       title: "Rankings"
     }
   };
@@ -165,8 +171,6 @@ function PlasmicRankings__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -178,6 +182,9 @@ function PlasmicRankings__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -188,7 +195,7 @@ function PlasmicRankings__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -212,17 +219,17 @@ function PlasmicRankings__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"rankings"}
           data-plasmic-override={overrides.rankings}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.rankings
           )}
@@ -247,19 +254,13 @@ function PlasmicRankings__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__cMhjR)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__grvyo
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__cMhjR)}>
+            <div className={classNames("all", "__wab_text", sty.text__grvyo)}>
               {"Global Rankings"}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__z5W2O)}>
-            <div className={classNames(projectcss.all, sty.freeBox__n3Sv3)}>
+          <div className={classNames("all", sty.freeBox__z5W2O)}>
+            <div className={classNames("all", sty.freeBox__n3Sv3)}>
               <AntdDropdown
                 className={classNames("__wab_instance", sty.dropdown__hRsFk)}
                 dropdownMenuScopeClassName={
@@ -276,8 +277,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__lAmIn
                         )}
                       >
@@ -293,8 +294,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__wrWxM
                         )}
                       >
@@ -321,27 +322,24 @@ function PlasmicRankings__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.button__iqU5G)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lMibz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__lMibz)}
                   >
                     <React.Fragment>
                       <React.Fragment>{""}</React.Fragment>
                       {
                         <h6
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
+                            "all",
+                            "h6",
+                            "h6__qrPZw",
+                            "__wab_text",
                             sty.h6__oQc8K
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -350,7 +348,7 @@ function PlasmicRankings__RenderFunc(props: {
                             <React.Fragment>{"\n"}</React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -380,8 +378,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__sfSpM
                         )}
                       >
@@ -397,8 +395,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__m7GDi
                         )}
                       >
@@ -419,27 +417,24 @@ function PlasmicRankings__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.button__gu6DB)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ggMgS
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ggMgS)}
                   >
                     <React.Fragment>
                       <React.Fragment>{""}</React.Fragment>
                       {
                         <h6
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
+                            "all",
+                            "h6",
+                            "h6__qrPZw",
+                            "__wab_text",
                             sty.h6__afT2W
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -448,7 +443,7 @@ function PlasmicRankings__RenderFunc(props: {
                             <React.Fragment>{"\n"}</React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -478,8 +473,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__uqdB
                         )}
                       >
@@ -495,8 +490,8 @@ function PlasmicRankings__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__nagzv
                         )}
                       >
@@ -527,27 +522,24 @@ function PlasmicRankings__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.button__avvy5)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xWbn8
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__xWbn8)}
                   >
                     <React.Fragment>
                       <React.Fragment>{""}</React.Fragment>
                       {
                         <h6
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
+                            "all",
+                            "h6",
+                            "h6__qrPZw",
+                            "__wab_text",
                             sty.h6__ldgnL
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -556,7 +548,7 @@ function PlasmicRankings__RenderFunc(props: {
                             <React.Fragment>{"\n"}</React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -571,13 +563,13 @@ function PlasmicRankings__RenderFunc(props: {
                 </AntdButton>
               </AntdDropdown>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__fe3Vc)}>
-              <div className={classNames(projectcss.all, sty.freeBox__bFqcC)}>
-                <div className={classNames(projectcss.all, sty.freeBox__o8ZMn)}>
+            <div className={classNames("all", sty.freeBox__fe3Vc)}>
+              <div className={classNames("all", sty.freeBox__bFqcC)}>
+                <div className={classNames("all", sty.freeBox__o8ZMn)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___9VI3B
                     )}
                   >
@@ -588,16 +580,17 @@ function PlasmicRankings__RenderFunc(props: {
                           data-plasmic-name={"h4"}
                           data-plasmic-override={overrides.h4}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h4,
-                            projectcss.__wab_text,
+                            "all",
+                            "h4",
+                            "h4__qrPZw",
+                            "__wab_text",
                             sty.h4
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFD300" }}
                             >
@@ -606,7 +599,7 @@ function PlasmicRankings__RenderFunc(props: {
                             <React.Fragment>{""}</React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -625,14 +618,10 @@ function PlasmicRankings__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.rankings2)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gl7O)}>
-                <div className={classNames(projectcss.all, sty.freeBox__morqj)}>
+              <div className={classNames("all", sty.freeBox__gl7O)}>
+                <div className={classNames("all", sty.freeBox__morqj)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__f33Xk
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__f33Xk)}
                   >
                     <React.Fragment>
                       <React.Fragment>{""}</React.Fragment>
@@ -641,16 +630,17 @@ function PlasmicRankings__RenderFunc(props: {
                           data-plasmic-name={"h5"}
                           data-plasmic-override={overrides.h5}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h5,
-                            projectcss.__wab_text,
+                            "all",
+                            "h5",
+                            "h5__qrPZw",
+                            "__wab_text",
                             sty.h5
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                               }
                               style={{ color: "#FFFFFF" }}
                             >
@@ -662,9 +652,7 @@ function PlasmicRankings__RenderFunc(props: {
                       <React.Fragment>{""}</React.Fragment>
                     </React.Fragment>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___04VGq)}
-                  >
+                  <div className={classNames("all", sty.freeBox___04VGq)}>
                     <PlasmicImg__
                       data-plasmic-name={"img"}
                       data-plasmic-override={overrides.img}
@@ -796,9 +784,10 @@ export const PlasmicRankings = Object.assign(
     internalArgProps: PlasmicRankings__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/rankings",
       pagePath: "/rankings",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

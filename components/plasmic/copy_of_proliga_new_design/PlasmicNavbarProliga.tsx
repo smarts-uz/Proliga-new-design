@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicNavbarProliga.module.css"; // plasmic-import: f6GYXHshZ0Fs/css
 
 createPlasmicElementProxy;
@@ -145,10 +144,10 @@ function PlasmicNavbarProliga__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -156,7 +155,7 @@ function PlasmicNavbarProliga__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
         <PlasmicImg__
           data-plasmic-name={"logo"}
@@ -182,9 +181,10 @@ function PlasmicNavbarProliga__RenderFunc(props: {
           data-plasmic-name={"championat"}
           data-plasmic-override={overrides.championat}
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.championat
           )}
           component={Link}
@@ -197,12 +197,7 @@ function PlasmicNavbarProliga__RenderFunc(props: {
         <PlasmicLink__
           data-plasmic-name={"priz"}
           data-plasmic-override={overrides.priz}
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.priz
-          )}
+          className={classNames("all", "a", "a__qrPZw", "__wab_text", sty.priz)}
           component={Link}
           href={`/old`}
           legacyBehavior={false}
@@ -214,9 +209,10 @@ function PlasmicNavbarProliga__RenderFunc(props: {
           data-plasmic-name={"rules"}
           data-plasmic-override={overrides.rules}
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.rules
           )}
           component={Link}
@@ -230,9 +226,10 @@ function PlasmicNavbarProliga__RenderFunc(props: {
           data-plasmic-name={"clubs"}
           data-plasmic-override={overrides.clubs}
           className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
+            "all",
+            "a",
+            "a__qrPZw",
+            "__wab_text",
             sty.clubs
           )}
           component={Link}
@@ -245,7 +242,7 @@ function PlasmicNavbarProliga__RenderFunc(props: {
         <div
           data-plasmic-name={"empty"}
           data-plasmic-override={overrides.empty}
-          className={classNames(projectcss.all, sty.empty)}
+          className={classNames("all", sty.empty)}
         />
 
         <AntdAvatar

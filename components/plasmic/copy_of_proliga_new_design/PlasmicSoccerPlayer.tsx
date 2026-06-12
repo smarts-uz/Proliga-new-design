@@ -73,7 +73,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSoccerPlayer.module.css"; // plasmic-import: rE2uQXz7WClg/css
 
 createPlasmicElementProxy;
@@ -189,10 +188,10 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -206,7 +205,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
       <div
         data-plasmic-name={"goa"}
         data-plasmic-override={overrides.goa}
-        className={classNames(projectcss.all, sty.goa)}
+        className={classNames("all", sty.goa)}
       >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
@@ -231,7 +230,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"goaINside"}
               data-plasmic-override={overrides.goaINside}
-              className={classNames(projectcss.all, sty.goaINside)}
+              className={classNames("all", sty.goaINside)}
               key={currentIndex}
             >
               <AvatarPlayerShowScore
@@ -303,7 +302,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
       <div
         data-plasmic-name={"def"}
         data-plasmic-override={overrides.def}
-        className={classNames(projectcss.all, sty.def)}
+        className={classNames("all", sty.def)}
       >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
@@ -328,7 +327,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"inside"}
               data-plasmic-override={overrides.inside}
-              className={classNames(projectcss.all, sty.inside)}
+              className={classNames("all", sty.inside)}
               key={currentIndex}
             >
               <AvatarPlayerShowScore
@@ -387,7 +386,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
       <div
         data-plasmic-name={"mid"}
         data-plasmic-override={overrides.mid}
-        className={classNames(projectcss.all, sty.mid)}
+        className={classNames("all", sty.mid)}
       >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
@@ -412,7 +411,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"midInside"}
               data-plasmic-override={overrides.midInside}
-              className={classNames(projectcss.all, sty.midInside)}
+              className={classNames("all", sty.midInside)}
               key={currentIndex}
             >
               <AvatarPlayerShowScore
@@ -471,7 +470,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
       <div
         data-plasmic-name={"str"}
         data-plasmic-override={overrides.str}
-        className={classNames(projectcss.all, sty.str)}
+        className={classNames("all", sty.str)}
       >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
@@ -496,7 +495,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
             <div
               data-plasmic-name={"strInside"}
               data-plasmic-override={overrides.strInside}
-              className={classNames(projectcss.all, sty.strInside)}
+              className={classNames("all", sty.strInside)}
               key={currentIndex}
             >
               <AvatarPlayerShowScore

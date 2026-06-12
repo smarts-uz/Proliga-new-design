@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
   },
   "images": {
     "scheme": "public-files",
@@ -26,7 +26,7 @@
       "projectApiToken": "DWg4EVpu2l6n6fAdMDCvE22FFoWH1NK3ZmqmXnzezysh5ZWic03cixuobavnSG7W2O29VnLlgnyQp1TAijQ",
       "projectName": "antd",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/antd/plasmic.module.css",
+      "cssFilePath": "plasmic/antd/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -240,7 +240,7 @@
       "projectApiToken": "30Q6Vm3wLmLUouXUphjiHN1eerUuQNmjcIHNiu6sFoeK8pIoi3LRDH2gMh9txlrZGCbOh9s0VaoZHqtvs3hQ",
       "projectName": "plasmic-tabs",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_tabs/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_tabs/plasmic.css",
       "components": [
         {
           "id": "lBHNzts6tFyj",
@@ -310,7 +310,7 @@
       "projectApiToken": "IZie2ZvFtL4oV9n5Mc14Cq86AS7zpZC0vbA5CGeU9h6Mi9YrnVTuGLd6nTz6JZTgkAb49v1rwr3xHYaY0aQ",
       "projectName": "tiptap",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/tiptap/plasmic.module.css",
+      "cssFilePath": "plasmic/tiptap/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -420,7 +420,7 @@
       "projectApiToken": "34o5R5KswluuZ4sD83F88oQrcLWsNNeUpCptQ8Okf4hYqgjnHnX2idGAlhtB7WWQQelNAInf5XFazR1cGw",
       "projectName": "plasmic-embed-css",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_embed_css/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_embed_css/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -446,7 +446,7 @@
       "projectApiToken": "ByNEUEKB7Hd9g2PkeOVot8RZTanYGn3rlmcjYTbULlTb9TEjfypxJ4uDH0HeEMQazKWvfHB4CFNXVgy8YmEyA",
       "projectName": "react-chartjs-2",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/react_chartjs_2/plasmic.module.css",
+      "cssFilePath": "plasmic/react_chartjs_2/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -472,7 +472,7 @@
       "projectApiToken": "eSFGpQaYCtO9sRbPuQ2Ll9dmLOg8I4oKhx6e1PuCrsfmUIVbFbSXcy32UrPTwF9zX2HVXA0xaIKJNhCMHvA",
       "projectName": "react-slick",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/react_slick/plasmic.module.css",
+      "cssFilePath": "plasmic/react_slick/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -502,7 +502,7 @@
       "projectApiToken": "6Bn8h6fjzGhmvB6g0gGPENLIxLtXZv8TCkr4yk9u8g3DP444nsnlSeTeX9w8LMgHNSYNJeyihR9KlT9gnlw",
       "projectName": "plasmic-graphcms",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_graphcms/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_graphcms/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -540,7 +540,7 @@
       "projectApiToken": "vXGGQpdi9fhcncabBdg8DcMRUbkz0iRW6HS1jzQufQR6QH0MasPwr9SX7ap4SsK3xXwwXmzZtglWGe0Rm2nw",
       "projectName": "plasmic-basic-components",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_basic_components/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_basic_components/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -602,7 +602,7 @@
       "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
       "projectName": "react-awesome-reveal",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/react_awesome_reveal/plasmic.module.css",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -628,7 +628,7 @@
       "projectApiToken": "yLKpJOE8mD6HqoNCSWF3Em8ut0LBzL7qb3QPqNeOLPjQsSBSc12yhYovnSRSekzgt1xjjbugBGDjOMLGMK4w",
       "projectName": "plasmic-query",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_query/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_query/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -660,7 +660,7 @@
       "projectApiToken": "RNOKYUdvtFBrgxbf09RPjYgL9LzpnT4pIsOrtpsqlLDYBRxYynkAo8OY9YRWPdoaSnRAwOO2e5PWfuVNypw",
       "projectName": "plasmic-rich-components",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_rich_components/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_rich_components/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -718,7 +718,7 @@
       "projectApiToken": "YE6pw0s6HZvyAZENjWdhh22CZUvZbVXVeOr7IxU58m9rwk2ITG1RfJGcJjzF2uEC7DCqa4PDzPP1UXxfKuuQ",
       "projectName": "antd5 hostless",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/antd_5_hostless/plasmic.module.css",
+      "cssFilePath": "plasmic/antd_5_hostless/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -1122,7 +1122,7 @@
       "projectApiToken": "uZp069FLSLNVA2dpWnqC3BUaj3flvtNBNXt6e1b67rm4Uh6lGHgYJ65FCBXlOFTB5KDW7RmmOxIAzgHYCg",
       "projectName": "plasmic-nav",
       "version": ">0.0.0",
-      "cssFilePath": "plasmic/plasmic_nav/plasmic.module.css",
+      "cssFilePath": "plasmic/plasmic_nav/plasmic.css",
       "components": [],
       "icons": [],
       "images": [],
@@ -1148,7 +1148,7 @@
       "projectApiToken": "6nj2NiGOI9JYnWMLlPP7D3aSW3yNpDY9qlXpEga4j0D2sScXsqDRtIZ0xCFzjpBZfVazBHIlIJjMYu5k0w",
       "projectName": "Proliga v4",
       "version": "latest",
-      "cssFilePath": "plasmic/copy_of_proliga_new_design/plasmic.module.css",
+      "cssFilePath": "plasmic/copy_of_proliga_new_design/plasmic.css",
       "components": [
         {
           "id": "j_koFSvK1RER",
@@ -3075,6 +3075,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.359",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.359/dist/plasmic.schema.json"
+  "cliVersion": "0.1.364",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.364/dist/plasmic.schema.json"
 }

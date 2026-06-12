@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicImageCardText.module.css"; // plasmic-import: IaB65peUmP4-/css
 
 createPlasmicElementProxy;
@@ -140,10 +139,10 @@ function PlasmicImageCardText__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -151,7 +150,7 @@ function PlasmicImageCardText__RenderFunc(props: {
       <div
         data-plasmic-name={"imagaeAndText"}
         data-plasmic-override={overrides.imagaeAndText}
-        className={classNames(projectcss.all, sty.imagaeAndText)}
+        className={classNames("all", sty.imagaeAndText)}
       >
         <PlasmicImg__
           data-plasmic-name={"img"}
@@ -176,44 +175,26 @@ function PlasmicImageCardText__RenderFunc(props: {
         <div
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
+          className={classNames("all", sty.freeBox)}
         >
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
-            <div className={classNames(projectcss.all, sty.column__mpbNs)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hpNh
-                )}
-              >
+            <div className={classNames("all", sty.column__mpbNs)}>
+              <div className={classNames("all", "__wab_text", sty.text__hpNh)}>
                 {"NOTICIAS"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.column__f1Zdu)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cFoxH
-                )}
-              >
+            <div className={classNames("all", sty.column__f1Zdu)}>
+              <div className={classNames("all", "__wab_text", sty.text__cFoxH)}>
                 {"1 DAY AGO"}
               </div>
             </div>
           </div>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__tpLs
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__tpLs)}>
           {"Alineaciones probables de la jornada 31 \nde LaLiga EA Sports"}
         </div>
       </div>

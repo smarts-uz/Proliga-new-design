@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "../copy_of_proliga_new_design/plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicAvatarPlayerNewDesign.module.css"; // plasmic-import: DGhYAOC2J13B/css
 
 createPlasmicElementProxy;
@@ -161,10 +160,10 @@ function PlasmicAvatarPlayerNewDesign__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -199,7 +198,7 @@ function PlasmicAvatarPlayerNewDesign__RenderFunc(props: {
         />
       ) : null}
       <div
-        className={classNames(projectcss.all, sty.freeBox__zVaBn)}
+        className={classNames("all", sty.freeBox__zVaBn)}
         onClick={args.updateCapitan}
       >
         {(() => {
@@ -268,14 +267,8 @@ function PlasmicAvatarPlayerNewDesign__RenderFunc(props: {
           />
         ) : null}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__xyPvE)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__xPk2Z
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__xyPvE)}>
+        <div className={classNames("all", "__wab_text", sty.text__xPk2Z)}>
           <React.Fragment>
             {(() => {
               try {
@@ -293,7 +286,7 @@ function PlasmicAvatarPlayerNewDesign__RenderFunc(props: {
           </React.Fragment>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__uQfl)}>
+      <div className={classNames("all", sty.freeBox__uQfl)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__e4PM4)}
@@ -312,13 +305,7 @@ function PlasmicAvatarPlayerNewDesign__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wjW6
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__wjW6)}>
           {"0"}
         </div>
         {(() => {

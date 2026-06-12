@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPlayerPickerRow.module.css"; // plasmic-import: as4LbzE516j9/css
 
 createPlasmicElementProxy;
@@ -166,21 +165,15 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__okJf8
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__okJf8)}>
         <React.Fragment>
           {(() => {
             try {
@@ -197,13 +190,7 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__a46Ud
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__a46Ud)}>
         <React.Fragment>
           {(() => {
             try {
@@ -238,13 +225,7 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
         }}
       />
 
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__pGjKs
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__pGjKs)}>
         <React.Fragment>
           {(() => {
             try {
@@ -261,13 +242,7 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__nI5OK
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__nI5OK)}>
         <React.Fragment>
           {(() => {
             try {
@@ -284,13 +259,7 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__t1UP7
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__t1UP7)}>
         {"Ochko"}
       </div>
       {(() => {

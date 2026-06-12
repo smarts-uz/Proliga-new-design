@@ -68,7 +68,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicAbsences.module.css"; // plasmic-import: SjHyr0AJYc9o/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -86,11 +85,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -155,8 +161,6 @@ function PlasmicAbsences__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -168,6 +172,9 @@ function PlasmicAbsences__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -178,7 +185,7 @@ function PlasmicAbsences__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -193,17 +200,17 @@ function PlasmicAbsences__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -231,20 +238,16 @@ function PlasmicAbsences__RenderFunc(props: {
           <div
             data-plasmic-name={"text"}
             data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
+            className={classNames("all", "__wab_text", sty.text)}
           >
             {"Injuries"}
           </div>
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
-            <div className={classNames(projectcss.all, sty.column__mCEpa)}>
+            <div className={classNames("all", sty.column__mCEpa)}>
               <InjuredClub
                 className={classNames("__wab_instance", sty.injuredClub__bnvYr)}
               />
@@ -284,7 +287,7 @@ function PlasmicAbsences__RenderFunc(props: {
                 variant2={true}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__nlEcM)}>
+            <div className={classNames("all", sty.column__nlEcM)}>
               <InjuredClub
                 className={classNames(
                   "__wab_instance",
@@ -354,7 +357,7 @@ function PlasmicAbsences__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.injuredClub__zPtNd)}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.column__tIfDm)}>
+            <div className={classNames("all", sty.column__tIfDm)}>
               <InjuredClub
                 className={classNames("__wab_instance", sty.injuredClub__q2Jbg)}
                 variant3={true}
@@ -494,9 +497,10 @@ export const PlasmicAbsences = Object.assign(
     internalArgProps: PlasmicAbsences__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/absences",
       pagePath: "/absences",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicTeamPlayerCreate.module.css"; // plasmic-import: oUEeU2TYbEhh/css
 
 createPlasmicElementProxy;
@@ -154,10 +153,10 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.playersTable
       )}
@@ -165,7 +164,7 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
       <div
         data-plasmic-name={"goa"}
         data-plasmic-override={overrides.goa}
-        className={classNames(projectcss.all, sty.goa)}
+        className={classNames("all", sty.goa)}
       >
         <AvatarPlayer
           data-plasmic-name={"avatarPlayer"}
@@ -176,7 +175,7 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
       <div
         data-plasmic-name={"def"}
         data-plasmic-override={overrides.def}
-        className={classNames(projectcss.all, sty.def)}
+        className={classNames("all", sty.def)}
       >
         <AvatarPlayer
           data-plasmic-name={"avatarPlayer2"}
@@ -205,7 +204,7 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
       <div
         data-plasmic-name={"mid"}
         data-plasmic-override={overrides.mid}
-        className={classNames(projectcss.all, sty.mid)}
+        className={classNames("all", sty.mid)}
       >
         <AvatarPlayer
           data-plasmic-name={"avatarPlayer6"}
@@ -234,7 +233,7 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
       <div
         data-plasmic-name={"str"}
         data-plasmic-override={overrides.str}
-        className={classNames(projectcss.all, sty.str)}
+        className={classNames("all", sty.str)}
       >
         <AvatarPlayer
           data-plasmic-name={"avatarPlayer10"}

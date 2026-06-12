@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicBreakinNewsCards.module.css"; // plasmic-import: aZj-iJZhifXL/css
 
 createPlasmicElementProxy;
@@ -158,8 +157,6 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -183,6 +180,9 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -200,16 +200,16 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootvariant2]: hasVariant($state, "variant2", "variant2") }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__oSC)}>
+      <div className={classNames("all", sty.freeBox__oSC)}>
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
@@ -271,14 +271,8 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
           }
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__s5Sqn)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__uq8VW
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__s5Sqn)}>
+          <div className={classNames("all", "__wab_text", sty.text__uq8VW)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -295,13 +289,7 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__q0S92
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__q0S92)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -320,28 +308,23 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
           </div>
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__s6LiW,
-            {
-              [sty.textrmTeam__s6LiWcYiYa]: hasVariant(
-                $state,
-                "rmTeam",
-                "rmTeam"
-              ),
-              [sty.textvariant2__s6LiWkzcpo]: hasVariant(
-                $state,
-                "variant2",
-                "variant2"
-              ),
-              [sty.textvariant3__s6LiWi6VKl]: hasVariant(
-                $state,
-                "variant3",
-                "variant3"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__s6LiW, {
+            [sty.textrmTeam__s6LiWcYiYa]: hasVariant(
+              $state,
+              "rmTeam",
+              "rmTeam"
+            ),
+            [sty.textvariant2__s6LiWkzcpo]: hasVariant(
+              $state,
+              "variant2",
+              "variant2"
+            ),
+            [sty.textvariant3__s6LiWi6VKl]: hasVariant(
+              $state,
+              "variant3",
+              "variant3"
+            )
+          })}
         >
           {hasVariant($state, "rmTeam", "rmTeam") ? (
             "Militao podr\u00eda sumar minutos ante el Mallorca: cu\u00e1nto pujar por \u00e9l y hasta qu\u00e9 precio puede subir en LALIGA FANTASY"
@@ -368,28 +351,19 @@ function PlasmicBreakinNewsCards__RenderFunc(props: {
           )}
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__ab08,
-            {
-              [sty.textrmTeam__ab08CYiYa]: hasVariant(
-                $state,
-                "rmTeam",
-                "rmTeam"
-              ),
-              [sty.textvariant2__ab08Kzcpo]: hasVariant(
-                $state,
-                "variant2",
-                "variant2"
-              ),
-              [sty.textvariant3__ab08I6VKl]: hasVariant(
-                $state,
-                "variant3",
-                "variant3"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__ab08, {
+            [sty.textrmTeam__ab08CYiYa]: hasVariant($state, "rmTeam", "rmTeam"),
+            [sty.textvariant2__ab08Kzcpo]: hasVariant(
+              $state,
+              "variant2",
+              "variant2"
+            ),
+            [sty.textvariant3__ab08I6VKl]: hasVariant(
+              $state,
+              "variant3",
+              "variant3"
+            )
+          })}
         >
           {hasVariant($state, "rmTeam", "rmTeam") ? (
             "El central brasile\u00f1o ya jug\u00f3 los compases finales del duelo frente al Athletic Club. .."

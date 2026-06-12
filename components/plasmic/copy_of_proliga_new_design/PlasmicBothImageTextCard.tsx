@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicBothImageTextCard.module.css"; // plasmic-import: ODoUQKl-ju5d/css
 
 createPlasmicElementProxy;
@@ -139,15 +138,15 @@ function PlasmicBothImageTextCard__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__sjtP6)}>
+      <div className={classNames("all", sty.freeBox__sjtP6)}>
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
@@ -168,44 +167,26 @@ function PlasmicBothImageTextCard__RenderFunc(props: {
           }}
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__yAqoB)}>
-        <div className={classNames(projectcss.all, sty.freeBox__wDzqv)}>
+      <div className={classNames("all", sty.freeBox__yAqoB)}>
+        <div className={classNames("all", sty.freeBox__wDzqv)}>
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
-            <div className={classNames(projectcss.all, sty.column__hdPxE)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__uCrYo
-                )}
-              >
+            <div className={classNames("all", sty.column__hdPxE)}>
+              <div className={classNames("all", "__wab_text", sty.text__uCrYo)}>
                 {"NOTICIAS"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.column___7L)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gvBws
-                )}
-              >
+            <div className={classNames("all", sty.column___7L)}>
+              <div className={classNames("all", "__wab_text", sty.text__gvBws)}>
                 {"1 DAY AGO"}
               </div>
             </div>
           </div>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__xeo35
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__xeo35)}>
           {
             "Nuevo rev\u00e9s para el Atl\u00e9tico de Madrid: Memphis Depay se lesiona a dos d\u00edas del Borussia Dortmund"
           }

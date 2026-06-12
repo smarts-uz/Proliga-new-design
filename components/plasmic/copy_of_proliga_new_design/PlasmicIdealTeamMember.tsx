@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicIdealTeamMember.module.css"; // plasmic-import: lQi1dW4jp46h/css
 
 createPlasmicElementProxy;
@@ -179,8 +178,6 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -246,6 +243,9 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -263,10 +263,10 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -294,7 +294,7 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
         <PlasmicImg__
           data-plasmic-name={"img"}
@@ -496,39 +496,34 @@ function PlasmicIdealTeamMember__RenderFunc(props: {
         <div
           data-plasmic-name={"text"}
           data-plasmic-override={overrides.text}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text,
-            {
-              [sty.textalcaraz]: hasVariant($state, "alcaraz", "alcaraz"),
-              [sty.textdovbyk]: hasVariant($state, "dovbyk", "dovbyk"),
-              [sty.textikerMundez]: hasVariant(
-                $state,
-                "ikerMundez",
-                "ikerMundez"
-              ),
-              [sty.textjohnPache2]: hasVariant(
-                $state,
-                "johnPache2",
-                "johnPache2"
-              ),
-              [sty.textmingueza]: hasVariant($state, "mingueza", "mingueza"),
-              [sty.textrobertNav]: hasVariant($state, "robertNav", "robertNav"),
-              [sty.textrodrygo]: hasVariant($state, "rodrygo", "rodrygo"),
-              [sty.textsergioRamos]: hasVariant(
-                $state,
-                "sergioRamos",
-                "sergioRamos"
-              ),
-              [sty.textwillianJose]: hasVariant(
-                $state,
-                "willianJose",
-                "willianJose"
-              ),
-              [sty.textzakaryan]: hasVariant($state, "zakaryan", "zakaryan")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text, {
+            [sty.textalcaraz]: hasVariant($state, "alcaraz", "alcaraz"),
+            [sty.textdovbyk]: hasVariant($state, "dovbyk", "dovbyk"),
+            [sty.textikerMundez]: hasVariant(
+              $state,
+              "ikerMundez",
+              "ikerMundez"
+            ),
+            [sty.textjohnPache2]: hasVariant(
+              $state,
+              "johnPache2",
+              "johnPache2"
+            ),
+            [sty.textmingueza]: hasVariant($state, "mingueza", "mingueza"),
+            [sty.textrobertNav]: hasVariant($state, "robertNav", "robertNav"),
+            [sty.textrodrygo]: hasVariant($state, "rodrygo", "rodrygo"),
+            [sty.textsergioRamos]: hasVariant(
+              $state,
+              "sergioRamos",
+              "sergioRamos"
+            ),
+            [sty.textwillianJose]: hasVariant(
+              $state,
+              "willianJose",
+              "willianJose"
+            ),
+            [sty.textzakaryan]: hasVariant($state, "zakaryan", "zakaryan")
+          })}
         >
           {hasVariant($state, "willianJose", "willianJose") ? (
             "Willian Jos\u00e9"

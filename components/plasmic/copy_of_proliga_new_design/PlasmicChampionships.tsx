@@ -73,7 +73,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicChampionships.module.css"; // plasmic-import: k2zpvambpHH_/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -91,11 +90,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -161,11 +167,6 @@ function PlasmicChampionships__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -196,6 +197,12 @@ function PlasmicChampionships__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -238,7 +245,7 @@ function PlasmicChampionships__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -259,10 +266,10 @@ function PlasmicChampionships__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root
         )}
@@ -290,24 +297,19 @@ function PlasmicChampionships__RenderFunc(props: {
         <h1
           data-plasmic-name={"h1"}
           data-plasmic-override={overrides.h1}
-          className={classNames(
-            projectcss.all,
-            projectcss.h1,
-            projectcss.__wab_text,
-            sty.h1
-          )}
+          className={classNames("all", "h1", "h1__qrPZw", "__wab_text", sty.h1)}
         >
           {"Choose competetion"}
         </h1>
         <div
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
+          className={classNames("all", sty.freeBox)}
         >
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
+            className={classNames("all", sty.columns)}
           >
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
@@ -330,7 +332,7 @@ function PlasmicChampionships__RenderFunc(props: {
                 <div
                   data-plasmic-name={"column"}
                   data-plasmic-override={overrides.column}
-                  className={classNames(projectcss.all, sty.column)}
+                  className={classNames("all", sty.column)}
                   key={currentIndex}
                   onClick={async event => {
                     const $steps = {};
@@ -509,8 +511,8 @@ function PlasmicChampionships__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___21WUl
                     )}
                   >
@@ -531,11 +533,7 @@ function PlasmicChampionships__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vi1Mn
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vi1Mn)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -704,9 +702,10 @@ export const PlasmicChampionships = Object.assign(
     internalArgProps: PlasmicChampionships__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/competition",
       pagePath: "/competition",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

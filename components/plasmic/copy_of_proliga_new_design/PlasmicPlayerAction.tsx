@@ -69,7 +69,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPlayerAction.module.css"; // plasmic-import: vjxuT1pir1pU/css
 
 createPlasmicElementProxy;
@@ -146,10 +145,10 @@ function PlasmicPlayerAction__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -279,7 +278,7 @@ function PlasmicPlayerAction__RenderFunc(props: {
         commitedPenalties={true}
       />
 
-      <div className={classNames(projectcss.all, sty.freeBox__jAiE1)}>
+      <div className={classNames("all", sty.freeBox__jAiE1)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__sUZuW)}
@@ -316,26 +315,15 @@ function PlasmicPlayerAction__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__voEz5
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__voEz5)}>
           {"Point    -"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__ke1Dc)}>
+      <div className={classNames("all", sty.freeBox__ke1Dc)}>
         <PlasmicLink__
           data-plasmic-name={"link"}
           data-plasmic-override={overrides.link}
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link
-          )}
+          className={classNames("all", "a", "a__qrPZw", "__wab_text", sty.link)}
           component={Link}
           href={"https://www.plasmic.app/"}
           legacyBehavior={false}
@@ -343,13 +331,7 @@ function PlasmicPlayerAction__RenderFunc(props: {
         >
           {"TOTAL FIXTURE  "}
         </PlasmicLink__>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__yTcvr
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__yTcvr)}>
           {"34"}
         </div>
       </div>

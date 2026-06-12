@@ -71,7 +71,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicSellPlayerCard.module.css"; // plasmic-import: 8eHqUMWBUQQZ/css
 
 createPlasmicElementProxy;
@@ -188,11 +187,6 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -276,6 +270,12 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -311,10 +311,10 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -323,7 +323,7 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__sf2Q0)}>
+      <div className={classNames("all", sty.freeBox__sf2Q0)}>
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__rnc7R, {
@@ -483,35 +483,24 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
           }
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__syIew)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__rlNtM
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__syIew)}>
+        <div className={classNames("all", "__wab_text", sty.text__rlNtM)}>
           {"Position"}
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___7Glpf,
-            {
-              [sty.textgimenez___7GlpFbgMPs]: hasVariant(
-                $state,
-                "gimenez",
-                "gimenez"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text___7Glpf, {
+            [sty.textgimenez___7GlpFbgMPs]: hasVariant(
+              $state,
+              "gimenez",
+              "gimenez"
+            )
+          })}
         >
           {"FSYP"}
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__ilPg0, {
+        className={classNames("all", sty.freeBox__ilPg0, {
           [sty.freeBoxcourtua__ilPg0PuGbh]: hasVariant(
             $state,
             "courtua",
@@ -532,12 +521,7 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
         <PlasmicLink__
           data-plasmic-name={"link"}
           data-plasmic-override={overrides.link}
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link
-          )}
+          className={classNames("all", "a", "a__qrPZw", "__wab_text", sty.link)}
           component={Link}
           href={"https://www.plasmic.app/"}
           legacyBehavior={false}
@@ -546,74 +530,57 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
           {"STR"}
         </PlasmicLink__>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__sCrh,
-            {
-              [sty.textardaGuler__sCrh3RMyG]: hasVariant(
-                $state,
-                "ardaGuler",
-                "ardaGuler"
-              ),
-              [sty.textayozePerez__sCrhrr2Tz]: hasVariant(
-                $state,
-                "ayozePerez",
-                "ayozePerez"
-              ),
-              [sty.textbudimir__sCrhWp2]: hasVariant(
-                $state,
-                "budimir",
-                "budimir"
-              ),
-              [sty.textceballos__sCrh2ZaOf]: hasVariant(
-                $state,
-                "ceballos",
-                "ceballos"
-              ),
-              [sty.textcourtua__sCrhpuGbh]: hasVariant(
-                $state,
-                "courtua",
-                "courtua"
-              ),
-              [sty.textdavidGarcia__sCrHspXh5]: hasVariant(
-                $state,
-                "davidGarcia",
-                "davidGarcia"
-              ),
-              [sty.textdeGalarreta__sCrhsIfeb]: hasVariant(
-                $state,
-                "deGalarreta",
-                "deGalarreta"
-              ),
-              [sty.textdeJong__sCrh3KoUd]: hasVariant(
-                $state,
-                "deJong",
-                "deJong"
-              ),
-              [sty.textdeLeon__sCrHuXPgz]: hasVariant(
-                $state,
-                "deLeon",
-                "deLeon"
-              ),
-              [sty.textfranGarcia__sCrHa0Lv9]: hasVariant(
-                $state,
-                "franGarcia",
-                "franGarcia"
-              ),
-              [sty.textgimenez__sCrHbgMPs]: hasVariant(
-                $state,
-                "gimenez",
-                "gimenez"
-              ),
-              [sty.textisaac__sCrHs9Dhn]: hasVariant($state, "isaac", "isaac"),
-              [sty.texttraore__sCrhuIa70]: hasVariant(
-                $state,
-                "traore",
-                "traore"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__sCrh, {
+            [sty.textardaGuler__sCrh3RMyG]: hasVariant(
+              $state,
+              "ardaGuler",
+              "ardaGuler"
+            ),
+            [sty.textayozePerez__sCrhrr2Tz]: hasVariant(
+              $state,
+              "ayozePerez",
+              "ayozePerez"
+            ),
+            [sty.textbudimir__sCrhWp2]: hasVariant(
+              $state,
+              "budimir",
+              "budimir"
+            ),
+            [sty.textceballos__sCrh2ZaOf]: hasVariant(
+              $state,
+              "ceballos",
+              "ceballos"
+            ),
+            [sty.textcourtua__sCrhpuGbh]: hasVariant(
+              $state,
+              "courtua",
+              "courtua"
+            ),
+            [sty.textdavidGarcia__sCrHspXh5]: hasVariant(
+              $state,
+              "davidGarcia",
+              "davidGarcia"
+            ),
+            [sty.textdeGalarreta__sCrhsIfeb]: hasVariant(
+              $state,
+              "deGalarreta",
+              "deGalarreta"
+            ),
+            [sty.textdeJong__sCrh3KoUd]: hasVariant($state, "deJong", "deJong"),
+            [sty.textdeLeon__sCrHuXPgz]: hasVariant($state, "deLeon", "deLeon"),
+            [sty.textfranGarcia__sCrHa0Lv9]: hasVariant(
+              $state,
+              "franGarcia",
+              "franGarcia"
+            ),
+            [sty.textgimenez__sCrHbgMPs]: hasVariant(
+              $state,
+              "gimenez",
+              "gimenez"
+            ),
+            [sty.textisaac__sCrHs9Dhn]: hasVariant($state, "isaac", "isaac"),
+            [sty.texttraore__sCrhuIa70]: hasVariant($state, "traore", "traore")
+          })}
         >
           {hasVariant($state, "isaac", "isaac") ? (
             "Isaac"
@@ -660,69 +627,64 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
           )}
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__xGhd8,
-            {
-              [sty.textardaGuler__xGhd83RMyG]: hasVariant(
-                $state,
-                "ardaGuler",
-                "ardaGuler"
-              ),
-              [sty.textayozePerez__xGhd8Rr2Tz]: hasVariant(
-                $state,
-                "ayozePerez",
-                "ayozePerez"
-              ),
-              [sty.textbudimir__xGhd8Wp2]: hasVariant(
-                $state,
-                "budimir",
-                "budimir"
-              ),
-              [sty.textceballos__xGhd82ZaOf]: hasVariant(
-                $state,
-                "ceballos",
-                "ceballos"
-              ),
-              [sty.textcourtua__xGhd8PuGbh]: hasVariant(
-                $state,
-                "courtua",
-                "courtua"
-              ),
-              [sty.textdavidGarcia__xGhd8SpXh5]: hasVariant(
-                $state,
-                "davidGarcia",
-                "davidGarcia"
-              ),
-              [sty.textdeGalarreta__xGhd8SIfeb]: hasVariant(
-                $state,
-                "deGalarreta",
-                "deGalarreta"
-              ),
-              [sty.textdeJong__xGhd83KoUd]: hasVariant(
-                $state,
-                "deJong",
-                "deJong"
-              ),
-              [sty.textdeLeon__xGhd8UXPgz]: hasVariant(
-                $state,
-                "deLeon",
-                "deLeon"
-              ),
-              [sty.textfranGarcia__xGhd8A0Lv9]: hasVariant(
-                $state,
-                "franGarcia",
-                "franGarcia"
-              ),
-              [sty.textgimenez__xGhd8BgMPs]: hasVariant(
-                $state,
-                "gimenez",
-                "gimenez"
-              ),
-              [sty.textisaac__xGhd8S9Dhn]: hasVariant($state, "isaac", "isaac")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__xGhd8, {
+            [sty.textardaGuler__xGhd83RMyG]: hasVariant(
+              $state,
+              "ardaGuler",
+              "ardaGuler"
+            ),
+            [sty.textayozePerez__xGhd8Rr2Tz]: hasVariant(
+              $state,
+              "ayozePerez",
+              "ayozePerez"
+            ),
+            [sty.textbudimir__xGhd8Wp2]: hasVariant(
+              $state,
+              "budimir",
+              "budimir"
+            ),
+            [sty.textceballos__xGhd82ZaOf]: hasVariant(
+              $state,
+              "ceballos",
+              "ceballos"
+            ),
+            [sty.textcourtua__xGhd8PuGbh]: hasVariant(
+              $state,
+              "courtua",
+              "courtua"
+            ),
+            [sty.textdavidGarcia__xGhd8SpXh5]: hasVariant(
+              $state,
+              "davidGarcia",
+              "davidGarcia"
+            ),
+            [sty.textdeGalarreta__xGhd8SIfeb]: hasVariant(
+              $state,
+              "deGalarreta",
+              "deGalarreta"
+            ),
+            [sty.textdeJong__xGhd83KoUd]: hasVariant(
+              $state,
+              "deJong",
+              "deJong"
+            ),
+            [sty.textdeLeon__xGhd8UXPgz]: hasVariant(
+              $state,
+              "deLeon",
+              "deLeon"
+            ),
+            [sty.textfranGarcia__xGhd8A0Lv9]: hasVariant(
+              $state,
+              "franGarcia",
+              "franGarcia"
+            ),
+            [sty.textgimenez__xGhd8BgMPs]: hasVariant(
+              $state,
+              "gimenez",
+              "gimenez"
+            ),
+            [sty.textisaac__xGhd8S9Dhn]: hasVariant($state, "isaac", "isaac")
+          })}
           onClick={async event => {
             const $steps = {};
 
@@ -771,28 +733,16 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
                               : "166"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__isUvm)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__dYvzy
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__isUvm)}>
+        <div className={classNames("all", "__wab_text", sty.text__dYvzy)}>
           {"Value"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__pz0Kh
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__pz0Kh)}>
           {"Average:"}
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__jHddx, {
+        className={classNames("all", sty.freeBox__jHddx, {
           [sty.freeBoxayozePerez__jHddxRr2Tz]: hasVariant(
             $state,
             "ayozePerez",
@@ -833,88 +783,73 @@ function PlasmicSellPlayerCard__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__zhHEi
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__zhHEi)}>
           {"8.175.716"}
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___1HnyX,
-            {
-              [sty.textardaGuler___1HnyX3RMyG]: hasVariant(
-                $state,
-                "ardaGuler",
-                "ardaGuler"
-              ),
-              [sty.textayozePerez___1HnyXrr2Tz]: hasVariant(
-                $state,
-                "ayozePerez",
-                "ayozePerez"
-              ),
-              [sty.textbudimir___1HnyXWp2]: hasVariant(
-                $state,
-                "budimir",
-                "budimir"
-              ),
-              [sty.textceballos___1HnyX2ZaOf]: hasVariant(
-                $state,
-                "ceballos",
-                "ceballos"
-              ),
-              [sty.textcourtua___1HnyXpuGbh]: hasVariant(
-                $state,
-                "courtua",
-                "courtua"
-              ),
-              [sty.textdavidGarcia___1HnyXspXh5]: hasVariant(
-                $state,
-                "davidGarcia",
-                "davidGarcia"
-              ),
-              [sty.textdeGalarreta___1HnyXsIfeb]: hasVariant(
-                $state,
-                "deGalarreta",
-                "deGalarreta"
-              ),
-              [sty.textdeJong___1HnyX3KoUd]: hasVariant(
-                $state,
-                "deJong",
-                "deJong"
-              ),
-              [sty.textdeLeon___1HnyXuXPgz]: hasVariant(
-                $state,
-                "deLeon",
-                "deLeon"
-              ),
-              [sty.textfranGarcia___1HnyXa0Lv9]: hasVariant(
-                $state,
-                "franGarcia",
-                "franGarcia"
-              ),
-              [sty.textgimenez___1HnyXbgMPs]: hasVariant(
-                $state,
-                "gimenez",
-                "gimenez"
-              ),
-              [sty.textisaac___1HnyXs9Dhn]: hasVariant(
-                $state,
-                "isaac",
-                "isaac"
-              ),
-              [sty.texttraore___1HnyXuIa70]: hasVariant(
-                $state,
-                "traore",
-                "traore"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text___1HnyX, {
+            [sty.textardaGuler___1HnyX3RMyG]: hasVariant(
+              $state,
+              "ardaGuler",
+              "ardaGuler"
+            ),
+            [sty.textayozePerez___1HnyXrr2Tz]: hasVariant(
+              $state,
+              "ayozePerez",
+              "ayozePerez"
+            ),
+            [sty.textbudimir___1HnyXWp2]: hasVariant(
+              $state,
+              "budimir",
+              "budimir"
+            ),
+            [sty.textceballos___1HnyX2ZaOf]: hasVariant(
+              $state,
+              "ceballos",
+              "ceballos"
+            ),
+            [sty.textcourtua___1HnyXpuGbh]: hasVariant(
+              $state,
+              "courtua",
+              "courtua"
+            ),
+            [sty.textdavidGarcia___1HnyXspXh5]: hasVariant(
+              $state,
+              "davidGarcia",
+              "davidGarcia"
+            ),
+            [sty.textdeGalarreta___1HnyXsIfeb]: hasVariant(
+              $state,
+              "deGalarreta",
+              "deGalarreta"
+            ),
+            [sty.textdeJong___1HnyX3KoUd]: hasVariant(
+              $state,
+              "deJong",
+              "deJong"
+            ),
+            [sty.textdeLeon___1HnyXuXPgz]: hasVariant(
+              $state,
+              "deLeon",
+              "deLeon"
+            ),
+            [sty.textfranGarcia___1HnyXa0Lv9]: hasVariant(
+              $state,
+              "franGarcia",
+              "franGarcia"
+            ),
+            [sty.textgimenez___1HnyXbgMPs]: hasVariant(
+              $state,
+              "gimenez",
+              "gimenez"
+            ),
+            [sty.textisaac___1HnyXs9Dhn]: hasVariant($state, "isaac", "isaac"),
+            [sty.texttraore___1HnyXuIa70]: hasVariant(
+              $state,
+              "traore",
+              "traore"
+            )
+          })}
         >
           {hasVariant($state, "isaac", "isaac")
             ? "8,54"

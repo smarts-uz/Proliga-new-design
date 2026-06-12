@@ -72,7 +72,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicMatches.module.css"; // plasmic-import: pm7y5M1MPq4e/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -90,7 +89,14 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     title: "matches",
 
@@ -98,7 +104,7 @@ export function generateDynamicMetadata($q: any, $ctx: any) {
       title: "matches"
     },
     twitter: {
-      card: "summary",
+      card: "summary" as const,
       title: "matches"
     }
   };
@@ -167,13 +173,6 @@ function PlasmicMatches__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -185,6 +184,14 @@ function PlasmicMatches__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -213,7 +220,7 @@ function PlasmicMatches__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -237,17 +244,17 @@ function PlasmicMatches__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -272,15 +279,9 @@ function PlasmicMatches__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__fWeOt)}>
-            <div className={classNames(projectcss.all, sty.freeBox__qRz4G)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rdXwn
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__fWeOt)}>
+            <div className={classNames("all", sty.freeBox__qRz4G)}>
+              <div className={classNames("all", "__wab_text", sty.text__rdXwn)}>
                 <React.Fragment>
                   <React.Fragment>{""}</React.Fragment>
                   {
@@ -288,16 +289,17 @@ function PlasmicMatches__RenderFunc(props: {
                       data-plasmic-name={"h2"}
                       data-plasmic-override={overrides.h2}
                       className={classNames(
-                        projectcss.all,
-                        projectcss.h2,
-                        projectcss.__wab_text,
+                        "all",
+                        "h2",
+                        "h2__qrPZw",
+                        "__wab_text",
                         sty.h2
                       )}
                     >
                       <React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__qrPZw"
                           }
                           style={{ color: "#FFFFFF" }}
                         >
@@ -314,26 +316,20 @@ function PlasmicMatches__RenderFunc(props: {
           <div
             data-plasmic-name={"mainStak"}
             data-plasmic-override={overrides.mainStak}
-            className={classNames(projectcss.all, sty.mainStak)}
+            className={classNames("all", sty.mainStak)}
           >
             <div
               data-plasmic-name={"leftStack"}
               data-plasmic-override={overrides.leftStack}
-              className={classNames(projectcss.all, sty.leftStack)}
+              className={classNames("all", sty.leftStack)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__g4J0V
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__g4J0V)}>
                 {"Today's Matches"}
               </div>
               <div
                 data-plasmic-name={"matchStak"}
                 data-plasmic-override={overrides.matchStak}
-                className={classNames(projectcss.all, sty.matchStak)}
+                className={classNames("all", sty.matchStak)}
               >
                 <PlasmicImg__
                   alt={""}
@@ -357,29 +353,17 @@ function PlasmicMatches__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oLcUb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__oLcUb)}
                 >
                   {"Real Madrid"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__r8Rgd
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__r8Rgd)}
                 >
                   {"7:0"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__vxAqZ
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__vxAqZ)}
                 >
                   {"Barcelona"}
                 </div>
@@ -407,21 +391,15 @@ function PlasmicMatches__RenderFunc(props: {
             <div
               data-plasmic-name={"rightStack"}
               data-plasmic-override={overrides.rightStack}
-              className={classNames(projectcss.all, sty.rightStack)}
+              className={classNames("all", sty.rightStack)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ccgMc
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__ccgMc)}>
                 {"All Planning Matches"}
               </div>
               <div
                 data-plasmic-name={"matchStak2"}
                 data-plasmic-override={overrides.matchStak2}
-                className={classNames(projectcss.all, sty.matchStak2)}
+                className={classNames("all", sty.matchStak2)}
               >
                 <PlasmicImg__
                   alt={""}
@@ -445,29 +423,17 @@ function PlasmicMatches__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__wOi6O
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__wOi6O)}
                 >
                   {"Real Madrid"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qjAz
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qjAz)}
                 >
                   {"7:0"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mu2G
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__mu2G)}
                 >
                   {"Barcelona"}
                 </div>
@@ -607,9 +573,10 @@ export const PlasmicMatches = Object.assign(
     internalArgProps: PlasmicMatches__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/matches",
       pagePath: "/matches",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

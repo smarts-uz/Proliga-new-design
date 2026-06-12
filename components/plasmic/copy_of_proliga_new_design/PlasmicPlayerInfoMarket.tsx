@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPlayerInfoMarket.module.css"; // plasmic-import: Nv-f87L1MUx7/css
 
 createPlasmicElementProxy;
@@ -156,10 +155,10 @@ function PlasmicPlayerInfoMarket__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -167,21 +166,22 @@ function PlasmicPlayerInfoMarket__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
         <div
           data-plasmic-name={"columns"}
           data-plasmic-override={overrides.columns}
-          className={classNames(projectcss.all, sty.columns)}
+          className={classNames("all", sty.columns)}
         >
-          <div className={classNames(projectcss.all, sty.column___1UmfB)}>
+          <div className={classNames("all", sty.column___1UmfB)}>
             <PlasmicLink__
               data-plasmic-name={"link"}
               data-plasmic-override={overrides.link}
               className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
+                "all",
+                "a",
+                "a__qrPZw",
+                "__wab_text",
                 sty.link
               )}
               component={Link}
@@ -193,7 +193,7 @@ function PlasmicPlayerInfoMarket__RenderFunc(props: {
               {"SHOW MORE INFO"}
             </PlasmicLink__>
           </div>
-          <div className={classNames(projectcss.all, sty.column__a982T)} />
+          <div className={classNames("all", sty.column__a982T)} />
         </div>
         <PlasmicImg__
           data-plasmic-name={"img"}

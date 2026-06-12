@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicEditTeamPageTitle.module.css"; // plasmic-import: h-qCNPumay6S/css
 
 createPlasmicElementProxy;
@@ -148,21 +147,15 @@ function PlasmicEditTeamPageTitle__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__jl2Ly
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__jl2Ly)}>
         <React.Fragment>
           {(() => {
             try {
@@ -179,13 +172,7 @@ function PlasmicEditTeamPageTitle__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__i3J2Z
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__i3J2Z)}>
         <React.Fragment>
           {(() => {
             try {

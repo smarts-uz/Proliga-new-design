@@ -64,7 +64,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicShowteamNavbar.module.css"; // plasmic-import: xHwS06ZerIoO/css
 
 createPlasmicElementProxy;
@@ -146,10 +145,10 @@ function PlasmicShowteamNavbar__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -157,76 +156,52 @@ function PlasmicShowteamNavbar__RenderFunc(props: {
       <div
         data-plasmic-name={"mainStack"}
         data-plasmic-override={overrides.mainStack}
-        className={classNames(projectcss.all, sty.mainStack)}
+        className={classNames("all", sty.mainStack)}
       >
         <div
           data-plasmic-name={"items"}
           data-plasmic-override={overrides.items}
-          className={classNames(projectcss.all, sty.items)}
+          className={classNames("all", sty.items)}
         >
           <div
             data-plasmic-name={"profil"}
             data-plasmic-override={overrides.profil}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.profil
-            )}
+            className={classNames("all", "__wab_text", sty.profil)}
           >
             {"Profil"}
           </div>
           <div
             data-plasmic-name={"transfer"}
             data-plasmic-override={overrides.transfer}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.transfer
-            )}
+            className={classNames("all", "__wab_text", sty.transfer)}
           >
             {"Transfer"}
           </div>
           <div
             data-plasmic-name={"ochko"}
             data-plasmic-override={overrides.ochko}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.ochko
-            )}
+            className={classNames("all", "__wab_text", sty.ochko)}
           >
             {"Ochko"}
           </div>
           <div
             data-plasmic-name={"liga"}
             data-plasmic-override={overrides.liga}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.liga
-            )}
+            className={classNames("all", "__wab_text", sty.liga)}
           >
             {"Liga"}
           </div>
           <div
             data-plasmic-name={"journal"}
             data-plasmic-override={overrides.journal}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.journal
-            )}
+            className={classNames("all", "__wab_text", sty.journal)}
           >
             {"Journal"}
           </div>
           <div
             data-plasmic-name={"statistika"}
             data-plasmic-override={overrides.statistika}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.statistika
-            )}
+            className={classNames("all", "__wab_text", sty.statistika)}
           >
             {"Statistika"}
           </div>

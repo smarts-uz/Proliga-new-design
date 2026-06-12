@@ -74,7 +74,6 @@ import { _useStyleTokens } from "../proliga_v_4/PlasmicStyleTokensProvider"; // 
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: qrPZwqtrqWM4S9b4djCj1H/projectcss
 import sty from "./PlasmicPlayerInfo.module.css"; // plasmic-import: EFWABwnM7dLz/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -92,11 +91,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -161,11 +167,6 @@ function PlasmicPlayerInfo__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -177,6 +178,12 @@ function PlasmicPlayerInfo__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -219,7 +226,7 @@ function PlasmicPlayerInfo__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -234,17 +241,17 @@ function PlasmicPlayerInfo__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_qrPZwqtrqWM4S9b4djCj1H",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -269,8 +276,8 @@ function PlasmicPlayerInfo__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox___6K4Ag)}>
-            <div className={classNames(projectcss.all, sty.freeBox__bpXv)}>
+          <div className={classNames("all", sty.freeBox___6K4Ag)}>
+            <div className={classNames("all", sty.freeBox__bpXv)}>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__xc2O7)}
@@ -296,15 +303,13 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                 })()}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__gqDjm)}>
-                <div className={classNames(projectcss.all, sty.freeBox__a2IZh)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lWOf2)}
-                  >
+              <div className={classNames("all", sty.freeBox__gqDjm)}>
+                <div className={classNames("all", sty.freeBox__a2IZh)}>
+                  <div className={classNames("all", sty.freeBox__lWOf2)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__l132N
                       )}
                     >
@@ -312,24 +317,23 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__cVfkA
                       )}
                     >
                       {"FSYP"}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__yyqVi)}
-                  >
+                  <div className={classNames("all", sty.freeBox__yyqVi)}>
                     <PlasmicLink__
                       data-plasmic-name={"link"}
                       data-plasmic-override={overrides.link}
                       className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        projectcss.__wab_text,
+                        "all",
+                        "a",
+                        "a__qrPZw",
+                        "__wab_text",
                         sty.link
                       )}
                       component={Link}
@@ -343,8 +347,8 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                     </PlasmicLink__>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__eG13W
                       )}
                     >
@@ -354,21 +358,19 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___0CMi
                       )}
                     >
                       {"92"}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___2OVyw)}
-                  >
+                  <div className={classNames("all", sty.freeBox___2OVyw)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__eihF7
                       )}
                     >
@@ -376,17 +378,15 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___9GxsG
                       )}
                     >
                       {"Average"}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__hQKqI)}
-                  >
+                  <div className={classNames("all", sty.freeBox__hQKqI)}>
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__e1XwK)}
@@ -406,8 +406,8 @@ function PlasmicPlayerInfo__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__nmDf
                       )}
                     >
@@ -417,8 +417,8 @@ function PlasmicPlayerInfo__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___8ATV
                       )}
                     >
@@ -543,9 +543,10 @@ export const PlasmicPlayerInfo = Object.assign(
     internalArgProps: PlasmicPlayerInfo__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/player-2/[id]",
       pagePath: "/player-2/[id]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );
