@@ -378,7 +378,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
 
                   $steps["goToSignup"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/signup` };
+                        const actionArgs = {};
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&

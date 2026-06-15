@@ -158,7 +158,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
 
           $steps["goToRankings"] = true
             ? (() => {
-                const actionArgs = { destination: `/rankings` };
+                const actionArgs = {};
                 return (({ destination }) => {
                   if (
                     typeof destination === "string" &&
@@ -222,7 +222,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
 
             $steps["goToTeams"] = true
               ? (() => {
-                  const actionArgs = { destination: `/user/team/[id]` };
+                  const actionArgs = {};
                   return (({ destination }) => {
                     if (
                       typeof destination === "string" &&
@@ -274,7 +274,7 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
 
             $steps["goToTeams2Market"] = true
               ? (() => {
-                  const actionArgs = { destination: `/new-page` };
+                  const actionArgs = {};
                   return (({ destination }) => {
                     if (
                       typeof destination === "string" &&
@@ -306,7 +306,6 @@ function PlasmicSideBarMyTeam__RenderFunc(props: {
         data-plasmic-override={overrides.link}
         className={classNames("all", "a", "a__qrPZw", sty.link)}
         component={Link}
-        href={`/activity`}
         legacyBehavior={false}
         platform={"nextjs"}
       >

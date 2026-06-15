@@ -188,7 +188,6 @@ function PlasmicNavbarProliga__RenderFunc(props: {
             sty.championat
           )}
           component={Link}
-          href={`/competition`}
           legacyBehavior={false}
           platform={"nextjs"}
         >
@@ -199,7 +198,6 @@ function PlasmicNavbarProliga__RenderFunc(props: {
           data-plasmic-override={overrides.priz}
           className={classNames("all", "a", "a__qrPZw", "__wab_text", sty.priz)}
           component={Link}
-          href={`/old`}
           legacyBehavior={false}
           platform={"nextjs"}
         >
@@ -216,7 +214,6 @@ function PlasmicNavbarProliga__RenderFunc(props: {
             sty.rules
           )}
           component={Link}
-          href={`/old`}
           legacyBehavior={false}
           platform={"nextjs"}
         >
@@ -233,7 +230,6 @@ function PlasmicNavbarProliga__RenderFunc(props: {
             sty.clubs
           )}
           component={Link}
-          href={`/clubs-2/${""}`}
           legacyBehavior={false}
           platform={"nextjs"}
         >

@@ -332,7 +332,7 @@ function PlasmicRegister__RenderFunc(props: {
 
                   $steps["goToLogin"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/login` };
+                        const actionArgs = {};
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
